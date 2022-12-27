@@ -26,7 +26,9 @@ app.use(logger)
 app.use(cors())
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
+// https://vast-blue-kingfisher-gown.cyclic.app/getAllMain
 
+app.use('/', require('./routes/root'))
 app.use('/scrapeMain', require('./routes/scrapeMainRoute'))
 app.use('/scrapeAdditional', require('./routes/scrapeAdditionalRoute'))
 app.use('/insertMain', require('./routes/insertMainRoute'))
