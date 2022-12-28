@@ -80,3 +80,8 @@
 20221228	19:26:47	0b880ffc-8a3a-40fa-9ad5-044e58a4020f	GET	undefined	/scrapeAdditional
 20221228	19:33:15	1fe25128-dfbc-4547-b6c8-7395b9e1c76e	GET	undefined	/scrapeAdditional
 20221228	19:35:27	b9901705-2eb9-4834-99d5-df24c349275e	GET	undefined	/scrapeAdditional
+20221228	19:43:22	c8f6213d-237e-4b75-a838-9aef941c9d55	GET	undefined	/scrapeMain
+20221228	19:49:39	83797e65-cd9e-4f67-8497-e029de11ffb1	GET	undefined	/scrapeMain
+20221228	19:51:26	b5b7173e-1f55-40a2-9964-4ad4b0c3b0e7	GET	undefined	/scrapeMain
+20221228	19:53:01	5635ef1d-dacd-4f84-a9c4-275af9e974fc	GET	undefined	/scrapeMain
+20221228	19:53:51	6db5eac3-ea96-4cf5-a2e3-72885e8ea28a	GET	undefined	/scrapeMain

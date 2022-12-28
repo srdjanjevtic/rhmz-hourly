@@ -8,14 +8,6 @@ const MainStation = require('../model/MainStation')
 const AdditionalStation = require('../model/AdditionalStation')
 const fsPromises = require('fs').promises
 const path = require('path')
-// const {GoogleDriveService} = require('../googleDriveService')
-// const driveClientId = process.env.GOOGLE_DRIVE_CLIENT_ID || ''
-// const driveClientSecret = process.env.GOOGLE_DRIVE_CLIENT_SECRET || ''
-// const driveRedirectUri = process.env.GOOGLE_DRIVE_REDIRECT_URI || ''
-// const driveRefreshToken = process.env.GOOGLE_DRIVE_REFRESH_TOKEN || ''
-
-// const googleDriveService = new GoogleDriveService(driveClientId, driveClientSecret, driveRedirectUri, driveRefreshToken)
-
 
 function formatAdditional (obj, rem = []) {
     const columns = []
@@ -68,14 +60,16 @@ const scrapeMain = asyncHandler(async (req, res) => {
         if (!error && response.statusCode === 200) {
             const table = cheerio.load(html)
             const h1 = table('#sadrzaj > div > h1').text().trim()
-            const date = h1.slice(-37, -27)
-            const time = h1.slice(-17, -12)
+            let date = h1.slice(-37, -27)
+            let time = h1.slice(-17, -12)
             const res = formatMain(table, [''])
             const current = {}
-            const dateStriped = date.replaceAll(".", "")
-            const timeStriped = time.replaceAll(":", "")
-            const dateTime = '' + dateStriped + '-' + timeStriped
-            res.forEach(item => item['date'] = dateStriped)
+            while (date.indexOf('.') > -1) {
+                date = date.replace(".", "")
+            }
+            const timeStriped = time.replace(":", "")
+            const dateTime = '' + date + '-' + timeStriped
+            res.forEach(item => item['date'] = date)
             res.forEach(item => item['time'] = timeStriped)
             current[dateTime] = res
             const data = JSON.stringify(current)
@@ -83,10 +77,9 @@ const scrapeMain = asyncHandler(async (req, res) => {
             for await (const obj of Object.values(dataArray[0])) {
                 const item = new MainStation(obj)
                 await item.save()
-
         }
             const folderName = 'Main'
-            await fsPromises.writeFile(path.join(__dirname, folderName, `${dateStriped}-${timeStriped}.json`), data)
+            await fsPromises.writeFile(path.join(__dirname, folderName, `${date}-${timeStriped}.json`), data)
         }
     })
     res.status(200).json({message: 'Data scraped!'})
@@ -97,14 +90,16 @@ const scrapeAdditional = asyncHandler(async (req, res) => {
         if (!error && response.statusCode === 200) {
             const table = cheerio.load(html)
             const h1 = table('#sadrzaj > div > h1').text().trim()
-            const date = h1.slice(-37, -27)
-            const time = h1.slice(-17, -12)
+            let date = h1.slice(-37, -27)
+            let time = h1.slice(-17, -12)
             const res = formatAdditional(table, [''])
             const current = {}
-            const dateStriped = date.replaceAll(".", "")
-            const timeStriped = time.replaceAll(":", "")
-            const dateTime = '' + dateStriped + '-' + timeStriped
-            res.forEach(item => item['date'] = dateStriped)
+            while (date.indexOf('.') > -1) {
+                date = date.replace(".", "")
+            }
+            const timeStriped = time.replace(":", "")
+            const dateTime = '' + date + '-' + timeStriped
+            res.forEach(item => item['date'] = date)
             res.forEach(item => item['time'] = timeStriped)
             current[dateTime] = res
             const data = JSON.stringify(current)

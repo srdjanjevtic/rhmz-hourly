@@ -3,5 +3,6 @@ node_modules
 .gitignore
 test.rest
 googledrivesetup.json
+googleDriveService.js
 sCcopy.js
 brisi.js
