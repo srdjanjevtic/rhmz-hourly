@@ -70,8 +70,8 @@ const scrapeMain = asyncHandler(async (req, res) => {
             const time = h1.slice(-17, -12)
             const res = formatMain(table, [''])
             const current = {}
-            const dateStriped = date.replaceAll(".", "")
-            const timeStriped = time.replaceAll(":", "")
+            const dateStriped = date.replace("/./g", "")
+            const timeStriped = time.replace("/:/g", "")
             const dateTime = '' + dateStriped + '-' + timeStriped
             res.forEach(item => item['date'] = dateStriped)
             res.forEach(item => item['time'] = timeStriped)
