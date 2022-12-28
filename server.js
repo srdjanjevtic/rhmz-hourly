@@ -23,7 +23,7 @@ connectDB()
 //  }
 
 serInterval(scrapeMain, 60*60*1000);
-serInterval(scrapeMain, 60*60*1000);
+serInterval(scrapeAdditional, 60*60*1000);
 
 app.use(logger)
 app.use(cors())
