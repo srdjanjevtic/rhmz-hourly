@@ -110,7 +110,7 @@ const scrapeAdditional = asyncHandler(async (req, res) => {
 
         }
             const folder = 'Additional'
-            await fsPromises.writeFile(path.join(__dirname, folder, `${dateStriped}-${timeStriped}.json`), data)
+            await fsPromises.writeFile(path.join(__dirname, folder, `${date}-${timeStriped}.json`), data)
         }
     })
     res.status(200).json({message: 'Data scraped!'})
