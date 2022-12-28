@@ -36,3 +36,5 @@
 20221227	21:38:27	6790b7f8-6bdb-49a5-9af3-35f01e93f267	GET	undefined	/getOneMain?stanica=novi
 20221227	21:39:28	c73595dc-e8b3-4247-a1b5-6170457f5d99	GET	undefined	/getOneMain?stanica=S.+Mitrovica
 20221227	21:42:15	59cd48c8-9bb6-413f-ac55-82a0acfe1546	GET	undefined	/getOneMain
+20221228	07:45:42	e4231bdd-b6e4-408e-bee4-735dc587585e	GET	undefined	/
+20221228	07:46:05	089244c2-d8f1-490d-bba6-ff9c95e69a39	GET	undefined	/
