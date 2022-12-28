@@ -52,4 +52,4 @@ class GoogleDriveService {
     }
 }
 
-module.exports = GoogleDriveService
+module.exports = {GoogleDriveService}

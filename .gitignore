@@ -1,5 +1,6 @@
 node_modules
 .env
+.gitignore
 test.rest
 googledrivesetup.json
 sCcopy.js
