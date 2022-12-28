@@ -89,3 +89,5 @@
 20221228	20:29:48	5835702c-a6f3-4e33-bc3c-1982466a8038	GET	undefined	/scrapeAdditional
 20221228	20:30:20	a3038d9d-5d6d-4720-8598-b8cd27b319e0	GET	undefined	/scrapeAdditional
 20221228	20:31:32	9f16902b-6b9c-49bc-b309-a7f5d454ad6e	GET	undefined	/scrapeAdditional
+20221228	21:39:01	ebeab527-56c4-455e-81ce-2490e296779b	POST	undefined	/insertMain
+20221228	21:39:08	95053a2c-5a6f-485d-a0ce-9dbce2fe1348	POST	undefined	/insertAdditional

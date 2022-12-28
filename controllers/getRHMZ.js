@@ -68,11 +68,49 @@ const getOneMain = asyncHandler(async (req, res) => {
 })
 
 const getOneAdditional = asyncHandler(async (req, res) => {
-    const result = await AdditionalStation.find({ 'Stanica': 'Tamnava' }).exec()
-    if (!result) {
-        return res.status(204).json({ message: `No results for ${_search}` })
+    // const result = await AdditionalStation.find({ 'Stanica': 'Tamnava' }).exec()
+    // if (!result) {
+    //     return res.status(204).json({ message: `No results for ${_search}` })
+    // }
+    // res.status(200).json(result)
+     const query = {}
+    let isParamPresent = false
+    if (req.query.vreme) {
+        query['date-time'] = req.query.vreme
+        isParamPresent = true
     }
-    res.status(200).json(result)
+    if (req.query.stanica) {
+        query['Stanica'] = req.query.stanica
+        isParamPresent = true
+    }
+    if (req.query.temperatura) {
+        query['Temperatura(°C)'] = req.query.temperatura
+        isParamPresent = true
+    }
+    if (req.query.pritisak) {
+        query['Pritisak(hPa)'] = req.query.pritisak
+        isParamPresent = true
+    }
+    if (req.query.pravac) {
+        query['Vetarpravac(°)'] = req.query.pravac
+        isParamPresent = true
+    }
+    if (isParamPresent) {
+        const result = await AdditionalStation.find(query).exec()
+    } else {
+        const result = await AdditionalStation.find().exec()
+    }
+    const result = await AdditionalStation.find(query).exec()
+    if (!isParamPresent) {
+        res.send("Niste uneli parametre za pretragu!")
+        return
+    }
+    if (result.length === 0) {
+        res.send("Nema podataka!")
+    } else {
+        res.status(200).json(result)
+    }
+
 })
 
 module.exports = { getAllMain, getAllAdditional, getOneMain, getOneAdditional }

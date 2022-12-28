@@ -13,11 +13,11 @@ const { scrapeAdditional, scrapeMain } = require('./controllers/scrapeController
 
 connectDB()
 
-cron.schedule('25 * * * *', scrapeMain), {
+cron.schedule('35 * * * *', scrapeMain), {
    scheduled: true,
    timezone: "Europe/Belgrade"
 }
- cron.schedule('26 * * * *', scrapeAdditional), {
+ cron.schedule('36 * * * *', scrapeAdditional), {
    scheduled: true,
    timezone: "Europe/Belgrade"
  }
