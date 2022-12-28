@@ -22,8 +22,8 @@ connectDB()
 //    timezone: "Europe/Belgrade"
 //  }
 
-serInterval(scrapeMain, 60*60*1000)setInterval(scrapeMain, 60*60*1000)
-serInterval(scrapeMain, 60*60*1000)setInterval(scrapeAdditional, 60*60*1000)
+serInterval(scrapeMain, 60*60*1000);
+serInterval(scrapeMain, 60*60*1000);
 
 app.use(logger)
 app.use(cors())
