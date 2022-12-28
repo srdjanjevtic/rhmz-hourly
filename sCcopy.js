@@ -1,4 +1,4 @@
-require ('dotenv').config();
+// require ('dotenv').config()
 const cheerio = require('cheerio')
 const request = require('request')
 const asyncHandler = require('express-async-handler')
@@ -6,35 +6,6 @@ const urlToScrape = 'https://www.hidmet.gov.rs/latin/osmotreni/index.php'
 const fs = require('fs')
 const fsPromises = require('fs').promises
 const path = require('path')
-const GoogleDriveService = require('../googleDriveService.js')
-const driveClientId = process.env.GOOGLE_DRIVE_CLIENT_ID || ''
-const driveClientSecret = process.env.GOOGLE_DRIVE_CLIENT_SECRET || ''
-const driveRedirectUri = process.env.GOOGLE_DRIVE_REDIRECT_URI || ''
-const driveRefreshToken = process.env.GOOGLE_DRIVE_REFRESH_TOKEN || ''
-
-const googleDriveService = new GoogleDriveService(driveClientId, driveClientSecret, driveRedirectUri, driveRefreshToken)
-
-// const finalPath = path.resolve(__dirname, '../public/spacex-uj3hvdfQujI-unsplash.jpg')
-// // const folderName = 'Picture'
-
-// if (!fs.existsSync(finalPath)) {
-//     throw new Error('File not found!')
-// }
-
-// const folder = await googleDriveService.searchFolder(folderName)
-//     .catch((error) => {
-//     console.error(error);
-//     return null;
-// })
-// if (!folder) {
-//     folder = await googleDriveService.createFolder(folderName);
-// }
-// await googleDriveService.saveFile('SpaceX', finalPath, 'image/jpg', folder.id).catch((error) => {
-//     console.error(error);
-// });
-// console.info('File uploaded successfully!')
-// Delete the file on the server
-// fs.unlinkSync(finalPath)
 
 function formatAdditional (obj, rem = []) {
     const columns = []
@@ -97,19 +68,8 @@ const scrapeMain = asyncHandler(async (req, res) => {
             res.forEach(item => item['date'] = dateStriped)
             res.forEach(item => item['time'] = timeStriped)
             current[dateTime] = res
+            const folder = './Main'
             const data = JSON.stringify(current)
-            const folderName = 'Main'
-            const folder = await googleDriveService.searchFolder(folderName)
-                .catch((error) => {
-                console.error(error)
-                return null
-            })
-            if (!folder) {
-                folder = await googleDriveService.createFolder(folderName)
-            }
-            await googleDriveService.saveFile(`${dateStriped}-${timeStriped}.json`, data, 'application/json', folder.id).catch((error) => {
-                console.error(error)
-            })
             await fsPromises.writeFile(path.join(__dirname, folder, `${dateStriped}-${timeStriped}.json`), data)
         }
     })
