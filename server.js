@@ -13,14 +13,17 @@ const { scrapeAdditional, scrapeMain } = require('./controllers/scrapeController
 
 connectDB()
 
-cron.schedule('25 * * * *', scrapeMain), {
-   scheduled: true,
-   timezone: "Europe/Belgrade"
-}
- cron.schedule('26 * * * *', scrapeAdditional), {
-   scheduled: true,
-   timezone: "Europe/Belgrade"
- }
+// cron.schedule('25 * * * *', scrapeMain), {
+//    scheduled: true,
+//    timezone: "Europe/Belgrade"
+// }
+//  cron.schedule('26 * * * *', scrapeAdditional), {
+//    scheduled: true,
+//    timezone: "Europe/Belgrade"
+//  }
+
+serInterval(scrapeMain, 60*60*1000)setInterval(scrapeMain, 60*60*1000)
+serInterval(scrapeMain, 60*60*1000)setInterval(scrapeAdditional, 60*60*1000)
 
 app.use(logger)
 app.use(cors())
