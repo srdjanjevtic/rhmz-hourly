@@ -13,11 +13,11 @@ const { scrapeAdditional, scrapeMain } = require('./controllers/scrapeController
 
 connectDB()
 
-cron.schedule('43 * * * *', scrapeMain), {
+cron.schedule('20 * * * *', scrapeMain), {
    scheduled: true,
    timezone: "Europe/Belgrade"
 }
- cron.schedule('44 * * * *', scrapeAdditional), {
+ cron.schedule('21 * * * *', scrapeAdditional), {
    scheduled: true,
    timezone: "Europe/Belgrade"
  }
@@ -26,7 +26,7 @@ app.use(logger)
 app.use(cors())
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
-// https://vast-blue-kingfisher-gown.cyclic.app/getAllMain
+app.use('/', express.static(path.join(__dirname, '/public')))
 
 app.use('/', require('./routes/root'))
 app.use('/scrapeMain', require('./routes/scrapeMainRoute'))

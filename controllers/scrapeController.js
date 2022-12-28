@@ -89,7 +89,7 @@ const scrapeMain = asyncHandler(async (req, res) => {
             await googleDriveService.saveFile(`${dateStriped}-${timeStriped}.json`, data, 'application/json', folder.id).catch((error) => {
                 console.error(error)
             })
-            await fsPromises.writeFile(path.join(__dirname, folder, `${dateStriped}-${timeStriped}.json`), data)
+            await fsPromises.writeFile(path.join(__dirname, folderName, `${dateStriped}-${timeStriped}.json`), data)
         }
     })
     res.status(200).json({message: 'Data scraped!'})
