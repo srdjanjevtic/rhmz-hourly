@@ -17,8 +17,8 @@ function formatAdditional (obj, rem = []) {
     }
     obj('#sadrzaj > div > div > table > thead > tr > th').each((tr_index, element) => {
         let item = obj(element).text().trim().toString()
-        item = item.replaceAll("Temp.", "Temperatura")
-        item = item.replaceAll("Prit.", "Pritisak")
+        item = item.replace("Temp.", "Temperatura")
+        item = item.replace("Prit.", "Pritisak")
         columns.push(item)
     })
     obj('#sadrzaj > div > div > table > tbody > tr').each((index, row) => {
