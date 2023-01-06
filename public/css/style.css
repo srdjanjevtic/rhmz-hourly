@@ -1,14 +1,77 @@
-* {
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;700;800&display=swap');
+
+*, *::after, *::before {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html {
+    font-size: 18px;
+    line-height: 1.6;
+    font-family: "Montserrat", sans-serif;
+    color: rgb(72, 214, 243);
+}
+
 body {
-    font-size: 36px;
     min-height: 100vh;
-    color: #fff;
-    background-color: #000;
+    background-color: rgb(9, 4, 20);
     display: grid;
     place-content: center;
 }
+
+main {
+    margin: 1rem auto;
+    width: 80vw;
+    max-width: 1000px;
+}
+
+h2 {
+    padding: 2rem 1rem;
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+select, option, datalist, input, label, button {
+    font-size: 1.5rem;
+    color: inherit;
+}
+
+.form-box {
+    padding: 0.5rem 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-box select {
+    flex-basis: 80%;
+}
+
+.form-box option:checked {
+    color: rgb(9, 39, 39);
+}
+
+.form-box option:default {
+    color: red;
+}
+
+.form-box label {
+    flex-basis: 20%;
+    flex-shrink: 0;
+}
+
+.form-box input {
+    flex-basis: 80%;
+    padding: 0 1rem;
+}
+
+.form-box button {
+    flex-basis: 80%;
+    padding: 0 1rem;
+    margin-left: 20%;
+    border-radius: 20px;
+}
+
+

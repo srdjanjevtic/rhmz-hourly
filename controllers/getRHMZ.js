@@ -45,6 +45,14 @@ const getMain = asyncHandler(async (req, res) => {
         query['Pravacvetra'] = req.query.pravac
         isParamPresent = true
     }
+        if (req.query.brzina) {
+        query['Brzina vetra(m/s)'] = req.query.brzina
+        isParamPresent = true
+    }
+    if (req.query.vlaga) {
+        query['Vlažnost(%)'] = req.query.vlaga
+        isParamPresent = true
+    }
     if (req.query.subjektivni) {
         query['Subjektivniosećajtemperature(°C)'] = req.query.subjektivni
         isParamPresent = true

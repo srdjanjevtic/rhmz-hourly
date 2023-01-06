@@ -10,7 +10,65 @@
 </head>
 
 <body>
-    <h1>Index</h1>
+    <main>
+        <h2>Pretraga</h2>
+        <form action="#" id="myForm" name="myForm">
+            <div class="form-box">
+                <label for="station">Stanica</label>
+                <input type="text" id="station" name="station" list="stations">
+            </div>
+            <div class="form-box">
+                <label for="pravac">Pravac Vetra</label>
+                <select name="pravac" id="pravac">
+                    <option value=""></option>
+                    <option value="-">bez vetra</option>
+                    <option value="S">južni</option>
+                    <option value="SE">jugoistočni</option>
+                    <option value="SSE">južni-jugoistočni</option>
+                    <option value="SW">jugozapadni</option>
+                    <option value="SSW">južni-jugozapadni</option>
+                    <option value="E">istočni</option>
+                    <option value="ESE">istočni-jugoistočni</option>
+                    <option value="ENE">istočni-severoistočni</option>
+                    <option value="N">severni</option>
+                    <option value="NE">severoistočni</option>
+                    <option value="NW">severozapadni</option>
+                    <option value="NNE">severni-severoistočni</option>
+                    <option value="NNW">severni-severozapadni</option>
+                    <option value="W">zapadni</option>
+                    <option value="WSW">zapadni-jugozapadni</option>
+                    <option value="WNW">zapadni-severozapadni</option>
+                </select>
+            </div>
+            <div class="form-box">
+                <button id="btnSend">Pretraži</button>
+            </div>
+        </form>
+    </main>
+    <datalist id="stations">
+        <option value="Palić" />
+        <option value="Sombor" />
+        <option value="Novi Sad" />
+        <option value="Kikinda" />
+        <option value="Banatski Karlovac" />
+        <option value="Loznica" />
+        <option value="Sremska Mitrovica" />
+        <option value="Veliko Gradište" />
+        <option value="Crni Vrh" />
+        <option value="Negotin" />
+        <option value="Zlatibor" />
+        <option value="Sjenica" />
+        <option value="Požega" />
+        <option value="Kraljevo" />
+        <option value="Kopaonik" />
+        <option value="Kuršumlija" />
+        <option value="Kruševac" />
+        <option value="Ćuprija" />
+        <option value="Niš" />
+        <option value="Leskovac" />
+        <option value="Dimitrovgrad" />
+        <option value="Vranje" />
+    </datalist>
 </body>
 
 </html>
