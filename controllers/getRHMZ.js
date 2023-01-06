@@ -53,11 +53,6 @@ const getMain = asyncHandler(async (req, res) => {
         query['Opisvremena'] = req.query.opis
         isParamPresent = true
     }
-    if (isParamPresent) {
-        const result = await MainStation.find(query).exec()
-    } else {
-        const result = await MainStation.find().exec()
-    }
     const result = await MainStation.find(query).exec()
     if (!isParamPresent) {
         res.send("Niste uneli parametre za pretragu!")
@@ -96,11 +91,6 @@ const getAdditional = asyncHandler(async (req, res) => {
     if (req.query.pravac) {
         query['Vetarpravac(°)'] = req.query.pravac
         isParamPresent = true
-    }
-    if (isParamPresent) {
-        const result = await AdditionalStation.find(query).exec()
-    } else {
-        const result = await AdditionalStation.find().exec()
     }
     const result = await AdditionalStation.find(query).exec()
     if (!isParamPresent) {

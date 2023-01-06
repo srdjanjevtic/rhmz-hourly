@@ -81,7 +81,7 @@ const scrapeMain = asyncHandler(async (req, res) => {
             await fsPromises.writeFile(path.join(__dirname, folderName, `${date}-${timeStriped}.json`), data)
         }
     })
-    res.status(200).json({message: 'Data scraped!', data})
+    res.status(200).json({message: 'Data scraped!'})
 })
 
 const scrapeAdditional = asyncHandler(async (req, res) => {
@@ -112,7 +112,7 @@ const scrapeAdditional = asyncHandler(async (req, res) => {
             await fsPromises.writeFile(path.join(__dirname, folder, `${date}-${timeStriped}.json`), data)
         }
     })
-    res.status(200).json({message: 'Data scraped!', data})
+    res.status(200).json({message: 'Data scraped!'})
 })
 
 module.exports = { scrapeMain, scrapeAdditional }
