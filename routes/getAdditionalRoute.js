@@ -1,7 +1,7 @@
 const express = require("express")
 const router = express.Router()
-const { getOneMain } = require('../controllers/getRHMZ')
+const { getAdditional } = require('../controllers/getRHMZ')
 
-router.get('/', getOneMain)
+router.get('/', getAdditional)
 
 module.exports = router

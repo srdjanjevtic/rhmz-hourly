@@ -1,10 +1,9 @@
 const MainStation = require('../model/MainStation')
 const AdditionalStation = require('../model/AdditionalStation')
 const asyncHandler = require('express-async-handler')
-const { query } = require('express')
 
 const getAllMain = asyncHandler(async (req, res) => {
-    const stations = await MainStation.find().sort({ Stanica: 'asc', 'Pritisak(hPa)': 'desc' }).exec()
+    const stations = await MainStation.find().exec()
     if (!stations?.length) {
         return res.status(400).json({ message: 'Nema podataka' })
     }
@@ -12,18 +11,22 @@ const getAllMain = asyncHandler(async (req, res) => {
 })
 
 const getAllAdditional = asyncHandler(async (req, res) => {
-    const stations = await AdditionalStation.find().sort({ Stanica: 'asc', 'Pritisak(hPa)': 'desc' }).exec()
+    const stations = await AdditionalStation.find().exec()
     if (!stations?.length) {
         return res.status(400).json({ message: 'Nema podataka' })
     }
     res.json({ stations, total: `${stations.length} dokumenata ukupno.`})
 })
 
-const getOneMain = asyncHandler(async (req, res) => {
+const getMain = asyncHandler(async (req, res) => {
     const query = {}
     let isParamPresent = false
     if (req.query.vreme) {
-        query['date-time'] = req.query.vreme
+        query['time'] = req.query.vreme
+        isParamPresent = true
+    }
+        if (req.query.dan) {
+        query['date'] = req.query.dan
         isParamPresent = true
     }
     if (req.query.stanica) {
@@ -67,16 +70,15 @@ const getOneMain = asyncHandler(async (req, res) => {
     }
 })
 
-const getOneAdditional = asyncHandler(async (req, res) => {
-    // const result = await AdditionalStation.find({ 'Stanica': 'Tamnava' }).exec()
-    // if (!result) {
-    //     return res.status(204).json({ message: `No results for ${_search}` })
-    // }
-    // res.status(200).json(result)
-     const query = {}
+const getAdditional = asyncHandler(async (req, res) => {
+    const query = {}
     let isParamPresent = false
-    if (req.query.vreme) {
-        query['date-time'] = req.query.vreme
+    if (req.query.dan) {
+        query['date'] = req.query.dan
+        isParamPresent = true
+    }
+     if (req.query.vreme) {
+        query['time'] = req.query.vreme
         isParamPresent = true
     }
     if (req.query.stanica) {
@@ -113,4 +115,4 @@ const getOneAdditional = asyncHandler(async (req, res) => {
 
 })
 
-module.exports = { getAllMain, getAllAdditional, getOneMain, getOneAdditional }
+module.exports = { getAllMain, getAllAdditional, getMain, getAdditional }

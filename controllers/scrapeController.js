@@ -3,7 +3,6 @@ const cheerio = require('cheerio')
 const request = require('request')
 const asyncHandler = require('express-async-handler')
 const urlToScrape = 'https://www.hidmet.gov.rs/latin/osmotreni/index.php'
-const fs = require('fs')
 const MainStation = require('../model/MainStation')
 const AdditionalStation = require('../model/AdditionalStation')
 const fsPromises = require('fs').promises
@@ -82,7 +81,7 @@ const scrapeMain = asyncHandler(async (req, res) => {
             await fsPromises.writeFile(path.join(__dirname, folderName, `${date}-${timeStriped}.json`), data)
         }
     })
-    res.status(200).json({message: 'Data scraped!'})
+    res.status(200).json({message: 'Data scraped!', data})
 })
 
 const scrapeAdditional = asyncHandler(async (req, res) => {
@@ -113,7 +112,7 @@ const scrapeAdditional = asyncHandler(async (req, res) => {
             await fsPromises.writeFile(path.join(__dirname, folder, `${date}-${timeStriped}.json`), data)
         }
     })
-    res.status(200).json({message: 'Data scraped!'})
+    res.status(200).json({message: 'Data scraped!', data})
 })
 
 module.exports = { scrapeMain, scrapeAdditional }

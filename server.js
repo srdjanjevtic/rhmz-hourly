@@ -8,7 +8,7 @@ const errorHandler = require('./middleware/errorHandler')
 const mongoose = require('mongoose')
 const connectDB = require('./config/dbConn')
 const PORT = process.env.PORT || 3000
-const cron = require('node-cron')
+// const cron = require('node-cron')
 const { scrapeAdditional, scrapeMain } = require('./controllers/scrapeController')
 
 connectDB()
@@ -35,8 +35,8 @@ app.use('/insertMain', require('./routes/insertMainRoute'))
 app.use('/insertAdditional', require('./routes/insertAdditionalRoute'))
 app.use('/getAllMain', require('./routes/getAllMainRoute'))
 app.use('/getAllAdditional', require('./routes/getAllAdditionalRoute'))
-app.use('/getOneMain', require('./routes/getOneMainRoute'))
-app.use('/getOneAdditional', require('./routes/getOneAdditionalRoute'))
+app.use('/getMain', require('./routes/getMainRoute'))
+app.use('/getAdditional', require('./routes/getAdditionalRoute'))
 
 app.all('*', (req, res) => {
     res.status(404)

@@ -3,3 +3,4 @@ node_modules
 .gitignore
 test.rest
 brisi.js
+sampleData.txt

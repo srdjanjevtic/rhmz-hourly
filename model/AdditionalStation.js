@@ -8,22 +8,19 @@ const additionalSchema = new Schema({
         required: 'Merna stanica je obavezan podatak'
     },
     "Vreme": {
-        type: String,
-        // required: 'Vreme je obavezan podatak'
+        type: String
     },
     'Temperatura(°C)': {
-        type: String,
-        // required: 'Temperatura je obavezan podatak'
+        type: String
     },
     'Pritisak(hPa)': {
-        type: String,
-        // required: 'Temperatura je obavezan podatak'
+        type: String
     },
+    'Vlažnost(%)': Number,
     "Vetarpravac(°)": {
-        type: String,
-        // required: 'Pravac vetra je obavezan podatak'
+        type: Number
     },
-    'Detaljnije': String
+    "Vetarbrzina(m/s)": Number
 })
 
 module.exports = mongoose.model('AdditionalStation', additionalSchema)
