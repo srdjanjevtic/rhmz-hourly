@@ -69,7 +69,7 @@ const getMain = asyncHandler(async (req, res) => {
     if (result.length === 0) {
         res.send("Nema podataka!")
     } else {
-        res.status(200).json(result)
+        res.status(200).json({result, total: `${result.length} documenata prikazano`})
     }
 })
 
@@ -108,7 +108,7 @@ const getAdditional = asyncHandler(async (req, res) => {
     if (result.length === 0) {
         res.send("Nema podataka!")
     } else {
-        res.status(200).json(result)
+        res.status(200).json({result, total: `${result.length} documenata prikazano`})
     }
 
 })

@@ -80,3 +80,4 @@
 20230107	07:42:33	a3794f98-ddf2-474a-90e8-6487882d6a5e	GET	undefined	/scrapeMain
 20230107	07:47:56	6dacfa26-65f3-43ef-b162-ab3f206551da	POST	undefined	/insertMain
 20230107	13:22:47	84c0f588-7536-47c8-b527-ec9e18fe2d03	GET	undefined	/getMain?vreme=1300&dan=07012023
+20230107	19:54:54	df5c9d5a-1073-44d8-b63d-3974982bef82	GET	undefined	/getAdditional?vreme=1700&dan=07012023
