@@ -25,6 +25,7 @@ function formatAdditional (obj, rem = []) {
         index.toString().replace('.', '')
         obj('td:not([colspan])', row).each((idx, td) => {
             item[columns[idx]] = cheerio.load(td).text().trim()
+            // item[columns[idx]].toString().replace('-', '')
         })
         if (Object.entries(item).length !== 0) {
             items[index]= item
@@ -40,7 +41,11 @@ function formatMain (obj, rem = []) {
         rem.forEach(tag => obj(tag).replaceWith(''))
     }
     obj('#sadrzaj > div > table > thead > tr > th').each((tr_index, element) => {
-        columns.push(obj(element).text().trim())
+        let el = obj(element).text().trim()
+        if (el.indexOf('Brzina') > -1) {
+            el = el.slice(0, 1) + 'rzinavetra(m/s)'
+        }
+        columns.push(el)
     })
     obj('#sadrzaj > div > table > tbody > tr').each((index, row) => {
         const item = {}

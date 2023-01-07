@@ -69,3 +69,14 @@
 20230107	00:15:43	f8dca262-62bb-474b-a13d-7ac2e2c87619	GET	undefined	/css/style.css
 20230107	00:16:24	6e32fd2c-0d84-4393-8445-3dd06b5afd3b	GET	undefined	/?station=Banatski+Karlovac
 20230107	00:16:24	05aa406a-f663-4a26-b01b-65d1753a3c6e	GET	undefined	/css/style.css
+20230107	07:17:58	7ec852de-c501-488f-9e9f-a49bfc902e46	GET	undefined	/scrapeAdditional
+20230107	07:25:36	1745866f-2bb0-49e4-831c-d1d20cea387b	GET	undefined	/scrapeAdditional
+20230107	07:31:50	d999f422-9986-4186-a671-a55bcd11c1ff	GET	undefined	/scrapeAdditional
+20230107	07:33:23	06f33d6c-d5e0-4638-800f-918e944ce1ae	GET	undefined	/scrapeMain
+20230107	07:36:45	087a3c15-baff-45c6-b39c-18b50f9175f5	POST	undefined	/insertMain
+20230107	07:37:29	901b802a-940f-4f90-b238-b4d0cabaa94e	GET	undefined	/scrapeMain
+20230107	07:39:12	afe7809b-9b9b-494f-91a6-b0050a9cfbcf	POST	undefined	/insertMain
+20230107	07:40:10	f0e5db1d-40bd-4ddb-bd4b-fec293759f58	GET	undefined	/getMain?stanica=Leskovac&dan=07012023
+20230107	07:42:33	a3794f98-ddf2-474a-90e8-6487882d6a5e	GET	undefined	/scrapeMain
+20230107	07:47:56	6dacfa26-65f3-43ef-b162-ab3f206551da	POST	undefined	/insertMain
+20230107	13:22:47	84c0f588-7536-47c8-b527-ec9e18fe2d03	GET	undefined	/getMain?vreme=1300&dan=07012023

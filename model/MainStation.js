@@ -13,28 +13,22 @@ const weatherSchema = new Schema({
         required: 'Temperatura je obavezan podatak'
     },
     'Pritisak(hPa)': {
-        type: Number,
-        required: 'Temperatura je obavezan podatak'
+        type: String
     },
     Pravacvetra: {
-        type: String,
-        required: 'Pravac vetra je obavezan podatak'
+        type: String
     },
     'Brzinavetra(m/s)': {
-        type: String,
-        required: 'Brzina vetra je obavezan podatak'
+        type: String
     },
     'Vlažnost(%)': {
-        type: Number,
-        required: 'Vlažnost vazduha je obavezan podatak'
+        type: String
     },
     'Subjektivniosećajtemperature(°C)': {
-        type: Number,
-        required: 'Subjektivni osećaj temperature je obavezan podatak'
+        type: String
     },
     Opisvremena: {
-        type: String,
-        required: 'Opis vremena je obavezan podatak'
+        type: String
     }
 })
 

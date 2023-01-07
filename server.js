@@ -9,15 +9,15 @@ const mongoose = require('mongoose')
 const connectDB = require('./config/dbConn')
 const PORT = process.env.PORT || 3000
 // const cron = require('node-cron')
-const { scrapeAdditional, scrapeMain } = require('./controllers/scrapeController')
+// const { scrapeAdditional, scrapeMain } = require('./controllers/scrapeController')
 
 connectDB()
 
-// cron.schedule('20 * * * *', scrapeMain), {
+// cron.schedule('07 * * * *', scrapeMain), {
 //    scheduled: true,
 //    timezone: "Europe/Belgrade"
 // }
-//  cron.schedule('25 * * * *', scrapeAdditional), {
+//  cron.schedule('22 * * * *', scrapeAdditional), {
 //    scheduled: true,
 //    timezone: "Europe/Belgrade"
 //  }
@@ -52,6 +52,6 @@ app.all('*', (req, res) => {
 app.use(errorHandler)
 
 mongoose.connection.once('open', () => {
-    console.log('Connected to MongoDB')
+    console.log(`Connected to ${process.env.MONGODB_DB}`)
     app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
 })
