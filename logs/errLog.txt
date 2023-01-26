@@ -1,0 +1,27 @@
+20230109	16:23:44	97584333-efad-4237-a439-dcf4e3814bff	CastError: Cast to Number failed for value "~lt~-1" (type string) at path "Temperatura(°C)" for model "MainStation"
+20230109	16:25:57	2ce3e12f-0e52-48bd-8b15-6e724e4344f8	CastError: Cast to Number failed for value "~lt~1" (type string) at path "Temperatura(°C)" for model "MainStation"
+20230109	16:27:52	96aa3f1c-4082-4aa9-8dfe-114389b52154	CastError: Cast to Number failed for value "~gt~1010" (type string) at path "Pritisak(hPa)" for model "MainStation"
+20230109	16:31:40	1e57714f-16bc-4bcc-99a6-a3bdcbe36366	CastError: Cast to Number failed for value "~lt~1000" (type string) at path "Pritisak(hPa)" for model "MainStation"
+20230109	16:34:19	27fe6964-fe02-4ce7-966f-885d53e0c698	CastError: Cast to Number failed for value "~lt~1000" (type string) at path "Pritisak(hPa)" for model "MainStation"
+20230109	18:48:27	0ccc352a-a77c-43d5-9dd0-5487d721a588	CastError: Cast to Number failed for value "~lt~2" (type string) at path "Subjektivniosećajtemperature(°C)" for model "MainStation"
+20230109	23:30:26	24cf6a53-2a15-4e30-9c91-90fc0e0be4e8	CastError: Cast to Number failed for value "~lt~-2" (type string) at path "Temperatura(°C)" for model "MainStation"
+20230109	23:32:54	5a6afd84-6055-4727-864e-449fb1af4981	CastError: Cast to Number failed for value "~lt~-2" (type string) at path "Temperatura(°C)" for model "MainStation"
+20230117	16:20:29	9067eaf2-7098-4cb2-9918-0eba185a47fe	CastError: Cast to Number failed for value "~gt~75" (type string) at path "Vlažnost(%)" for model "MainStation"
+20230117	16:22:46	40401cb5-c675-4f13-8ed5-56ebcf2e21ba	CastError: Cast to Number failed for value "~lt~7" (type string) at path "Temperatura(°C)" for model "MainStation"
+20230117	16:24:17	105a5142-93d4-4944-ae2c-a85275f08eac	CastError: Cast to Number failed for value "~gt~3" (type string) at path "Temperatura(°C)" for model "MainStation"
+20230117	17:28:29	9dd4bcf6-bb71-4e97-b227-a0236ebca600	SyntaxError: Unexpected token o in JSON at position 1
+20230117	17:29:36	49139ea1-c3f9-4622-b562-aa9b91dac312	SyntaxError: Unexpected token o in JSON at position 1
+20230117	17:31:01	686fbeff-2724-44d2-b389-eec2e1f507f2	SyntaxError: Unexpected token o in JSON at position 1
+20230117	17:52:54	cf6d5a1b-d5b4-44c5-a33b-cd9a65c9fb20	SyntaxError: Unexpected token o in JSON at position 1
+20230117	18:24:14	72fb9d8d-9476-44f2-8059-4853abdf5632	TypeError: (intermediate value).exec is not a function
+20230117	18:29:33	75c743cf-dd48-4803-bfea-4957f4e450b1	SyntaxError: Unexpected token } in JSON at position 31
+20230117	18:31:36	e7146228-25c4-496d-870a-9f6668d4b046	SyntaxError: Unexpected token } in JSON at position 31
+20230117	18:32:33	cb7d1d40-26c1-4eec-9b16-deba4f777ad1	SyntaxError: Unexpected token } in JSON at position 31
+20230117	18:32:44	c6ee2ba4-3bfa-4d07-8494-9791cdfbb6a4	SyntaxError: Unexpected token } in JSON at position 31
+20230117	20:51:15	2a8b49ae-3489-486e-a2ce-c29177e83c44	SyntaxError: Unexpected token o in JSON at position 1
+20230117	20:51:56	ccea51e8-5070-435f-958d-4c40b6d9550f	ObjectParameterError: Parameter "filter" to find() must be an object, got {"{\"Stanica\":\"Kikinda\"}":""}
+20230117	20:51:57	564dee72-13f6-4578-bd39-509b71373e97	ObjectParameterError: Parameter "filter" to find() must be an object, got {"{\"Stanica\":\"Kikinda\"}":""}
+20230117	21:47:03	85838a2e-0868-4211-a7b9-1f76b713513a	ObjectParameterError: Parameter "filter" to find() must be an object, got {"{\"Stanica\":\"Sombor\",\"temperatura\":\"2\"}":""}
+20230117	21:51:57	192ec244-0d85-488a-9c06-cac601ed5d6b	ObjectParameterError: Parameter "filter" to find() must be an object, got {"Stanica":"Crni Vrh"}
+20230125	19:08:51	652549f2-d3e7-4e64-98a9-d359a771d99f	ReferenceError: proccess is not defined
+20230125	19:14:05	8218a4c5-daaa-45ca-bcab-d269975ef252	CastError: Cast to Number failed for value "~gt~1000" (type string) at path "Pritisak(hPa)" for model "MainStation"

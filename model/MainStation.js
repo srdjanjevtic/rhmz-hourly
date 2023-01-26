@@ -2,9 +2,15 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const weatherSchema = new Schema({
-    'date': String,
-    'time': String,
-    Stanica: {
+    'Date': {
+        type: Date,
+        required: 'Datum je obavezan podatak'
+    },
+    'Time': {
+        type: String,
+        required: 'Vreme je obavezan podatak'
+    },
+    'Stanica': {
         type: String,
         required: 'Merna stanica je obavezan podatak'
     },
@@ -12,22 +18,22 @@ const weatherSchema = new Schema({
         type: Number,
         required: 'Temperatura je obavezan podatak'
     },
+    'Subjektivniosećajtemperature(°C)': {
+        type: Number
+    },
     'Pritisak(hPa)': {
-        type: String
-    },
-    Pravacvetra: {
-        type: String
-    },
-    'Brzinavetra(m/s)': {
-        type: String
+        type: Number
     },
     'Vlažnost(%)': {
+        type: Number
+    },
+    'Brzinavetra(m/s)': {
+        type: Number
+    },
+    'Pravacvetra': {
         type: String
     },
-    'Subjektivniosećajtemperature(°C)': {
-        type: String
-    },
-    Opisvremena: {
+    'Opisvremena': {
         type: String
     }
 })

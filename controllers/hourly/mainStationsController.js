@@ -1,4 +1,4 @@
-const MainStation = require('../model/MainStation')
+const MainStation = require('../../model/MainStation')
 const asyncHandler = require('express-async-handler') // Eliminate try/catch blocks on AJAX calls
 const path = require('path')
 const { readFileSync, readdirSync } = require('fs')

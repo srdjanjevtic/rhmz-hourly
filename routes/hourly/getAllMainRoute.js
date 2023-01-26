@@ -1,6 +1,6 @@
 const express = require("express")
 const router = express.Router()
-const { getAllMain } = require('../controllers/getRHMZ')
+const { getAllMain } = require('../../controllers/hourly/getRHMZ')
 
 router.get('/', getAllMain)
 

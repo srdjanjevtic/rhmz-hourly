@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const {scrapeMain} = require('../controllers/scrapeController')
+const {scrapeMain} = require('../../controllers/hourly/scrapeController')
 
 router.get('/', scrapeMain)
 

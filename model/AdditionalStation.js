@@ -1,27 +1,34 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose")
 const Schema = mongoose.Schema
 
 const additionalSchema = new Schema({
-    'date': String,
-    'time': String,
+    "Date": {
+        type: Date,
+        required: "Datum je obavezan podatak"
+    },
+    "Time": {
+        type: String,
+        required: "Vreme je obavezan podatak"
+    },
     "Stanica": {
         type: String,
-        required: 'Merna stanica je obavezan podatak'
+        required: "Merna stanica je obavezan podatak"
     },
-    "Vreme": {
-        type: String
+    "Temperatura(°C)": {
+        type: Number
     },
-    'Temperatura(°C)': {
-        type: String
+    "Pritisak(hPa)": {
+        type: Number
     },
-    'Pritisak(hPa)': {
-        type: String
+    "Vlažnost(%)": {
+        type: Number
     },
-    'Vlažnost(%)': String,
     "Vetarpravac(°)": {
-        type: String
+        type: Number
     },
-    "Vetarbrzina(m/s)": String
+    "Vetarbrzina(m/s)": {
+        type: Number
+    }
 })
 
-module.exports = mongoose.model('AdditionalStation', additionalSchema)
+module.exports = mongoose.model("AdditionalStation", additionalSchema)

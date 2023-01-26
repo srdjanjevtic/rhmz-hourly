@@ -1,4 +1,4 @@
-const AdditionalStation = require('../model/AdditionalStation')
+const AdditionalStation = require('../../model/AdditionalStation')
 const asyncHandler = require('express-async-handler')
 const path = require('path')
 const { readFileSync, readdirSync } = require('fs')

@@ -1,5 +1,5 @@
 const asyncHandler = require('express-async-handler')
-const MainStation = require('../model/MainStation')
+const MainStation = require('../../model/MainStation')
 
 const deleteDocs = asyncHandler(async (req, res) => {
     const { date, time } = req.body

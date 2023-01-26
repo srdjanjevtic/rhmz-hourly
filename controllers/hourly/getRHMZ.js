@@ -1,5 +1,5 @@
-const MainStation = require('../model/MainStation')
-const AdditionalStation = require('../model/AdditionalStation')
+const MainStation = require('../../model/MainStation')
+const AdditionalStation = require('../../model/AdditionalStation')
 const asyncHandler = require('express-async-handler')
 
 const getAllMain = asyncHandler(async (req, res) => {
@@ -22,11 +22,11 @@ const getMain = asyncHandler(async (req, res) => {
     const query = {}
     let isParamPresent = false
     if (req.query.vreme) {
-        query['time'] = req.query.vreme
+        query['Time'] = req.query.vreme
         isParamPresent = true
     }
         if (req.query.dan) {
-        query['date'] = req.query.dan
+        query['Date'] = req.query.dan
         isParamPresent = true
     }
     if (req.query.stanica) {
@@ -73,6 +73,19 @@ const getMain = asyncHandler(async (req, res) => {
     }
 })
 
+const getMainNew = asyncHandler(async (req, res) => {
+    const search = req.body
+    console.log(search)
+    if (search) {
+        const result = await MainStation.find(search)
+        if (result.length === 0) {
+            res.json("Nema podataka!")
+        } else {
+            res.status(200).json({result, total: `${result.length} dokumenata prikazano`})
+        }
+    }
+})
+
 const getAdditional = asyncHandler(async (req, res) => {
     const query = {}
     let isParamPresent = false
@@ -113,4 +126,4 @@ const getAdditional = asyncHandler(async (req, res) => {
 
 })
 
-module.exports = { getAllMain, getAllAdditional, getMain, getAdditional }
+module.exports = { getAllMain, getAllAdditional, getMain, getMainNew, getAdditional }
