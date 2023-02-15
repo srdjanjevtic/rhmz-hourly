@@ -18,6 +18,7 @@ const datumEndContainer = document.getElementById("datumEndContainer")
 
 function init() {
     document.getElementById("myForm").addEventListener("submit", submitForm)
+    document.getElementById("btnCancel").addEventListener("click", resetForm)
     const legends = document.getElementsByTagName("legend")
     for(const legend of legends) {
         legend.setAttribute("title", "klikni da ukloniš")
@@ -92,9 +93,9 @@ function submitForm(ev) {
     let fd = new FormData(myForm)
     // fd.append("client", "jek")
     // for (let key of fd.keys()) {
-    //     // if (fd.get(key) === "") {
-    //     //     fd.delete(key)
-    //     // }
+    //     if (fd.get(key) == "" || fd.get(key) == null) {
+    //         fd.delete(key)
+    //     }
     //     console.log(key, fd.get(key))
     // }
     const jsData = formDataToJSObj(fd)
@@ -109,16 +110,21 @@ function submitForm(ev) {
     })
 }
 
+function resetForm(ev) {
+    ev.preventDefault()
+    myForm.reset()
+}
+
 function formDataToJSObj(formData) {
     const obj = {}
     for (let key of formData.keys()) {
-        if (formData.get(key) && key !== "time") {
+        if (formData.get(key) && key !== "Time") {
             obj[key] = formData.get(key)
-        } else if (key === "time") {
+        } else if (key === "Time") {
             let item = formData.get(key)
             item = item.replace(":", "")
             console.log(item)
-            obj["time"] = item
+            obj["Time"] = item
         }
     }
     return obj

@@ -96,6 +96,8 @@ fieldset > legend {
     border-color:rgb(72, 214, 243);
     border-radius: 1rem;
     margin-bottom: 0.5rem;
+    display: flex;
+    flex-direction: row;
 }
 
 .form-box-button {
@@ -104,6 +106,7 @@ fieldset > legend {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    flex-basis: 50%;
 }
 
 .form-box-button button {
@@ -117,6 +120,7 @@ fieldset > legend {
     letter-spacing: 0.125rem;
     /* margin-left: 50%; */
     border-radius: 1rem;
+    border-color: rgb(72, 214, 243);
     cursor: pointer;
     transition: all 0.5s ease;
 }

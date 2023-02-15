@@ -54,7 +54,7 @@
                 <legend>Dan / Period</legend>
                 <div class="form-box">
                     <label for="date">Datum / Početak Perioda</label>
-                    <input type="date" id="date" name="date" min="2022-12-29">
+                    <input type="date" id="date" name="Date" min="2022-12-29">
                 </div>
                 <div class="form-box" id="datumEndContainer">
                     <label for="datumEnd">Kraj Perioda (opciono)</label>
@@ -65,7 +65,7 @@
                 <legend>Sat / Period dana</legend>
                 <div class="form-box">
                     <label for="time">Sati / Od</label>
-                    <input type="time" id="time" name="time" min="00:00" max="23:00" step="01:00">
+                    <input type="time" id="time" name="Time" min="00:00" max="23:00" step="01:00">
                 </div>
                 <div class="form-box" id="timeEndContainer">
                     <label for="timeEnd">Kraj Perioda (opciono)</label>
@@ -128,11 +128,11 @@
                 </div>
                 <div class="form-box">
                     <label for="min-brzina">Minimalna Brzina Vetra (°C)</label>
-                    <input type="number" step="1" name="min-brzina" id="min-brzina">
+                    <input type="number" step="1" name="min-brzina" id="min-brzina" min="0" max="100">
                 </div>
                 <div class="form-box">
                     <label for="max-brzina">Maksimalna Brzina Vetra (°C)</label>
-                    <input type="number" step="1" name="max-brzina" id="max-brzina">
+                    <input type="number" step="1" name="max-brzina" id="max-brzina" min="0" max="100">
                 </div>
             </fieldset>
             <fieldset>
@@ -190,6 +190,9 @@
                 </div>
             </fieldset>
             <fieldset class="fieldset-button">
+                <div class="form-box-button">
+                    <button id="btnCancel">Poništi</button>
+                </div>
                 <div class="form-box-button">
                     <button id="btnSend">Pretraži</button>
                 </div>

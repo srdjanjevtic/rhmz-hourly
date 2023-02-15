@@ -25,3 +25,22 @@
 20230117	21:51:57	192ec244-0d85-488a-9c06-cac601ed5d6b	ObjectParameterError: Parameter "filter" to find() must be an object, got {"Stanica":"Crni Vrh"}
 20230125	19:08:51	652549f2-d3e7-4e64-98a9-d359a771d99f	ReferenceError: proccess is not defined
 20230125	19:14:05	8218a4c5-daaa-45ca-bcab-d269975ef252	CastError: Cast to Number failed for value "~gt~1000" (type string) at path "Pritisak(hPa)" for model "MainStation"
+20230127	17:05:26	dc480e5c-e212-441b-a9e2-b1d8bd5bba77	TypeError: req.body.Time.splice is not a function
+20230201	20:39:22	d951eb22-07bc-4203-87b9-2f070c2678e8	CastError: Cast to date failed for value "{ Date: { '$gte': '2023-01-30', '$lte': '2023-02-01' } }" (type Object) at path "Date" for model "MainStation"
+20230201	20:41:56	6e2ff1a0-1985-4e0c-b197-179d18706d72	CastError: Cast to date failed for value "{ Date: { '$gte': '2023-01-30', '$lte': '2023-02-01' } }" (type Object) at path "Date" for model "MainStation"
+20230201	20:42:21	d4885f0f-4769-4768-9b2b-436be9bfee9f	CastError: Cast to date failed for value "{ Date: { '$gte': '2023-01-30', '$lte': '2023-02-01' } }" (type Object) at path "Date" for model "MainStation"
+20230201	20:43:09	63fa28f0-7b93-4700-a53d-946b59c7d8c2	CastError: Cast to date failed for value "{ Date: { '$gte': '2023-01-30', '$lte': '2023-02-01' } }" (type Object) at path "Date" for model "MainStation"
+20230201	20:44:49	c3f354d8-58ca-478d-9f40-ebf97f056428	CastError: Cast to date failed for value "{
+  Date: {
+    '$gte': 2023-01-30T00:00:00.000Z,
+    '$lte': 2023-02-01T00:00:00.000Z
+  }
+}" (type Object) at path "Date" for model "MainStation"
+20230201	20:45:56	a96fc89d-cd26-4eca-8e67-5702db5873e3	CastError: Cast to date failed for value "{
+  Date: {
+    '$gte': 2023-01-30T00:00:00.000Z,
+    '$lte': 2023-02-01T00:00:00.000Z
+  }
+}" (type Object) at path "Date" for model "MainStation"
+20230201	21:18:17	02f3eb02-a79a-4770-9123-b359df8d6b37	ReferenceError: temperatura is not defined
+20230202	00:06:56	3e1bbb2d-b6a6-42ba-bcd6-3c9e315f945d	Error: Cannot set headers after they are sent to the client
