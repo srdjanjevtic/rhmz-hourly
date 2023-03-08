@@ -44,3 +44,153 @@
 }" (type Object) at path "Date" for model "MainStation"
 20230201	21:18:17	02f3eb02-a79a-4770-9123-b359df8d6b37	ReferenceError: temperatura is not defined
 20230202	00:06:56	3e1bbb2d-b6a6-42ba-bcd6-3c9e315f945d	Error: Cannot set headers after they are sent to the client
+20230215	22:19:17	52eb2ec9-399d-4847-8d09-e13064eeaaac	RangeError: Invalid status code: { result: [Array] }
+20230215	22:35:54	82eeccf9-7c83-4a75-a924-8f4bdb961c62	ReferenceError: D:\IMPORTANT\RHMZHourlyScraper\views\main.ejs:12
+    10| <body>
+    11|     <h1>MAIN</h1>
+ >> 12|     <h2><%= result %></h2>
+    13|     <script src="js/script.js"></script>
+    14| </body>
+    15| </html>
+
+result is not defined
+20230215	23:07:43	346de271-7eff-46d1-815f-82de962ecb58	ReferenceError: D:\IMPORTANT\RHMZHourlyScraper\views\main.ejs:12
+    10| <body>
+    11|     <h1>MAIN</h1>
+ >> 12|     <!-- <h2><%= result.length %></h2> -->
+    13|     <script src="js/script.js"></script>
+    14| </body>
+    15| </html>
+
+result is not defined
+20230215	23:14:03	042989c3-c0a6-4136-bac7-c00e82b5cb7e	ReferenceError: D:\IMPORTANT\RHMZHourlyScraper\views\main.ejs:12
+    10| <body>
+    11|     <h1>MAIN</h1>
+ >> 12|     <h2><%= result.length %></h2>
+    13|     <script src="js/script.js"></script>
+    14| </body>
+    15| </html>
+
+result is not defined
+20230215	23:15:43	6b357c9c-ed45-4da3-8139-34e892a3294f	ReferenceError: D:\IMPORTANT\RHMZHourlyScraper\views\main.ejs:12
+    10| <body>
+    11|     <h1>MAIN</h1>
+ >> 12|     <h2><%= result.length %></h2>
+    13|     <script src="js/script.js"></script>
+    14| </body>
+    15| </html>
+
+result is not defined
+20230215	23:16:26	c4a1fd55-c10a-43a1-bc1d-3305cbc20054	ReferenceError: D:\IMPORTANT\RHMZHourlyScraper\views\main.ejs:12
+    10| <body>
+    11|     <h1>MAIN</h1>
+ >> 12|     <h2><%= result.length %></h2>
+    13|     <script src="js/script.js"></script>
+    14| </body>
+    15| </html>
+
+result is not defined
+20230223	20:33:20	df758cbd-4e42-4945-aa9b-df1e01ed80ef	TypeError: query.keys is not a function
+20230223	20:34:42	444f2a64-88f4-46c9-ac2d-8d17bc49da87	TypeError: query.getKeys is not a function
+20230223	20:35:16	804db2d8-1750-48d8-9093-ab5c080b5846	TypeError: req.query.keys is not a function
+20230223	20:35:39	3cae88c5-6b4f-4578-9fe4-9f337fc84ce4	TypeError: req.query.keys is not a function
+20230227	23:49:23	36603326-a5a2-4ec9-a005-fba5faec07ef	ReferenceError: query is not defined
+20230227	23:50:24	8f1f2b6a-1a3d-449e-8659-22cdca83ee66	ReferenceError: query is not defined
+20230227	23:55:43	86c7f2b1-00c6-40be-b288-8e4bbf96b45a	ReferenceError: document is not defined
+20230227	23:57:41	6fd6c1b2-39cc-41f0-a1b7-4a5a8e712cb1	TypeError: Cannot read properties of undefined (reading 'href')
+20230227	23:58:57	ef20d899-3889-48d9-97a5-4f1b3723fa45	ReferenceError: req is not defined
+20230228	19:54:13	fbf981ef-283a-4169-a8fb-b55dd141b41b	SyntaxError: Unexpected token '[' in D:\IMPORTANT\RHMZHourlyScraper\views\searchResult.ejs while compiling ejs
+
+If the above error is not helpful, you may want to try EJS-Lint:
+https://github.com/RyanZim/EJS-Lint
+Or, if you meant to create an async function, pass `async: true` as an option.
+20230228	19:57:10	fbafdd7c-bd55-4b81-b648-abdb770f3b48	SyntaxError: Unexpected token '[' in D:\IMPORTANT\RHMZHourlyScraper\views\searchResult.ejs while compiling ejs
+
+If the above error is not helpful, you may want to try EJS-Lint:
+https://github.com/RyanZim/EJS-Lint
+Or, if you meant to create an async function, pass `async: true` as an option.
+20230228	19:57:26	7f595314-b55e-4026-8601-cd72476212bb	SyntaxError: Unexpected token '[' in D:\IMPORTANT\RHMZHourlyScraper\views\searchResult.ejs while compiling ejs
+
+If the above error is not helpful, you may want to try EJS-Lint:
+https://github.com/RyanZim/EJS-Lint
+Or, if you meant to create an async function, pass `async: true` as an option.
+20230228	19:58:04	ed89e97e-e781-450b-b718-e772eaa850ad	SyntaxError: Unexpected token '[' in D:\IMPORTANT\RHMZHourlyScraper\views\searchResult.ejs while compiling ejs
+
+If the above error is not helpful, you may want to try EJS-Lint:
+https://github.com/RyanZim/EJS-Lint
+Or, if you meant to create an async function, pass `async: true` as an option.
+20230228	20:03:19	3f8593aa-2336-427d-a76d-dad2acd33eaf	SyntaxError: Unexpected token '[' in D:\IMPORTANT\RHMZHourlyScraper\views\searchResult.ejs while compiling ejs
+
+If the above error is not helpful, you may want to try EJS-Lint:
+https://github.com/RyanZim/EJS-Lint
+Or, if you meant to create an async function, pass `async: true` as an option.
+20230228	20:20:28	d088b1a0-40d1-4f90-99d5-4fc57fbc6ff6	SyntaxError: Unexpected token '[' in D:\IMPORTANT\RHMZHourlyScraper\views\searchResult.ejs while compiling ejs
+
+If the above error is not helpful, you may want to try EJS-Lint:
+https://github.com/RyanZim/EJS-Lint
+Or, if you meant to create an async function, pass `async: true` as an option.
+20230228	20:24:48	25c436ae-ea20-4f0f-b825-32525ff83220	SyntaxError: Unexpected token '[' in D:\IMPORTANT\RHMZHourlyScraper\views\searchResult.ejs while compiling ejs
+
+If the above error is not helpful, you may want to try EJS-Lint:
+https://github.com/RyanZim/EJS-Lint
+Or, if you meant to create an async function, pass `async: true` as an option.
+20230228	20:36:44	86179b90-c41e-4309-845b-711fd558b60f	ReferenceError: D:\IMPORTANT\RHMZHourlyScraper\views\searchResult.ejs:16
+    14|             <div class="one-row">
+    15|                 <div class="cell"><%= item["Date"].toLocaleDateString("sr-SR") %></div>
+ >> 16|                 <div class="cell"><%= item["Time"].slice(0, 2) + ":" + slice(2, 4) %></div>
+    17|                 <div class="cell"><%= item["Stanica"] %></div>
+    18|                 <div class="cell"><%= item["Temperatura(°C)"] %></div>
+    19|                 <div class="cell"><%= item["Subjektivniosećajtemperature(°C)"] %></div>
+
+slice is not defined
+20230228	23:53:47	6ab8780d-0cdb-4f7c-8836-8410fe84b3db	Error: ENOENT: no such file or directory, stat 'D:\IMPORTANT\RHMZHourlyScraper\views\index.html'
+20230228	23:54:27	3730021e-e51b-4aa3-98c9-5d166624a3eb	Error: ENOENT: no such file or directory, stat 'D:\IMPORTANT\RHMZHourlyScraper\views\index.html'
+20230301	16:19:31	37fc6116-fef0-4b38-8516-b7645df6baab	RangeError: Invalid status code: { result: [Array] }
+20230301	17:10:47	6cc31f12-9b24-475c-9f32-ddfb1c47fc95	TypeError: path must be absolute or specify root to res.sendFile
+20230301	17:13:21	45900d0f-99b5-4dc2-bf5c-b9fb1531bb50	TypeError: path must be absolute or specify root to res.sendFile
+20230301	17:24:07	f814d916-b6f0-4393-aa05-e02b32421961	Error: ENOENT: no such file or directory, stat 'D:\IMPORTANT\RHMZHourlyScraper\views\404.html'
+20230301	17:33:01	3862b14c-ddad-4cfb-a90b-d571bb0bd54b	ReferenceError: D:\IMPORTANT\RHMZHourlyScraper\views\searchResult.ejs:27
+    25|             </tr>
+    26|         </thead>
+ >> 27|         <tbody class="search-result"><% result.forEach(item => { %>
+    28|             <tr class="one-row">
+    29|                 <td class="cell"><%= item["Date"].toLocaleDateString("sr-SR") %></td>
+    30|                 <td class="cell"><%= item["Time"].slice(0, 2) + ":" + item["Time"].slice(2, 4) %></td>
+
+result is not defined
+20230301	17:34:03	94cc640c-8bac-4144-b6fe-e5ff24c5c2ae	ReferenceError: D:\IMPORTANT\RHMZHourlyScraper\views\searchResult.ejs:27
+    25|             </tr>
+    26|         </thead>
+ >> 27|         <!-- <tbody class="search-result"><% result.forEach(item => { %>
+    28|             <tr class="one-row">
+    29|                 <td class="cell"><%= item["Date"].toLocaleDateString("sr-SR") %></td>
+    30|                 <td class="cell"><%= item["Time"].slice(0, 2) + ":" + item["Time"].slice(2, 4) %></td>
+
+result is not defined
+20230301	17:34:12	1e93f880-2e05-42f8-a86f-e7dc3c8a4e68	ReferenceError: D:\IMPORTANT\RHMZHourlyScraper\views\searchResult.ejs:27
+    25|             </tr>
+    26|         </thead>
+ >> 27|         <!-- <tbody class="search-result"><% result.forEach(item => { %>
+    28|             <tr class="one-row">
+    29|                 <td class="cell"><%= item["Date"].toLocaleDateString("sr-SR") %></td>
+    30|                 <td class="cell"><%= item["Time"].slice(0, 2) + ":" + item["Time"].slice(2, 4) %></td>
+
+result is not defined
+20230301	18:34:46	8d5e45c7-bc6f-4a21-8e91-8033c270b2e9	ReferenceError: D:\IMPORTANT\RHMZHourlyScraper\views\searchResult.ejs:27
+    25|             </tr>
+    26|         </thead>
+ >> 27|         <tbody class="search-result"><% result.forEach(item => { %>
+    28|             <tr class="one-row">
+    29|                 <td class="cell"><%= item["Date"].toLocaleDateString("sr-SR") %></td>
+    30|                 <td class="cell"><%= item["Time"].slice(0, 2) + ":" + item["Time"].slice(2, 4) %></td>
+
+result is not defined
+20230306	18:13:33	d64bc118-2485-4d00-8395-58da779c26fd	Error: Failed to lookup view "D:\IMPORTANT\RHMZHourlyScraper\views\mainStationsSearchForm.ejs" in views directory "D:\IMPORTANT\RHMZHourlyScraper/views"
+20230306	21:28:17	5f3c1c58-5af2-4b8e-a7ee-27609edadb28	SyntaxError: Invalid left-hand side in assignment in D:\IMPORTANT\RHMZHourlyScraper\views\searchResultForAdditionalStations.ejs while compiling ejs
+
+If the above error is not helpful, you may want to try EJS-Lint:
+https://github.com/RyanZim/EJS-Lint
+Or, if you meant to create an async function, pass `async: true` as an option.
+20230306	23:42:38	71239e00-7f29-41b0-8e71-3bec555ec3c6	ReferenceError: prop is not defined
+20230307	00:00:26	b13b2d22-5d63-4601-8f18-228c7e18d690	TypeError: obj is not iterable
+20230307	17:48:25	7316bb59-5e84-4da0-83a0-9faf656a3831	Error: Failed to lookup view "D:\IMPORTANT\RHMZHourlyScraper\views\allMainStations.ejs" in views directory "D:\IMPORTANT\RHMZHourlyScraper/views"

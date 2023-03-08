@@ -1,25 +1,24 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose")
 const Schema = mongoose.Schema
 
 const weatherSchema = new Schema({
-    'date': {
+    "date": {
         type: Date,
-        required: 'Datum je obavezan podatak'
+        required: "Datum je obavezan podatak"
     },
-    'Stanica': {
+    "Stanica": {
         type: String,
-        required: 'Merna stanica je obavezan podatak'
+        required: "Merna stanica je obavezan podatak"
     },
-    'Padavine': {
-        type: Number,
-        required: 'Količina padavina je obavezan podatak'
+    "Padavine": {
+        type: Number
     },
-    'Sliv': {
+    "Sliv": {
         type: String
     },
-    'Opština': {
+    "Opština": {
         type: String
     }
 })
 
-module.exports = mongoose.model('MainRainStation', weatherSchema)
+module.exports = mongoose.model("MainRainStation", weatherSchema)

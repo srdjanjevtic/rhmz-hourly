@@ -1,41 +1,40 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose")
 const Schema = mongoose.Schema
 
 const weatherSchema = new Schema({
-    'Date': {
+    "Date": {
         type: Date,
-        required: 'Datum je obavezan podatak'
+        required: "Datum je obavezan podatak"
     },
-    'Time': {
+    "Time": {
         type: String,
-        required: 'Vreme je obavezan podatak'
+        required: "Vreme je obavezan podatak"
     },
-    'Stanica': {
+    "Stanica": {
         type: String,
-        required: 'Merna stanica je obavezan podatak'
+        required: "Merna stanica je obavezan podatak"
     },
-    'Temperatura(°C)': {
-        type: Number,
-        required: 'Temperatura je obavezan podatak'
-    },
-    'Subjektivniosećajtemperature(°C)': {
+    "Temperatura(°C)": {
         type: Number
     },
-    'Pritisak(hPa)': {
+    "Subjektivniosećajtemperature(°C)": {
         type: Number
     },
-    'Vlažnost(%)': {
+    "Pritisak(hPa)": {
         type: Number
     },
-    'Brzinavetra(m/s)': {
+    "Vlažnost(%)": {
         type: Number
     },
-    'Pravacvetra': {
+    "Brzinavetra(m/s)": {
+        type: Number
+    },
+    "Pravacvetra": {
         type: String
     },
-    'Opisvremena': {
+    "Opisvremena": {
         type: String
     }
 })
 
-module.exports = mongoose.model('MainStation', weatherSchema)
+module.exports = mongoose.model("MainStation", weatherSchema)

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Result</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@linways/table-to-excel@1.0.4/dist/tableToExcel.min.js" defer></script>
+</head>
+<body>
+    <div class="result-container">
+        <table class="table" id="main-table-result">
+            <caption>Rezultati pretrage</caption>
+            <thead>
+                <tr>
+                    <th>Dan</th>
+                    <th>Vreme</th>
+                    <th>Meteorološka<br/>stanica</th>
+                    <th>Temperatura<br/><span>(°C)</span></th>
+                    <th>Subjektivni<br/> osećaj<br/>temperature<br/><span>(°C)</span></th>
+                    <th>Pritisak<br/><span>(hPA)</span></th>
+                    <th>Vlažnost<br/><span>(%)</span></th>
+                    <th>Pravac<br/>vetra</th>
+                    <th>Brzina<br/>vetra<br/><span>(m/s)</span></th>
+                    <th>Opis<br/>vremena</th>
+                </tr>
+            </thead>
+            <tbody class="search-result"><% result.forEach(item => { %>
+                <tr class="one-row">
+                    <td class="cell" data-label="Dan"><%= item["Date"].toLocaleDateString("sr-SR") %></td>
+                    <td class="cell" data-label="Vreme"><%= item["Time"].slice(0, 2) + ":" + item["Time"].slice(2, 4) %></td>
+                    <td class="cell" data-label="Meteorološka stanica"><%= item["Stanica"] %></td>
+                    <td class="cell" data-label="Temperatura (°C)"><%= item["Temperatura(°C)"] %></td>
+                    <td class="cell" data-label="Subjektivno (°C)"><%= item["Subjektivniosećajtemperature(°C)"] %></td>
+                    <td class="cell" data-label="Pritisak (hPa)"><%= item["Pritisak(hPa)"] %></td>
+                    <td class="cell" data-label="Vlažnost (%)"><%= item["Vlažnost(%)"] %></td>
+                    <td class="cell" data-label="Pravac vetra"><%= item["Pravacvetra"] %></td>
+                    <td class="cell" data-label="Brzina vetra (m/s)"><%= item["Brzinavetra(m/s)"] %></td>
+                    <td class="cell" data-label="Opis vremena"><%= item["Opisvremena"] %></td>
+                </tr>
+                <% }) %>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th colspan="10"><p>Ukupno  <span><%= result.length %></span>  dokumenata pronađeno.</p></th>
+                </tr>
+            </tfoot>
+        </table>
+        <div class="btn-wrapper">
+            <button id="htmlToExcel">Download as <span>Excel</span></button>
+            <button type="submit" id="htmlToCSV">Download as <span>CSV</span></button>
+        </div>
+    </div>
+    <%- include('./partials/gotopbtn.ejs') %>
+</body>
+<script>
+    const asExcel = document.getElementById("htmlToExcel")
+    const asCSV = document.getElementById("htmlToCSV")
+    const table = document.getElementById("main-table-result")
+    asExcel.addEventListener("click", () => TableToExcel.convert(table))
+    asCSV.addEventListener("click", () => (exportTableToCSV(table, "searchResult.csv")))
+
+    function downloadCSV(csv, filename) {
+            const csvFile = new Blob([csv], { type: "text/csv" })
+            const downloadLink = document.createElement("a")
+            downloadLink.download = filename
+            downloadLink.href = window.URL.createObjectURL(csvFile)
+            downloadLink.style.display = "none"
+            document.body.appendChild(downloadLink)
+            downloadLink.click()
+        }
+    function exportTableToCSV(htmlTable, filename) {
+            let csv = []
+            let rows = htmlTable.querySelectorAll("tr");
+            for (let i = 0; i < rows.length; i++) {
+                let row = []
+                let cols = rows[i].querySelectorAll("td, th")          
+                for (let j = 0; j < cols.length; j++) {
+                    let data = cols[j].innerText.replace(/(\r\n|\n|\r)/gm, '').replace(/(\s\s)/gm, ' ')
+                    data = data.replace(/"/g, '""')
+                    row.push('"' + data + '"')
+                }
+                csv.push(row.join(","))
+            }
+            downloadCSV(csv.join("\n"), filename)
+        }
+
+</script>
+</html>

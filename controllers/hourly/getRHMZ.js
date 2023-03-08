@@ -1,178 +1,173 @@
-const MainStation = require('../../model/MainStation')
-const AdditionalStation = require('../../model/AdditionalStation')
-const asyncHandler = require('express-async-handler')
+const MainStation = require("../../model/MainStation")
+const AdditionalStation = require("../../model/AdditionalStation")
+const asyncHandler = require("express-async-handler")
 
 const getAllMain = asyncHandler(async (req, res) => {
-    const stations = await MainStation.find().exec()
-    if (!stations?.length) {
-        return res.status(400).json({ message: 'Nema podataka' })
+    const search = {}
+    if (req.query.Stanica) {
+        search.Stanica = req.query.Stanica
     }
-    res.json({ stations, total: `${stations.length} dokumenata ukupno.`})
-})
-
-const getAllAdditional = asyncHandler(async (req, res) => {
-    const stations = await AdditionalStation.find().exec()
-    if (!stations?.length) {
-        return res.status(400).json({ message: 'Nema podataka' })
-    }
-    res.json({ stations, total: `${stations.length} dokumenata ukupno.`})
-})
-
-const getMain = asyncHandler(async (req, res) => {
-    const query = {}
-    let isParamPresent = false
-    if (req.query.vreme) {
-        query['Time'] = req.query.vreme
-        isParamPresent = true
-    }
-        if (req.query.dan) {
-        query['Date'] = req.query.dan
-        isParamPresent = true
-    }
-    if (req.query.stanica) {
-        query['Stanica'] = req.query.stanica
-        isParamPresent = true
-    }
-    if (req.query.temperatura) {
-        query['Temperatura(°C)'] = req.query.temperatura
-        isParamPresent = true
-    }
-    if (req.query.pritisak) {
-        query['Pritisak(hPa)'] = req.query.pritisak
-        isParamPresent = true
-    }
-    if (req.query.pravac) {
-        query['Pravacvetra'] = req.query.pravac
-        isParamPresent = true
-    }
-        if (req.query.brzina) {
-        query['Brzina vetra(m/s)'] = req.query.brzina
-        isParamPresent = true
-    }
-    if (req.query.vlaga) {
-        query['Vlažnost(%)'] = req.query.vlaga
-        isParamPresent = true
-    }
-    if (req.query.subjektivni) {
-        query['Subjektivniosećajtemperature(°C)'] = req.query.subjektivni
-        isParamPresent = true
-    }
-    if (req.query.opis) {
-        query['Opisvremena'] = req.query.opis
-        isParamPresent = true
-    }
-    const result = await MainStation.find(query).exec()
-    if (!isParamPresent) {
-        res.send("Niste uneli parametre za pretragu!")
-        return
-    }
+    const result = await MainStation.find(search).exec()
     if (result.length === 0) {
         res.send("Nema podataka!")
     } else {
-        res.status(200).json({result, total: `${result.length} documenata prikazano`})
+        res.status(200).render("searchResultForMainStations", { result })
     }
 })
 
-const getMainNew = asyncHandler(async (req, res) => {
-    const search = req.body
-    if (req.body.Time === " " || req.body.Time === "" ) {
-        delete req.body.Time
+const getAllAdditional = asyncHandler(async (req, res) => {
+    const search = {}
+    if (req.query.Stanica) {
+        search.Stanica = req.query.Stanica
     }
-    if (req.body.timeEnd === " " || req.body.timeEnd === "" ) {
-        delete req.body.timeEnd
+    const result = await AdditionalStation.find(search).exec()
+    if (result.length === 0) {
+        res.send("Nema podataka!")
+    } else {
+        res.status(200).render("searchResultForAdditionalStations", { result })
     }
-    if (req.body.Time) {
-        req.body.Time = req.body.Time.replace(":", "")
+})
+
+const getMain = asyncHandler(async (req, res) => {
+    const search = {}
+    if (req.query.Time) {
+        search.Time = req.query.Time.replace(":", "")
     }
-    if (req.body.timeEnd) {
-        req.body.timeEnd = req.body.timeEnd.replace(":", "")
+    if (req.query.timeEnd) {
+        search.timeEnd = req.query.timeEnd.replace(":", "")
+        search.Time = { $gte: req.query.Time, $lte: req.query.timeEnd }
     }
-    if (req.body.datumEnd) {
-        search.Date = { $gte: req.body.Date, $lte: req.body.datumEnd }
-        delete search.datumEnd
+    if (req.query.timeEnd === " " || req.query.timeEnd === "" ) {
+        delete req.query.timeEnd
     }
-    if (req.body.timeEnd) {
-        search.Time = { $gte: req.body.Time, $lte: req.body.timeEnd }
+    if (req.query.Time === " " || req.query.Time === "" ) {
+        delete req.query.Time
     }
-    if (req.body["min-temperatura"] && req.body["max-temperatura"]) {
-        search["Temperatura(°C)"] = { $gte: req.body["min-temperatura"], $lte: req.body["max-temperatura"] }
-        delete search["min-temperatura"]
-        delete search["max-temperatura"]
+    if (req.query.Date) {
+        search.Date = req.query.Date
     }
-    if (req.body["min-brzina"] && req.body["max-brzina"]) {
-        search["Brzinavetra(m/s)"] = { $gte: req.body["min-brzina"], $lte: req.body["max-brzina"] }
+    if (req.query.datumEnd) {
+        search.Date = { $gte: req.query.Date, $lte: req.query.datumEnd }
+        delete req.query.datumEnd
+    }
+    if (req.query.Stanica) {
+        search.Stanica = req.query.Stanica
+    }
+    if (req.query["Temperatura(°C)"]) {
+        search["Temperatura(°C)"] = req.query["Temperatura(°C)"]
+    }
+    if (req.query["min-temperatura"] && req.query["max-temperatura"]) {
+        search["Temperatura(°C)"] = { $gte: req.query["min-temperatura"], $lte: req.query["max-temperatura"] }
+        delete req.query["min-temperatura"]
+        delete req.query["max-temperatura"]
+    }
+    if (req.query["Subjektivniosećajtemperature(°C)"]) {
+        search["Subjektivniosećajtemperature(°C)"] = req.query["Subjektivniosećajtemperature(°C)"]
+    }
+    if (req.query["Pritisak(hPa)"]) {
+        search["Pritisak(hPa)"] = req.query["Pritisak(hPa)"]
+    }
+    if (req.query["min-pritisak"] && req.query["max-pritisak"]) {
+        search["Pritisak(hPa)"] = { $gte: req.query["min-pritisak"], $lte: req.query["max-pritisak"] }
+        delete req.query["min-pritisak"]
+        delete req.query["max-pritisak"]
+    }
+    if (req.query["Pravacvetra"]) {
+        search["Pravacvetra"] = req.query["Pravacvetra"]
+    }
+    if (req.query["Brzinavetra(m/s)"]) {
+        search["Brzinavetra(m/s)"] = req.query["Brzinavetra(m/s)"]
+    }
+    if (req.query["min-brzina"] && req.query["max-brzina"]) {
+        search["Brzinavetra(m/s)"] = { $gte: req.query["min-brzina"], $lte: req.query["max-brzina"] }
         delete search["min-brzina"]
         delete search["max-brzina"]
     }
-    if (req.body["min-vlaga"] && req.body["max-vlaga"]) {
-        search["Vlažnost(%)"] = { $gte: req.body["min-vlaga"], $lte: req.body["max-vlaga"] }
+    if (req.query["Vlažnost(%)"]) {
+        search["Vlažnost(%)"] = req.query["Vlažnost(%)"]
+    }
+    if (req.query["min-vlaga"] && req.query["max-vlaga"]) {
+        search["Vlažnost(%)"] = { $gte: req.query["min-vlaga"], $lte: req.query["max-vlaga"] }
         delete search["min-vlaga"]
         delete search["max-vlaga"]
     }
-    if (req.body["min-pritisak"] && req.body["max-pritisak"]) {
-        search["Pritisak(hPa)"] = { $gte: req.body["min-pritisak"], $lte: req.body["max-pritisak"] }
-        delete search["min-pritisak"]
-        delete search["max-pritisak"]
+    if (req.query["Opisvremena"]) {
+        search["Opisvremena"] = req.query["Opisvremena"]
+        isParamPresent = true
     }
-    const isEmpty = obj => {
-        for (let key in obj) {
-            if (obj.hasOwnProperty(key))
-                return false
-        }
-        return true
-    }
-    console.log(isEmpty(search), search)
-    if (isEmpty(search)) {
-        res.status(400).json({ message: "Sva polja su prazna!" })
+    if (Object.keys(req.query).length === 0) {
+        res.send("Niste uneli parametre za pretragu!")
         return
+    }
+    const result = await MainStation.find(search).exec()
+    if (result.length === 0) {
+        res.send("Nema podataka!")
     } else {
-        const result = await MainStation.find(search)
-        if (result.length === 0) {
-            res.json("Nema podataka!")
-        } else {
-            res.status(200).json({result, total: `${result.length} dokumenata prikazano`})
-        }
+        res.status(200).render("searchResultForMainStations", { result })
     }
 })
 
 const getAdditional = asyncHandler(async (req, res) => {
-    const query = {}
-    let isParamPresent = false
-    if (req.query.dan) {
-        query['date'] = req.query.dan
-        isParamPresent = true
+    const search = {}
+    if (req.query.Time === " " || req.query.Time === "" ) {
+        delete req.query.Time
     }
-     if (req.query.vreme) {
-        query['time'] = req.query.vreme
-        isParamPresent = true
+    if (req.query.timeEnd === " " || req.query.timeEnd === "" ) {
+        delete req.query.timeEnd
     }
-    if (req.query.stanica) {
-        query['Stanica'] = req.query.stanica
-        isParamPresent = true
+    if (req.query.Time) {
+        search.Time = req.query.Time.replace(":", "")
     }
-    if (req.query.temperatura) {
-        query['Temperatura(°C)'] = req.query.temperatura
-        isParamPresent = true
+    if (req.query.timeEnd) {
+        search.timeEnd = req.query.timeEnd.replace(":", "")
+        search.Time = { $gte: req.query.Time, $lte: req.query.timeEnd }
     }
-    if (req.query.pritisak) {
-        query['Pritisak(hPa)'] = req.query.pritisak
-        isParamPresent = true
+    if (req.query.Date) {
+        search.Date = req.query.Date
     }
-    if (req.query.pravac) {
-        query['Vetarpravac(°)'] = req.query.pravac
-        isParamPresent = true
+    if (req.query.datumEnd) {
+        search.Date = { $gte: req.query.Date, $lte: req.query.datumEnd }
     }
-    const result = await AdditionalStation.find(query).exec()
-    if (!isParamPresent) {
+    if (req.query.Stanica) {
+        search.Stanica = req.query.Stanica
+    }
+    if (req.query["Temperatura(°C)"]) {
+        search["Temperatura(°C)"] = req.query["Temperatura(°C)"]
+    }
+    if (req.query["min-temperatura"] && req.query["max-temperatura"]) {
+        search["Temperatura(°C)"] = { $gte: req.query["min-temperatura"], $lte: req.query["max-temperatura"] }
+    }
+    if (req.query["Pritisak(hPa)"]) {
+        search["Pritisak(hPa)"] = req.query["Pritisak(hPa)"]
+    }
+    if (req.query["min-pritisak"] && req.query["max-pritisak"]) {
+        search["Pritisak(hPa)"] = { $gte: req.query["min-pritisak"], $lte: req.query["max-pritisak"] }
+    }
+    if (req.query["min-pravac"] && req.query["max-pravac"]) {
+        search["Vetarpravac(°)"] = { $gte: req.query["min-pravac"], $lte: req.query["max-pravac"] }
+    }
+    if (req.query["Vetarbrzina(m/s)"]) {
+        search["Vetarbrzina(m/s)"] = req.query["Vetarbrzina(m/s)"]
+    }
+    if (req.query["min-brzina"] && req.query["max-brzina"]) {
+        search["Vetarbrzina(m/s)"] = { $gte: req.query["min-brzina"], $lte: req.query["max-brzina"] }
+    }
+    if (req.query["Vlažnost(%)"]) {
+        search["Vlažnost(%)"] = req.query["Vlažnost(%)"]
+    }
+    if (req.query["min-vlaga"] && req.query["max-vlaga"]) {
+        search["Vlažnost(%)"] = { $gte: req.query["min-vlaga"], $lte: req.query["max-vlaga"] }
+    }
+    if (Object.keys(req.query).length === 0) {
         res.send("Niste uneli parametre za pretragu!")
         return
     }
+    let result = await AdditionalStation.find(search).exec()
     if (result.length === 0) {
         res.send("Nema podataka!")
     } else {
-        res.status(200).json({result, total: `${result.length} documenata prikazano`})
+        res.status(200).render("searchResultForAdditionalStations", { result })
     }
-
 })
 
-module.exports = { getAllMain, getAllAdditional, getMain, getMainNew, getAdditional }
+module.exports = { getAllMain, getAllAdditional, getMain, getAdditional }

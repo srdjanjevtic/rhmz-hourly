@@ -11,8 +11,8 @@
 
 <body>
     <main>
-        <h2>Pretraga</h2>
-        <form action="#" id="myForm" name="myForm">
+        <h2 id="pretraga">Pretraga glavnih meteoroloških stanica</h2>
+        <form id="myMainForm" name="myMainForm">
             <fieldset>
                 <legend>Meteorološka Stanica</legend>
                 <div class="form-box">
@@ -54,22 +54,22 @@
                 <legend>Dan / Period</legend>
                 <div class="form-box">
                     <label for="date">Datum / Početak Perioda</label>
-                    <input type="date" id="date" name="Date" min="2022-12-29">
+                    <input type="date" id="date" name="Date" min="2022-12-29" value="">
                 </div>
-                <div class="form-box" id="datumEndContainer">
-                    <label for="datumEnd">Kraj Perioda (opciono)</label>
-                    <input type="date" id="datumEnd" name="datumEnd" min="2022-12-29">
+                <div class="form-box" id="dateEndContainer">
+                    <label for="dateEnd">Kraj Perioda (opciono)</label>
+                    <input type="date" id="dateEnd" name="datumEnd" min="2022-12-29">
                 </div>
             </fieldset>
             <fieldset>
                 <legend>Sat / Period dana</legend>
                 <div class="form-box">
                     <label for="time">Sati / Od</label>
-                    <input type="time" id="time" name="Time" min="00:00" max="23:00" step="01:00">
+                    <input type="time" id="time" name="Time">
                 </div>
                 <div class="form-box" id="timeEndContainer">
                     <label for="timeEnd">Kraj Perioda (opciono)</label>
-                    <input type="time" id="timeEnd" name="timeEnd" min="00:00" max="23:00" step="01:00">
+                    <input type="time" id="timeEnd" name="timeEnd">
                 </div>
             </fieldset>
             <fieldset>
@@ -91,7 +91,8 @@
                 <legend>Subjektivni Osećaj Temperature</legend>
                 <div class="form-box">
                     <label for="subjektivni">Subjektivni Osećaj Temperature (°C)</label>
-                    <input type="number" min="-50" max="50" step="1" name="Subjektivniosećajtemperature(°C)" id="subjektivni">
+                    <input type="number" min="-50" max="50" step="1" name="Subjektivniosećajtemperature(°C)"
+                    id="subjektivni">
                 </div>
             </fieldset>
             <fieldset>
@@ -124,15 +125,15 @@
                 <legend>Brzina Vetra</legend>
                 <div class="form-box">
                     <label for="brzina-vetra">Brzina Vetra (m/s)</label>
-                    <input type="number" step="1" name="Brzinavetra(m/s)" id="brzina-vetra">
+                    <input type="number" min="0" max="100" step="1" name="Brzinavetra(m/s)" id="brzina-vetra">
                 </div>
                 <div class="form-box">
                     <label for="min-brzina">Minimalna Brzina Vetra (°C)</label>
-                    <input type="number" step="1" name="min-brzina" id="min-brzina" min="0" max="100">
+                    <input type="number" min="0" max="100" step="1" name="min-brzina" id="min-brzina">
                 </div>
                 <div class="form-box">
                     <label for="max-brzina">Maksimalna Brzina Vetra (°C)</label>
-                    <input type="number" step="1" name="max-brzina" id="max-brzina" min="0" max="100">
+                    <input type="number" min="0" max="100" step="1" name="max-brzina" id="max-brzina">
                 </div>
             </fieldset>
             <fieldset>
@@ -154,15 +155,15 @@
                 <legend>Pritisak</legend>
                 <div class="form-box">
                     <label for="pritisak">Pritisak (hPa)</label>
-                    <input type="number" step="0.1" name="Pritisak(hPa)" id="pritisak">
+                    <input type="number" min="500" max="1500" step="0.1" name="Pritisak(hPa)" id="pritisak">
                 </div>
                 <div class="form-box">
                     <label for="min-pritisak">Minimalni Pritisak</label>
-                    <input type="number" step="0.1" name="min-pritisak" id="min-pritisak">
+                    <input type="number" min="500" max="1500"  step="0.1" name="min-pritisak" id="min-pritisak">
                 </div>
                 <div class="form-box">
                     <label for="max-pritisak">Maksimalni Pritisak</label>
-                    <input type="number" step="0.1" name="max-pritisak" id="max-pritisak">
+                    <input type="number" min="500" max="1500"  step="0.1" name="max-pritisak" id="max-pritisak">
                 </div>
             </fieldset>
             <fieldset>
@@ -199,8 +200,7 @@
             </fieldset>
         </form>
     </main>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="js/script.js" defer></script>
+    <script type="module" src="./js/scriptMain.js"></script>
 </body>
 
 </html>

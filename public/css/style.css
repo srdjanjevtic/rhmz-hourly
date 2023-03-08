@@ -11,6 +11,7 @@ html {
     line-height: 1.6;
     font-family: "Poppins", sans-serif;
     color: rgb(72, 214, 243);
+    scroll-behavior: smooth;
 }
 
 body {
@@ -104,9 +105,10 @@ fieldset > legend {
     padding: 0.25rem;
     display: flex;
     flex-direction: row;
+    flex: 50% 1 1;
+    flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
-    flex-basis: 50%;
 }
 
 .form-box-button button {
@@ -118,52 +120,29 @@ fieldset > legend {
     font-size: 2rem;
     font-weight: 900;
     letter-spacing: 0.125rem;
-    /* margin-left: 50%; */
     border-radius: 1rem;
     border-color: rgb(72, 214, 243);
     cursor: pointer;
     transition: all 0.5s ease;
 }
+
 .form-box-button button:hover {
     color: rgb(9, 4, 20);
     background-color: rgb(72, 214, 243);
     letter-spacing: 0.2rem;
 }
 
-#datumEndContainer {
+#dateEndContainer, #timeEndContainer {
     display: none;
 }
 
-/* /// */
-datalist {
-    position: absolute;
-    background-color: black;
-    border: 1px solid blue;
-    border-radius: 0 0 5px 5px;
-    border-top: none;
-    font-family: sans-serif;
-    width: 350px;
-    padding: 5px;
-    max-height: 10rem;
-    overflow-y: auto
-}
-
-datalist option {
-    background-color: black;
-    padding: 4px;
-    color: blue;
-    margin-bottom: 1px;
-    font-size: 18px;
+input[type="date"]::-webkit-calendar-picker-indicator, input[type="time"]::-webkit-calendar-picker-indicator {
     cursor: pointer;
+    border-radius: 4px;
+    margin-right: 2px;
+    opacity: 0.6;
+    filter: invert(0.8);
 }
-
-datalist option:hover,
-.active {
-    background-color: lightblue;
-}
-
-
-/* /// */
 
 @media screen and (max-width: 1080px) {
 html {
@@ -209,4 +188,252 @@ main {
 .form-box label {
     flex-basis: 100%;
 }
+}
+
+/* ///////////////////////////// */
+/* START OF allMainStations.ejs || allAdditionalStations.ejs */
+/* ///////////////////////////// */
+
+#allMainForm .form-box-button, #allAdditionalForm .form-box-button {
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    flex: 50% 1 1;
+    flex-wrap: nowrap;
+    justify-content: stretch;
+    align-items: center;
+}
+
+#allMainForm .form-box-button button, #allMainForm .form-box-button .form-box select,  #allAdditionalForm .form-box-button button, #allAdditionalForm .form-box-button .form-box select {
+    padding: 0 1rem;
+    height: 3rem;
+    color: rgb(72, 214, 243);
+    background-color: rgb(9, 4, 20);
+    font-size: 1.5rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    border-color: rgb(72, 214, 243);
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+#allMainForm .form-box-button button, #allAdditionalForm .form-box-button button{
+    flex-basis: 25%;
+    transition: all 0.5s ease;
+}
+
+#allMainForm .form-box-button .form-box select, #allAdditionalForm .form-box-button .form-box select {
+    flex-basis: 75%;
+    font-size: 2rem;
+    transition: all 0.5s ease;
+}
+
+@media screen and (max-width: 765px) {
+
+#allMainForm .form-box-button, #allAdditionalForm .form-box-button {
+    flex-direction: column;
+    max-width: 760px;
+}
+
+#allMainForm .form-box-button .form-box select,
+#allAdditionalForm .form-box-button .form-box select {
+    flex: 1;
+}
+
+#allMainForm .form-box-button button, #allAdditionalForm .form-box-button button {
+    flex: 1;
+}
+
+}
+/* ////////////////////////// */
+/* END OF allMainStations.ejs || allAdditionalStations.ejs */
+/* ///////////////////////////// */
+
+
+/* ///////////////////////////// */
+/* START OF search result table */
+/* ///////////////////////////// */
+
+table {
+    border-collapse: collapse;
+    caption-side: top;
+    border: 1px solid rgb(72, 214, 243);
+    min-width: 80vw;
+    user-select: none;
+}
+
+table tr {
+    border-bottom: 1px solid rgb(72, 214, 243);
+    background-color: rgb(9, 4, 20);
+    transition: 0.15s ease-in-out;
+}
+
+table tbody tr:hover {
+    color: rgb(116, 224, 246);
+    background-color: rgb(26, 11, 57);
+    outline: 2px solid wheat;
+    outline-offset: 3px;
+}
+
+table tr td {
+    text-align: center;
+    padding: 5px 10px;
+}
+
+table caption {
+    padding-bottom: 0.5rem;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+table thead {
+    position: sticky;
+    top: 0;
+}
+
+table thead tr {
+    background-color: rgb(11, 5, 25);
+}
+
+table thead tr th {
+    height: 6rem;
+    width: max-content;
+    padding-top: 10px;
+    font-size: 1rem;
+    padding: 0.25rem;
+    vertical-align: top;
+}
+
+table thead tr th span{
+    font-size: 0.6rem;
+}
+
+table tfoot {
+    height: 3rem;
+    padding: 3rem 1rem;
+}
+
+table tfoot th p {
+    font-size: 0.8rem;
+    padding-right: 2rem;
+    text-align: end;
+}
+
+table tfoot span {
+    font-size: 1.2rem;
+    color: bisque;
+    font-weight: 700;
+}
+
+/* ///////////////////////////// */
+/* START OF search result table */
+/* ///////////////////////////// */
+
+/* Result Table */
+.result-container {
+    display: flex;
+    flex-direction: column;
+    min-width: 80vw;
+}
+
+.btn-wrapper {
+    display: flex;
+}
+
+.btn-wrapper button {
+    flex-basis: 22.5%;
+    flex-shrink: 0;
+    font-size: 0.9rem;
+    background-color: rgb(9, 4, 20);
+    color:rgb(72, 214, 243);
+    border: 1px solid rgb(72, 214, 243);
+    border-radius: 2px;
+    padding: 5px 10px;
+    margin-top: 0.75rem;
+    margin-left: 1rem;
+    transition: 0.25s ease-in-out;
+}
+
+#htmlToExcel:hover, #htmlToCSV:hover, #htmlToExcel:focus, #htmlToCSV:focus {
+    outline: 2px solid wheat;
+    outline-offset: 3px;
+    cursor: pointer;
+}
+
+#htmlToExcel span, #htmlToCSV span{
+    font-size: 1rem;
+    font-weight: 700; 
+}
+
+.gotopbtn {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    bottom: 40px;
+    right: 50px;
+    text-decoration: none;
+    background-color: rgb(72, 214, 243);
+    outline: 2px solid rgb(231, 239, 240);
+    outline-offset: 3px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 50px;
+    font-weight: bolder;
+    font-size: 2rem;
+    transition: all 0.2s ease-in;
+}
+
+.gotopbtn:hover {
+    background-color: rgb(231, 239, 240);
+    outline: 2px solid rgb(72, 214, 243);
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+
+    .table {
+        border: none;
+    }
+
+    .table thead, .table tfoot, .table caption, .btn-wrapper {
+        display: none;
+    }
+
+    .table, .table tbody, tbody tr, .table td {
+        display: block;
+        width: 100%;
+    }
+
+    .table tr {
+        border-bottom: 1px dashed;
+        margin-bottom: 30px;
+        padding-bottom: 10px;
+    }
+
+    table tbody tr:hover {
+        color: rgb(238, 234, 248);
+        background-color: rgb(81, 42, 148);
+        outline: 2px solid rgb(179, 237, 245);
+        outline-offset: 1px;
+    }
+
+    .table tbody tr td {
+        position: relative;
+        text-align: right;
+        padding-left: 50%;
+        font-size: 1.25rem;
+        font-weight: 600;
+    }
+
+    .table tbody tr td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 15px;
+        font-weight: 400;
+        font-size: 1rem;
+        text-align: left;
+    }
+
 }

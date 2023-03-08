@@ -1,9 +1,13 @@
 document.addEventListener("DOMContentLoaded", init)
-const myForm = document.getElementById("myForm")
+// const myForm = document.getElementById("myForm")
 const temp = document.getElementById("temperatura")
 const minT = document.getElementById("min-temperatura")
 const maxT = document.getElementById("max-temperatura")
 const brzinaVetra = document.getElementById("brzina-vetra")
+///
+const brzinaVetraAdd = document.getElementById("brzVetraAdd")
+const pravacVetraAdd = document.getElementById("pravacVetraAdd")
+///
 const minBV = document.getElementById("min-brzina")
 const maxBV = document.getElementById("max-brzina")
 const pritisak = document.getElementById("pritisak")
@@ -25,7 +29,6 @@ function init() {
         legend.addEventListener("click", closeFieldset)
     }
     temp.addEventListener("change", toggleSubset)
-    brzinaVetra.addEventListener("change", toggleSubset)
     pritisak.addEventListener("change", toggleSubset)
     vlaga.addEventListener("change", toggleSubset)
     minT.addEventListener("change", toggleMainField)
@@ -39,6 +42,7 @@ function init() {
     datumStart.addEventListener("change", toggleEndDate)
     datumStart.max = new Date().toISOString().split("T")[0]
     datumEnd.max = new Date().toISOString().split("T")[0]
+    brzinaVetra.addEventListener("change", toggleSubset)
 }
 
 function closeFieldset(ev) {
@@ -87,7 +91,7 @@ function toggleEndDate() {
     }
 }
 
-function submitForm(ev) {
+async function submitForm(ev) {
     ev.preventDefault()
     let myForm = ev.target
     let fd = new FormData(myForm)
@@ -99,19 +103,31 @@ function submitForm(ev) {
     //     console.log(key, fd.get(key))
     // }
     const jsData = formDataToJSObj(fd)
+    if (jsData["Time"] === "") delete jsData["Time"]
     console.log(jsData)
-    const url = "/getMainNew"
-    axios.post(url, jsData)
-    .then(function (res) {
-        console.log(res.data)
-    })
-    .catch(function (error) {
-        console.log(error)
-    })
+    // const url = "/getMain"
+    ///////////
+    const searchParams = new URLSearchParams(jsData)
+    const queryString = searchParams.toString()
+    console.log(queryString)
+    const urlQS = "/getMain?" + queryString
+    window.location.href = urlQS
+    ///////////
+    // await axios.post(url, jsData)
+    // .then(function (res) {
+    //     console.log(res.data)
+    // })
+    // .catch(function (error) {
+    //     console.log(error)
+    // })
 }
 
 function resetForm(ev) {
     ev.preventDefault()
+    const fields = document.querySelectorAll("fieldset")
+    fields.forEach(fieldset => fieldset.style.display = "block")
+    const pretraga = document.getElementById("pretraga")
+    window.scrollTo({ top: pretraga, behavior: "smooth"})
     myForm.reset()
 }
 

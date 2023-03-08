@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <main>
+        <h2 id="pretraga">Pretraga automatskih meteoroloških stanica</h2>
+        <form id="myAdditionalForm" name="myAdditionalForm">
+            <fieldset>
+                <legend>Meteorološka Stanica</legend>
+                <div class="form-box">
+                    <label for="Stanica">Stanica</label>
+                    <select name="Stanica" id="Stanica">
+                        <option value=""></option>
+                        <option value="Stara planina">Stara planina</option>
+                        <option value="Košutnjak">Košutnjak</option>
+                        <option value="Pančevo">Pančevo</option>
+                        <option value="Kukavica">Kukavica</option>
+                        <option value="Ivanjica">Ivanjica</option>
+                        <option value="Čačak">Čačak</option>
+                        <option value="Slatina-Čačak">Slatina-Čačak</option>
+                        <option value="Tamnava">Tamnava</option>
+                        <option value="Baroševac">Baroševac</option>
+                        <option value="Gazivode">Gazivode</option>
+                        <option value="Leposavić">Leposavić</option>
+                        <option value="Kosovska Mitrovica">Kosovska Mitrovica</option>
+                        <option value="Zvečan">Zvečan</option>
+                        <option value="Pirot">Pirot</option>
+                        <option value="Požarevac">Požarevac</option>
+                        <option value="Laznica-Žagubica">Laznica-Žagubica</option>
+                        <option value="Kladovo-Karataš">Kladovo-Karataš</option>
+                        <option value="Bajina Bašta">Bajina Bašta</option>
+                        <option value="Karajukića Bunari">Karajukića Bunari</option>
+                        <option value="Krupanj">Krupanj</option>
+                        <option value="Prijepolje">Prijepolje</option>
+                    </select>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Dan / Period</legend>
+                <div class="form-box">
+                    <label for="date">Datum / Početak Perioda</label>
+                    <input type="date" id="date" name="Date" min="2022-12-29">
+                </div>
+                <div class="form-box" id="dateEndContainer">
+                    <label for="dateEnd">Kraj Perioda (opciono)</label>
+                    <input type="date" id="dateEnd" name="dateEnd" min="2022-12-29">
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Sat / Period dana</legend>
+                <div class="form-box">
+                    <label for="time">Sati / Od</label>
+                    <input type="time" id="time" name="Time">
+                </div>
+                <div class="form-box" id="timeEndContainer">
+                    <label for="timeEnd">Kraj Perioda (opciono)</label>
+                    <input type="time" id="timeEnd" name="timeEnd">
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Temperatura</legend>
+                <div class="form-box">
+                    <label for="temperatura">Temperatura (°C)</label>
+                    <input type="number" min="-50" max="50" step="0.1" name="Temperatura(°C)" id="temperatura">
+                </div>
+                <div class="form-box">
+                    <label for="min-temperatura">Minimalna Temperatura (°C)</label>
+                    <input type="number" min="-50" max="50" step="1" name="min-temperatura" id="min-temperatura">
+                </div>
+                <div class="form-box">
+                    <label for="max-temperatura">Maksimalna Temperatura (°C)</label>
+                    <input type="number" min="-50" max="50" step="1" name="max-temperatura" id="max-temperatura">
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Pritisak</legend>
+                <div class="form-box">
+                    <label for="pritisak">Pritisak (hPa)</label>
+                    <input type="number" step="0.1" name="Pritisak(hPa)" id="pritisak">
+                </div>
+                <div class="form-box">
+                    <label for="min-pritisak">Minimalni Pritisak</label>
+                    <input type="number" min="500" max="1500" step="0.1" name="min-pritisak" id="min-pritisak">
+                </div>
+                <div class="form-box">
+                    <label for="max-pritisak">Maksimalni Pritisak</label>
+                    <input type="number" min="500" max="1500" step="0.1" name="max-pritisak" id="max-pritisak">
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Vlažnost</legend>
+                <div class="form-box">
+                    <label for="vlaga">Vlažnost (%)</label>
+                    <input type="number" min="0" max="100" step="1" name="Vlažnost(%)" id="vlaga">
+                </div>
+                <div class="form-box">
+                    <label for="min-vlaga">Minimalna Vlažnost (%)</label>
+                    <input type="number" min="0" max="99" step="1" name="min-vlaga" id="min-vlaga">
+                </div>
+                <div class="form-box">
+                    <label for="max-vlaga">Maksimalna Vlažnost (%)</label>
+                    <input type="number" min="1" max="100" step="1" name="max-vlaga" id="max-vlaga">
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Pravac Vetra</legend>
+                <div class="form-box">
+                    <label for="min-pravac">Pravac vetra - početni ugao (°)</label>
+                    <input type="number" min="0" max="360" step="1" name="min-pravac" id="min-pravac">
+                </div>
+                <div class="form-box">
+                    <label for="max-pravac">Pravac vetra - završni ugao (°)</label>
+                    <input type="number" min="0" max="360" step="1" name="max-pravac" id="max-pravac">
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Brzina Vetra</legend>
+                <div class="form-box">
+                    <label for="brzVetra">Brzina Vetra (m/s)</label>
+                    <input type="number" min="0" max="100" step="0.1" name="Vetarbrzina(m/s)" id="brzVetra">
+                </div>
+                <div class="form-box">
+                    <label for="min-brzina">Minimalna Brzina Vetra (°C)</label>
+                    <input type="number" min="0" max="100" step="0.1" name="min-brzina" id="min-brzina">
+                </div>
+                <div class="form-box">
+                    <label for="max-brzina">Maksimalna Brzina Vetra (°C)</label>
+                    <input type="number" min="0" max="100" step="0.1" name="max-brzina" id="max-brzina">
+                </div>
+            </fieldset>
+            <fieldset class="fieldset-button">
+                <div class="form-box-button">
+                    <button id="btnCancel">Poništi</button>
+                </div>
+                <div class="form-box-button">
+                    <button id="btnSend">Pretraži</button>
+                </div>
+            </fieldset>
+        </form>
+    </main>
+    <script type="module" src="./js/scriptAdditional.js" defer></script>
+</body>
+
+</html>
