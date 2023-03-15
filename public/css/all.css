@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;700;800&display=swap');
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 18px;
+    line-height: 1.6;
+    font-family: "Poppins", sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background-color: rgb(9, 4, 20);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    margin: 1rem auto;
+    width: 50vw;
+    transition: width 0.5s ease;
+}
+
+h2 {
+    color: #f1e3b8;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 2rem 1rem;
+}
+
+.all-container {
+    display: flex;
+    justify-content: stretch;
+    align-items: baseline;
+    width: 100%;
+    height: 3rem;
+}
+
+.box-input {
+    display: flex;
+    flex-direction: row;
+    flex: 75% 1 1;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.25rem;
+    margin-right: 1rem;
+}
+
+.box-input label {
+    flex-basis: 6rem;
+    flex-grow: 0;
+    flex-shrink: 0;
+    height: 2rem;
+    padding-right: 1rem;
+    font-size: 1.25rem;
+    margin-top: auto;
+}
+
+.box-input select {
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+    height: 2rem;
+    font-size: 1rem;
+    color: bisque;
+    background-color: rgb(19, 9, 42);
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.5rem;
+    outline: none;
+}
+
+.box-input select option {
+    font-size: 1rem;
+}
+
+.box-button {
+    display: flex;
+    flex: 25% 1 1;
+    flex-wrap: nowrap;
+    justify-content: center;
+    font-family: inherit;
+    height: 2rem;
+    color: inherit;
+    font-size: 1.25rem;
+    font-weight: 400;
+    background-color: rgb(19, 9, 42);
+    border-radius: 0.5rem;
+    border: 0.5px solid rgba(255, 228, 196, 0.461);
+    padding: 0 auto;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.box-button:hover {
+    color: rgb(9, 4, 20);
+    background-color: rgb(72, 214, 243);
+}

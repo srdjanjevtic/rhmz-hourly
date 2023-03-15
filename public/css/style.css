@@ -6,6 +6,12 @@
     box-sizing: border-box;
 }
 
+:root {
+    --nav-title-font-size: 3rem;
+    --nav-title-font-weight: bold;
+    --nav-link-font-weight: 300;
+}
+
 html {
     font-size: 18px;
     line-height: 1.6;
@@ -19,9 +25,138 @@ body {
     background-color: rgb(9, 4, 20);
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: stretch;
     align-items: center;
 }
+
+/* /////////  HEADER ///////////////// */
+
+ .wrapper {
+     position: fixed;
+     top: 0;
+     left: 0;
+     height: 100%;
+     width: 100%;
+     background: #090414;
+     clip-path: circle(25px at calc(100% - 45px) 45px);
+     transition: all 0.4s cubic-bezier(0.17, 0.2, 0.245, 0.715);
+     z-index: 10;
+ }
+
+ #active:checked~.wrapper {
+     clip-path: circle(75%);
+ }
+
+ .menu-btn {
+     position: absolute;
+     z-index: 15;
+     right: 20px;
+     top: 20px;
+     height: 50px;
+     width: 50px;
+     text-align: center;
+     line-height: 50px;
+     border-radius: 50%;
+     font-size: 1.25rem;
+     color: bisque;
+     cursor: pointer;
+     background: #090414;
+     transition: all 0.3s ease-in-out;
+ }
+
+ #active:checked~.menu-btn {
+     color: bisque;
+ }
+
+ #active:checked~.menu-btn i:before {
+     content: "\f00d";
+ }
+
+ .wrapper ul {
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     list-style: none;
+     text-align: center;
+ }
+
+ .wrapper ul li {
+     margin: 0.25rem 0;
+ }
+
+ .wrapper ul li a {
+     text-decoration: none;
+     font-size: 1.75rem;
+     font-weight: 500;
+     padding: 0.25rem 2rem;
+     color: rgb(72, 214, 243);
+     border-radius: 0.25rem;
+     background: #090414;
+     position: relative;
+     line-height: 3rem;
+     transition: all 0.3s ease;
+ }
+
+ /* .wrapper ul li a:after {
+     position: absolute;
+     content: "";
+     background: rgb(72, 214, 243);
+     width: 104%;
+     height: 110%;
+     left: -2%;
+     top: -5%;
+     border-radius: 0.25rem;
+     transform: scaleY(0);
+     z-index: -1;
+     animation: rotate 1.5s linear infinite;
+     transition: transform 0.3s ease;
+ } */
+
+ .wrapper ul li a:hover:after {
+     transform: scaleY(1.1);
+ }
+
+ .wrapper ul li a:hover {
+     background-color: #010002;
+    color: rgb(128, 227, 247);
+ }
+
+ input[type="checkbox"] {
+     display: none;
+ }
+
+ @keyframes rotate {
+     0% {
+         filter: hue-rotate(20);
+     }
+
+     100% {
+         filter: hue-rotate(120deg);
+     }
+ }
+
+/* ////////////////////////// */
+
+/* ////////////  FOOTER  //////////// */
+footer {
+    height: 2rem ;
+    margin: 0.5rem 8rem;
+    align-self: self-end;
+}
+
+footer p {
+    justify-content: start;
+    font-size: 0.8rem;
+    font-weight: normal;
+}
+
+footer p span {
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+/* ////////////////////////// */
 
 main {
     margin: 1rem auto;
@@ -29,10 +164,16 @@ main {
     transition: width 0.5s ease;
 }
 
-h2 {
+h1 {
     padding: 2rem 1rem;
     font-size: 2rem;
-    font-weight: 800;
+    font-weight: 700;
+}
+
+h2 {
+    padding: 2rem 1rem;
+    font-size: 1,5rem;
+    font-weight: 600;
 }
 
 select, option, datalist, input, label, button {
@@ -49,6 +190,11 @@ input, select {
     outline: none;
 }
 
+input:invalid {
+    background-color: rgb(251, 36, 36);
+    color: #d1cece;
+}
+
 fieldset {
     border-color: bisque;
     border-radius: 1rem;
@@ -57,6 +203,7 @@ fieldset {
 
 fieldset > legend {
     color: bisque;
+    font-size: 0.75rem;
     margin-left: 2rem;
     padding: 0 0.25rem;
     cursor: pointer;
@@ -90,7 +237,6 @@ fieldset > legend {
 
 .form-box input {
     flex-basis: 33%;
-    /* padding: 0 1rem; */
 }
 
 .fieldset-button {
@@ -140,17 +286,29 @@ input[type="date"]::-webkit-calendar-picker-indicator, input[type="time"]::-webk
     cursor: pointer;
     border-radius: 4px;
     margin-right: 2px;
-    opacity: 0.6;
-    filter: invert(0.8);
+    opacity: 0.75;
+    color: rgb(9, 4, 20);
+}
+
+input[type="number"]:focus, input[type="date"]:focus, input[type="time"]:focus, select:focus {
+    background-color: rgb(72, 214, 243);
+    color: rgb(9, 4, 20);
+    font-weight: 700;
 }
 
 @media screen and (max-width: 1080px) {
+
 html {
     font-size: 14px;
 }
+
 main {
     margin: 1rem auto;
     width: 90vw;
+}
+
+#header  .wrapper ul li a {
+    font-size: 1.5rem;
 }
 
 .form-box {
@@ -173,6 +331,10 @@ html {
 main {
     margin: 1rem auto;
     width: 95vw;
+}
+
+#header .wrapper ul li a {
+    font-size: 1.25rem;
 }
 
 .form-box {
@@ -217,7 +379,7 @@ main {
     transition: all 0.5s ease;
 }
 
-#allMainForm .form-box-button button, #allAdditionalForm .form-box-button button{
+#allMainForm .form-box-button button, #allAdditionalForm .form-box-button button {
     flex-basis: 25%;
     transition: all 0.5s ease;
 }
@@ -369,23 +531,27 @@ table tfoot span {
     position: fixed;
     width: 50px;
     height: 50px;
-    bottom: 40px;
-    right: 50px;
+    bottom: 2rem;
+    right: 2rem;
     text-decoration: none;
     background-color: rgb(72, 214, 243);
     outline: 2px solid rgb(231, 239, 240);
-    outline-offset: 3px;
+    opacity: 0.5;
+    outline-offset: 4px;
     border-radius: 50%;
     text-align: center;
     line-height: 50px;
     font-weight: bolder;
     font-size: 2rem;
     transition: all 0.2s ease-in;
+    z-index: 2;
 }
 
 .gotopbtn:hover {
     background-color: rgb(231, 239, 240);
     outline: 2px solid rgb(72, 214, 243);
+    outline-offset: 2px;
+    opacity: 0.75;
     transform: scale(1.05);
 }
 
@@ -437,3 +603,11 @@ table tfoot span {
     }
 
 }
+
+/* ///// START OF  noData page   ///// */
+h2.no-data {
+    font-size: 3rem;
+    font-weight: 200;
+    color: blanchedalmond;
+}
+/* /////  END OF  noData page   ///// */

@@ -13,53 +13,41 @@
 
 <body>
     <div class="result-container">
-        <table class="table" id="additional-table-result">
-            <caption id="pretraga">Rezultati pretrage</caption>
+        <table class="table" id="main-table-result">
+            <caption>Rezultati pretrage</caption>
             <thead>
                 <tr>
                     <th>Dan</th>
-                    <th>Vreme</th>
                     <th>Meteorološka<br />stanica</th>
-                    <th>Temperatura<br /><span>(°C)</span></th>
-                    <th>Pritisak<br /><span>(hPA)</span></th>
-                    <th>Vlažnost<br /><span>(%)</span></th>
-                    <th>Pravac<br />vetra</th>
-                    <th>Brzina<br />vetra<br /><span>(m/s)</span></th>
+                    <th>Padavine</th>
+                    <th>Sliv</th>
+                    <th>Opština</th>
                 </tr>
             </thead>
             <tbody class="search-result">
                 <% result.forEach(item=> { %>
                     <tr class="one-row">
                         <td class="cell" data-label="Dan">
-                            <%= item["Date"].toLocaleDateString("sr-SR") %>
-                        </td>
-                        <td class="cell" data-label="Početak perioda">
-                            <%= item["Time"].slice(0, 2) + ":" + item["Time"].slice(2, 4) %>
+                            <%= item["date"].toLocaleDateString("sr-SR") %>
                         </td>
                         <td class="cell" data-label="Meteorološka stanica">
                             <%= item["Stanica"] %>
                         </td>
-                        <td class="cell" data-label="Temperatura (°C)">
-                            <%= item["Temperatura(°C)"] %>
+                        <td class="cell" data-label="Padavine">
+                            <%= item["Padavine"] %>
                         </td>
-                        <td class="cell" data-label="Pritisak (hPa)">
-                            <%= item["Pritisak(hPa)"] %>
+                        <td class="cell" data-label="Sliv">
+                            <%= item["Sliv"] %>
                         </td>
-                        <td class="cell" data-label="Vlažnost (%)">
-                            <%= item["Vlažnost(%)"] %>
-                        </td>
-                        <td class="cell" data-label="Pravac vetra (°)">
-                            <%= item["Vetarpravac(°)"] %>
-                        </td>
-                        <td class="cell" data-label="Brzina vetra (m/s)">
-                            <%= item["Vetarbrzina(m/s)"] %>
+                        <td class="cell" data-label="Opština">
+                            <%= item["Opština"] %>
                         </td>
                     </tr>
                     <% }) %>
             </tbody>
             <tfoot>
                 <tr>
-                    <th colspan="8">
+                    <th colspan="10">
                         <p>Ukupno <span>
                                 <%= result.length %>
                             </span> dokumenata pronađeno.</p>
@@ -72,26 +60,26 @@
             <button type="submit" id="htmlToCSV">Download as <span>CSV</span></button>
         </div>
     </div>
-        <%- include('./partials/gotopbtn.ejs') %>
+    <%- include('./partials/gotopbtn.ejs') %>
 </body>
 <script>
-    const asExcel = document.getElementById("htmlToExcel")
-    const asCSV = document.getElementById("htmlToCSV")
-    const table = document.getElementById("additional-table-result")
-    asExcel.addEventListener("click", () => TableToExcel.convert(table))
-    asCSV.addEventListener("click", () => (exportTableToCSV(table, "searchResult.csv")))
+const asExcel = document.getElementById("htmlToExcel")
+const asCSV = document.getElementById("htmlToCSV")
+const table = document.getElementById("main-table-result")
+asExcel.addEventListener("click", () => TableToExcel.convert(table))
+asCSV.addEventListener("click", () => (exportTableToCSV(table, "searchResult.csv")))
 
-    function downloadCSV(csv, filename) {
-        const csvFile = new Blob([csv], { type: "text/csv" })
-        const downloadLink = document.createElement("a")
-        downloadLink.download = filename
-        downloadLink.href = window.URL.createObjectURL(csvFile)
-        downloadLink.style.display = "none"
-        document.body.appendChild(downloadLink)
-        downloadLink.click()
-    }
+function downloadCSV(csv, filename) {
+    const csvFile = new Blob([csv], { type: "text/csv" })
+    const downloadLink = document.createElement("a")
+    downloadLink.download = filename
+    downloadLink.href = window.URL.createObjectURL(csvFile)
+    downloadLink.style.display = "none"
+    document.body.appendChild(downloadLink)
+    downloadLink.click()
+}
 
-    function exportTableToCSV(htmlTable, filename) {
+function exportTableToCSV(htmlTable, filename) {
         let csv = []
         let rows = htmlTable.querySelectorAll("tr");
         for (let i = 0; i < rows.length; i++) {
@@ -108,4 +96,5 @@
     }
 
 </script>
+
 </html>

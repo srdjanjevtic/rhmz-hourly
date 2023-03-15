@@ -44,29 +44,6 @@ function toggleEnd(ev) {
     }
 }
 
-function submitForm(ev) {
-    ev.preventDefault()
-    const myForm = ev.target
-    let fd = new FormData(myForm)
-    const jsData = formDataToJSObj(fd)
-    if (jsData["Time"] === "") delete jsData["Time"]
-    if (jsData["timeEnd"] === "") delete jsData["timeEnd"]
-    // console.log(jsData)
-    const searchParams = new URLSearchParams(jsData)
-    const queryString = searchParams.toString()
-    const urlQS = "/getMain?" + queryString
-    window.location.href = urlQS
-}
-
-function resetForm(ev) {
-    ev.preventDefault()
-    const fields = document.querySelectorAll("fieldset")
-    fields.forEach(fieldset => fieldset.style.display = "block")
-    const pretraga = document.getElementById("pretraga")
-    window.scrollTo({ top: pretraga, behavior: "smooth"})
-    myForm.reset()
-}
-
 function formDataToJSObj(formData) {
     const obj = {}
     for (let key of formData.keys()) {
@@ -89,4 +66,4 @@ function formDataToJSObj(formData) {
     return obj
 }
 
-export { closeFieldset, toggleEnd, toggleMainField, toggleSubset, formDataToJSObj, resetForm }
+export { closeFieldset, toggleEnd, toggleMainField, toggleSubset, formDataToJSObj }

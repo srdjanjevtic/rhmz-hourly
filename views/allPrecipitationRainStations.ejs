@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Padavine</title>
+    <link rel="stylesheet" href="css/all.css" />
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+
+<body>
+    <main>
+        <h2 id="pretraga">Padavinske meteorološke stanice</h2>
+        <form id="allPrecipitationRainForm" name="allPrecipitationRainForm">
+            <div class="all-container">
+                <div class="box-input">
+                    <label for="Stanica">Stanica</label>
+                    <select name="Stanica" id="Stanica">
+                        <option value="">Sve stanice</option>
+                        <option value="Aradac">Aradac</option>
+                        <option value="Bačko Gradište">Bačko Gradište</option>
+                        <option value="Bajmok">Bajmok</option>
+                        <option value="Barbatovac">Barbatovac</option>
+                        <option value="Bašaod">Bašaod</option>
+                        <option value="Batajnica">Batajnica</option>
+                        <option value="Beli Potok">Beli Potok</option>
+                        <option value="Belosavci">Belosavci</option>
+                        <option value="Bezdan">Bezdan</option>
+                        <option value="Bjeloperica">Bjeloperica</option>
+                        <option value="Bjeluša">Bjeluša</option>
+                        <option value="Bogatić">Bogatić</option>
+                        <option value="Bogojevce">Bogojevce</option>
+                        <option value="Botunje">Botunje</option>
+                        <option value="Božica">Božica</option>
+                        <option value="Brana Ćelije">Brana Ćelije</option>
+                        <option value="Brenica">Brenica</option>
+                        <option value="Brestovo">Brestovo</option>
+                        <option value="Brežđe">Brežđe</option>
+                        <option value="Brodarevo">Brodarevo</option>
+                        <option value="Crna Bara">Crna Bara</option>
+                        <option value="Crvenka">Crvenka</option>
+                        <option value="Čamurlija">Čamurlija</option>
+                        <option value="Čitluk">Čitluk</option>
+                        <option value="Čortanovci">Čortanovci</option>
+                        <option value="Deronje">Deronje</option>
+                        <option value="Despotovac">Despotovac</option>
+                        <option value="Donja Borina">Donja Borina</option>
+                        <option value="Donja Bresnica">Donja Bresnica</option>
+                        <option value="Donja Ljubata">Donja Ljubata</option>
+                        <option value="Donje Crniljevo">Donje Crniljevo</option>
+                        <option value="Donje Tlamino">Donje Tlamino</option>
+                        <option value="Donji Stupanj">Donji Stupanj</option>
+                        <option value="Duškovci">Duškovci</option>
+                        <option value="Dvorska">Dvorska</option>
+                        <option value="Đunis">Đunis</option>
+                        <option value="Farkaždin">Farkaždin</option>
+                        <option value="Gakovo">Gakovo</option>
+                        <option value="Glogovac">Glogovac</option>
+                        <option value="Glogovica">Glogovica</option>
+                        <option value="Gložane">Gložane</option>
+                        <option value="Godačica">Godačica</option>
+                        <option value="Gokčanica">Gokčanica</option>
+                        <option value="Golemo Selo">Golemo Selo</option>
+                        <option value="Gornja Trešnjica">Gornja Trešnjica</option>
+                        <option value="Gradskovo">Gradskovo</option>
+                        <option value="Gredetin">Gredetin</option>
+                        <option value="Ilandža">Ilandža</option>
+                        <option value="Ilićevo">Ilićevo</option>
+                        <option value="Jagodići">Jagodići</option>
+                        <option value="Jankov Most">Jankov Most</option>
+                        <option value="Jezero">Jezero</option>
+                        <option value="Jošanica">Jošanica</option>
+                        <option value="Joševa">Joševa</option>
+                        <option value="Kaluđerica">Kaluđerica</option>
+                        <option value="Katrga">Katrga</option>
+                        <option value="Klisura">Klisura</option>
+                        <option value="Knić">Knić</option>
+                        <option value="Koštunići">Koštunići</option>
+                        <option value="Kovilj">Kovilj</option>
+                        <option value="Krežbinac">Krežbinac</option>
+                        <option value="Krnjevo">Krnjevo</option>
+                        <option value="Kula">Kula</option>
+                        <option value="Kusadak">Kusadak</option>
+                        <option value="Lešnica">Lešnica</option>
+                        <option value="Lipar">Lipar</option>
+                        <option value="Liplje">Liplje</option>
+                        <option value="Lipnički Šor">Lipnički Šor</option>
+                        <option value="Lipolist">Lipolist</option>
+                        <option value="Lok">Lok</option>
+                        <option value="Ljuba">Ljuba</option>
+                        <option value="Ljubiš">Ljubiš</option>
+                        <option value="Lukavac">Lukavac</option>
+                        <option value="Mačv Prčinović">Mačvanski Prčinović</option>
+                        <option value="Majinović">Majinović</option>
+                        <option value="Mala Krsna">Mala Krsna</option>
+                        <option value="Mali Stapar">Mali Stapar</option>
+                        <option value="Manjinac">Manjinac</option>
+                        <option value="Melaje">Melaje</option>
+                        <option value="Miroč">Miroč</option>
+                        <option value="Mojsinje">Mojsinje</option>
+                        <option value="Mokrin">Mokrin</option>
+                        <option value="Mošorin">Mošorin</option>
+                        <option value="Mozgovo">Mozgovo</option>
+                        <option value="Mrtvica">Mrtvica</option>
+                        <option value="Niševac">Niševac</option>
+                        <option value="Nova Varoš">Nova Varoš</option>
+                        <option value="Osečenica">Osečenica</option>
+                        <option value="Ostojićevo">Ostojićevo</option>
+                        <option value="Pambukovica">Pambukovica</option>
+                        <option value="Papratna G.Kamen">Papratna G.Kamen</option>
+                        <option value="Plavna">Plavna</option>
+                        <option value="Pleš">Pleš</option>
+                        <option value="Podgarac">Podgarac</option>
+                        <option value="Ponorac">Ponorac</option>
+                        <option value="Popovica">Popovica</option>
+                        <option value="Porodin">Porodin</option>
+                        <option value="Prahovo">Prahovo</option>
+                        <option value="Pridvorica">Pridvorica</option>
+                        <option value="Prkosava">Prkosava</option>
+                        <option value="Rača KG">Rača KG</option>
+                        <option value="Rasno">Rasno</option>
+                        <option value="Rastina">Rastina</option>
+                        <option value="Radičevac">Radičevac</option>
+                        <option value="Ravna Dubrava">Ravna Dubrava</option>
+                        <option value="Razbojište">Razbojište</option>
+                        <option value="Reževiće">Reževiće</option>
+                        <option value="Rgotina">Rgotina</option>
+                        <option value="Ribare">Ribare</option>
+                        <option value="Ribarići">Ribarići</option>
+                        <option value="Riđica">Riđica</option>
+                        <option value="Roćevac">Roćevac</option>
+                        <option value="Rsovica">Rsovica</option>
+                        <option value="Rudna Glava">Rudna Glava</option>
+                        <option value="Rujište">Rujište</option>
+                        <option value="Rumenka">Rumenka</option>
+                        <option value="Ruski Krstur">Ruski Krstur</option>
+                        <option value="Sibnica">Sibnica</option>
+                        <option value="Sivac">Sivac</option>
+                        <option value="Skržuti">Skržuti</option>
+                        <option value="Stave">Stave</option>
+                        <option value="Stepanovićevo">Stepanovićevo</option>
+                        <option value="Stepojevac">Stepojevac</option>
+                        <option value="Strmosten">Strmosten</option>
+                        <option value="Stubline">Stubline</option>
+                        <option value="Studenica">Studenica</option>
+                        <option value="Subotica">Subotica</option>
+                        <option value="Svrljig">Svrljig</option>
+                        <option value="Šarbane">Šarbane</option>
+                        <option value="Šarbanovac">Šarbanovac</option>
+                        <option value="Šid">Šid</option>
+                        <option value="Šljivovica">Šljivovica</option>
+                        <option value="Štavica">Štavica</option>
+                        <option value="Temerin">Temerin</option>
+                        <option value="Tijovac">Tijovac</option>
+                        <option value="Toba">Toba</option>
+                        <option value="Trešnjevica">Trešnjevica</option>
+                        <option value="Ub">Ub</option>
+                        <option value="Ušće">Ušće</option>
+                        <option value="Uzdin">Uzdin</option>
+                        <option value="Varna">Varna</option>
+                        <option value="Varvarin">Varvarin</option>
+                        <option value="Velika Grabovnica">Velika Grabovnica</option>
+                        <option value="Velika Plana">Velika Plana</option>
+                        <option value="Vina">Vina</option>
+                        <option value="Vitanovac">Vitanovac</option>
+                        <option value="Vlajkovci">Vlajkovci</option>
+                        <option value="Vlaole">Vlaole</option>
+                        <option value="Vranovina">Vranovina</option>
+                        <option value="Vratarnica">Vratarnica</option>
+                        <option value="Vrčin 2">Vrčin 2</option>
+                        <option value="Zakuta">Zakuta</option>
+                        <option value="Zemun tunel">Zemun tunel</option>
+                        <option value="Zlot">Zlot</option>
+                        <option value="Zminjak">Zminjak</option>
+                    </select>
+                </div>
+                <button class="box-button" id="btnSend">Pretraži</button>
+            </div>
+        </form>
+    </main>
+    <script type="module" src="./js/allPrecipitationRain.js"></script>
+</body>
+
+</html>

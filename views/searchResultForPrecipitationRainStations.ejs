@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search Result</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@linways/table-to-excel@1.0.4/dist/tableToExcel.min.js" defer></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 <body>
     <div class="result-container">
@@ -16,35 +17,44 @@
             <thead>
                 <tr>
                     <th>Dan</th>
-                    <th>Vreme</th>
-                    <th>Meteorološka<br/>stanica</th>
-                    <th>Temperatura<br/><span>(°C)</span></th>
-                    <th>Subjektivni<br/> osećaj<br/>temperature<br/><span>(°C)</span></th>
-                    <th>Pritisak<br/><span>(hPA)</span></th>
-                    <th>Vlažnost<br/><span>(%)</span></th>
-                    <th>Pravac<br/>vetra</th>
-                    <th>Brzina<br/>vetra<br/><span>(m/s)</span></th>
-                    <th>Opis<br/>vremena</th>
+                    <th>Meteorološka<br />stanica</th>
+                    <th>Padavine</th>
+                    <th>Sneg</th>
+                    <th>Sliv</th>
+                    <th>Opština</th>
                 </tr>
             </thead>
-            <tbody class="search-result"><% result.forEach(item => { %>
-                <tr class="one-row">
-                    <td class="cell" data-label="Dan"><%= item["Date"].toLocaleDateString("sr-SR") %></td>
-                    <td class="cell" data-label="Vreme"><%= item["Time"].slice(0, 2) + ":" + item["Time"].slice(2, 4) %></td>
-                    <td class="cell" data-label="Meteorološka stanica"><%= item["Stanica"] %></td>
-                    <td class="cell" data-label="Temperatura (°C)"><%= item["Temperatura(°C)"] %></td>
-                    <td class="cell" data-label="Subjektivno (°C)"><%= item["Subjektivniosećajtemperature(°C)"] %></td>
-                    <td class="cell" data-label="Pritisak (hPa)"><%= item["Pritisak(hPa)"] %></td>
-                    <td class="cell" data-label="Vlažnost (%)"><%= item["Vlažnost(%)"] %></td>
-                    <td class="cell" data-label="Pravac vetra"><%= item["Pravacvetra"] %></td>
-                    <td class="cell" data-label="Brzina vetra (m/s)"><%= item["Brzinavetra(m/s)"] %></td>
-                    <td class="cell" data-label="Opis vremena"><%= item["Opisvremena"] %></td>
-                </tr>
-                <% }) %>
+            <tbody class="search-result">
+                <% result.forEach(item=> { %>
+                    <tr class="one-row">
+                        <td class="cell" data-label="Dan">
+                            <%= item["date"].toLocaleDateString("sr-SR") %>
+                        </td>
+                        <td class="cell" data-label="Meteorološka stanica">
+                            <%= item["Stanica"] %>
+                        </td>
+                        <td class="cell" data-label="Padavine">
+                            <%= item["Padavine"] %>
+                        </td>
+                        <td class="cell" data-label="Sneg">
+                            <%= item["Sneg"] %>
+                        </td>
+                        <td class="cell" data-label="Sliv">
+                            <%= item["Sliv"] %>
+                        </td>
+                        <td class="cell" data-label="Opština">
+                            <%= item["Opština"] %>
+                        </td>
+                    </tr>
+                    <% }) %>
             </tbody>
             <tfoot>
                 <tr>
-                    <th colspan="10"><p>Ukupno  <span><%= result.length %></span>  dokumenata pronađeno.</p></th>
+                    <th colspan="10">
+                        <p>Ukupno <span>
+                                <%= result.length %>
+                            </span> dokumenata pronađeno.</p>
+                    </th>
                 </tr>
             </tfoot>
         </table>
@@ -77,7 +87,7 @@ function exportTableToCSV(htmlTable, filename) {
     let rows = htmlTable.querySelectorAll("tr");
     for (let i = 0; i < rows.length; i++) {
         let row = []
-        let cols = rows[i].querySelectorAll("td, th")          
+        let cols = rows[i].querySelectorAll("td, th")
         for (let j = 0; j < cols.length; j++) {
             let data = cols[j].innerText.replace(/(\r\n|\n|\r)/gm, '').replace(/(\s\s)/gm, ' ')
             data = data.replace(/"/g, '""')
@@ -89,4 +99,5 @@ function exportTableToCSV(htmlTable, filename) {
 }
 
 </script>
+
 </html>

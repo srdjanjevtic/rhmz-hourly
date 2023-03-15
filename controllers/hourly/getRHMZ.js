@@ -9,7 +9,7 @@ const getAllMain = asyncHandler(async (req, res) => {
     }
     const result = await MainStation.find(search).exec()
     if (result.length === 0) {
-        res.send("Nema podataka!")
+        res.status(200).render("noData")
     } else {
         res.status(200).render("searchResultForMainStations", { result })
     }
@@ -22,7 +22,7 @@ const getAllAdditional = asyncHandler(async (req, res) => {
     }
     const result = await AdditionalStation.find(search).exec()
     if (result.length === 0) {
-        res.send("Nema podataka!")
+        res.status(200).render("noData")
     } else {
         res.status(200).render("searchResultForAdditionalStations", { result })
     }
@@ -101,7 +101,7 @@ const getMain = asyncHandler(async (req, res) => {
     }
     const result = await MainStation.find(search).exec()
     if (result.length === 0) {
-        res.send("Nema podataka!")
+        res.status(200).render("noData")
     } else {
         res.status(200).render("searchResultForMainStations", { result })
     }
@@ -164,7 +164,7 @@ const getAdditional = asyncHandler(async (req, res) => {
     }
     let result = await AdditionalStation.find(search).exec()
     if (result.length === 0) {
-        res.send("Nema podataka!")
+        res.status(200).render("noData")
     } else {
         res.status(200).render("searchResultForAdditionalStations", { result })
     }

@@ -6,42 +6,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dopunske meteorološke stanice</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/all.css" />
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 
 <body>
     <main>
         <h2 id="pretraga">Dopunske meteorološke stanice - svi unosi</h2>
         <form id="allAdditionalForm" name="allAdditionalForm">
-            <div class="form-box-button">
-                <div class="form-box">
-                    <select name="Stanica" id="Stanica">
-                        <option value="">Sve stanice</option>
-                        <option value="Stara planina">Stara planina</option>
-                        <option value="Košutnjak">Košutnjak</option>
-                        <option value="Pančevo">Pančevo</option>
-                        <option value="Kukavica">Kukavica</option>
-                        <option value="Ivanjica">Ivanjica</option>
-                        <option value="Čačak">Čačak</option>
-                        <option value="Slatina-Čačak">Slatina-Čačak</option>
-                        <option value="Tamnava">Tamnava</option>
-                        <option value="Baroševac">Baroševac</option>
-                        <option value="Gazivode">Gazivode</option>
-                        <option value="Leposavić">Leposavić</option>
-                        <option value="Kosovska Mitrovica">Kosovska Mitrovica</option>
-                        <option value="Zvečan">Zvečan</option>
-                        <option value="Pirot">Pirot</option>
-                        <option value="Požarevac">Požarevac</option>
-                        <option value="Laznica-Žagubica">Laznica-Žagubica</option>
-                        <option value="Kladovo-Karataš">Kladovo-Karataš</option>
-                        <option value="Bajina Bašta">Bajina Bašta</option>
-                        <option value="Karajukića Bunari">Karajukića Bunari</option>
-                        <option value="Krupanj">Krupanj</option>
-                        <option value="Prijepolje">Prijepolje</option>
-                    </select>
+                <div class="all-container">
+                    <div class="box-input">
+                        <label for="Stanica">Stanica</label>
+                        <select name="Stanica" id="Stanica">
+                            <option value="">Sve stanice</option>
+                            <option value="Stara planina">Stara planina</option>
+                            <option value="Košutnjak">Košutnjak</option>
+                            <option value="Pančevo">Pančevo</option>
+                            <option value="Kukavica">Kukavica</option>
+                            <option value="Ivanjica">Ivanjica</option>
+                            <option value="Čačak">Čačak</option>
+                            <option value="Slatina-Čačak">Slatina-Čačak</option>
+                            <option value="Tamnava">Tamnava</option>
+                            <option value="Baroševac">Baroševac</option>
+                            <option value="Gazivode">Gazivode</option>
+                            <option value="Leposavić">Leposavić</option>
+                            <option value="Kosovska Mitrovica">Kosovska Mitrovica</option>
+                            <option value="Zvečan">Zvečan</option>
+                            <option value="Pirot">Pirot</option>
+                            <option value="Požarevac">Požarevac</option>
+                            <option value="Laznica-Žagubica">Laznica-Žagubica</option>
+                            <option value="Kladovo-Karataš">Kladovo-Karataš</option>
+                            <option value="Bajina Bašta">Bajina Bašta</option>
+                            <option value="Karajukića Bunari">Karajukića Bunari</option>
+                            <option value="Krupanj">Krupanj</option>
+                            <option value="Prijepolje">Prijepolje</option>
+                        </select>
+                    </div>
+                    <button class="box-button" id="btnSend">Pretraži</button>
                 </div>
-                <button id="btnSend">Pretraži</button>
-            </div>
         </form>
     </main>
     <script type="module" src="./js/allAdditional.js"></script>

@@ -194,3 +194,52 @@ Or, if you meant to create an async function, pass `async: true` as an option.
 20230306	23:42:38	71239e00-7f29-41b0-8e71-3bec555ec3c6	ReferenceError: prop is not defined
 20230307	00:00:26	b13b2d22-5d63-4601-8f18-228c7e18d690	TypeError: obj is not iterable
 20230307	17:48:25	7316bb59-5e84-4da0-83a0-9faf656a3831	Error: Failed to lookup view "D:\IMPORTANT\RHMZHourlyScraper\views\allMainStations.ejs" in views directory "D:\IMPORTANT\RHMZHourlyScraper/views"
+20230308	19:27:16	e4fe9758-066d-4c61-a6e1-30e89abe3c2c	Error: D:\IMPORTANT\RHMZHourlyScraper\views\layouts\layout.ejs:11
+    9| </head>
+    10| <body>
+ >> 11|     <%- include('./partials/header.ejs') %>
+    12|     <%- body %>
+    13|     <h2>After</h2>
+    14| </body>
+
+Could not find the include file "./partials/header.ejs"
+20230308	19:27:53	027e2d1f-ed58-429e-9bde-cacd060faa82	Error: D:\IMPORTANT\RHMZHourlyScraper\views\layouts\layout.ejs:11
+    9| </head>
+    10| <body>
+ >> 11|     <%- include('./partials/header.ejs') %>
+    12|     <%- body %>
+    13|     <h2>After</h2>
+    14| </body>
+
+Could not find the include file "./partials/header.ejs"
+20230308	19:27:56	3f428a1e-3fbe-435e-b892-34ccb33e2096	Error: D:\IMPORTANT\RHMZHourlyScraper\views\layouts\layout.ejs:11
+    9| </head>
+    10| <body>
+ >> 11|     <%- include('./partials/header.ejs') %>
+    12|     <%- body %>
+    13|     <h2>After</h2>
+    14| </body>
+
+Could not find the include file "./partials/header.ejs"
+20230308	20:09:59	e1b9215a-261c-465e-b599-4e6255cb6728	TypeError: D:\IMPORTANT\RHMZHourlyScraper\views\searchResultForMainRainStations.ejs:30
+    28|                     <tr class="one-row">
+    29|                         <td class="cell" data-label="Dan">
+ >> 30|                             <%= item["Date"].toLocaleDateString("sr-SR") %>
+    31|                         </td>
+    32|                         <td class="cell" data-label="Meteorološka stanica">
+    33|                             <%= item["Stanica"] %>
+
+Cannot read properties of undefined (reading 'toLocaleDateString')
+20230310	12:22:24	2da40c2c-ebad-47fb-999a-07c9c269f4f6	TypeError: D:\IMPORTANT\RHMZHourlyScraper\views\layouts\layout.ejs:13
+    11|     <%- include('../partials/header.ejs') %>
+    12|     <%- body %>
+ >> 13|     <%- include('../partials/footer.ejs') %>
+    14| </body>
+    15| </html>
+
+D:\IMPORTANT\RHMZHourlyScraper\views\partials\footer.ejs:2
+    1| <footer>
+ >> 2|     <p>&#169; 2010-<%- ( new Date()).getMinute() %> <span>jSDoggies</span></p>
+    3| </footer>
+
+(intermediate value).getMinute is not a function

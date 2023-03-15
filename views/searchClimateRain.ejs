@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pretraga Klimatskih Padavinskih Stanica</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+
+<body>
+    <main>
+        <h2 id="pretraga">Pretraga klimatskih padavinskih stanica</h2>
+        <form id="myMainForm" name="myMainForm">
+            <fieldset>
+                <legend>Padavinska Stanica</legend>
+                <div class="form-box">
+                    <label for="Stanica">Stanica</label>
+                    <select name="Stanica" id="Stanica">
+                        <option value=""></option>
+                        <option value="Blaževo">Blaževo</option>
+                        <option value="Jošanička Banja">Jošanička Banja</option>
+                        <option value="Jagodina">Jagodina</option>
+                        <option value="Veliki Jastrebac-Buci">Veliki Jastrebac</option>
+                        <option value="RC Kruševac">RC Kruševac</option>
+                        <option value="RC Niš">RC Niš</option>
+                        <option value="Sikole">Sikole</option>
+                        <option value="Drenovac">Drenovac</option>
+                        <option value="Knjaževac">Knjaževac</option>
+                        <option value="RC Valjevo">RC Valjevo</option>
+                        <option value="Predajane">Predejane</option>
+                        <option value="Minićevo">Minićevo</option>
+                        <option value="RC Sjenica">RC Sjenica</option>
+                        <option value="RC Kukavica">RC Kukavica</option>
+                        <option value="Sopot">Sopot</option>
+                        <option value="Inđija">Inđija</option>
+                        <option value="RC Užice">RC Užice</option>
+                        <option value="Krupanj">Krupanj</option>
+                        <option value="Kaona">Kaona</option>
+                        <option value="Beograd  Košutnjak">Beograd Košutnjak</option>
+                        <option value="Čumić">Čumić</option>
+                        <option value="Beograd-Senjak">Beograd-Senjak</option>
+                        <option value="RC Bukulja">RC Bukulja</option>
+                        <option value="Bunar">Bunar</option>
+                        <option value="Babušnica">Babušnica</option>
+                        <option value="Vojska">Vojska</option>
+                        <option value="Ratković">Ratković</option>
+                        <option value="Rekovac">Rekovac</option>
+                        <option value="RC Bešnjaja">RC Bešnjaja</option>
+                        <option value="Suvodol">Suvodol</option>
+                        <option value="Crnča">Crnča</option>
+                        <option value="Pirot">Pirot</option>
+                        <option value="RC Petrovac">RC Petrovac</option>
+                        <option value="Stara Planina">Stara Planina</option>
+                    </select>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Dan / Period</legend>
+                <div class="form-box">
+                    <label for="date">Datum / Početak Perioda</label>
+                    <input type="date" id="date" name="date" min="2022-12-29" value="">
+                </div>
+                <div class="form-box" id="dateEndContainer">
+                    <label for="dateEnd">Kraj Perioda (opciono)</label>
+                    <input type="date" id="dateEnd" name="datumEnd" min="2022-12-29">
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Padavine</legend>
+                <div class="form-box">
+                    <label for="padavine">Padavine (mm)</label>
+                    <input type="number" min="0" max="500" step="0.1" name="Padavine" id="padavine">
+                </div>
+                <div class="form-box">
+                    <label for="min-padavine">Minimalna količina padavina (mm)</label>
+                    <input type="number" min="0" max="500" step="0.1" name="min-padavine" id="min-padavine">
+                </div>
+                <div class="form-box">
+                    <label for="max-padavine">Maksimalna količina padavina (mm)</label>
+                    <input type="number" min="0" max="500" step="0.1" name="max-padavine" id="max-padavine">
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Sneg</legend>
+                <div class="form-box">
+                    <label for="sneg">Sneg (cm)</label>
+                    <input type="number" min="0" max="300" step="1" name="Sneg" id="sneg">
+                </div>
+                <div class="form-box">
+                    <label for="min-sneg">Minimalna količina snega (cm)</label>
+                    <input type="number" min="0" max="300" step="1" name="min-sneg" id="min-sneg">
+                </div>
+                <div class="form-box">
+                    <label for="max-sneg">Maksimalna količina snega (cm)</label>
+                    <input type="number" min="0" max="300" step="1" name="max-sneg" id="max-sneg">
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Sliv</legend>
+                <div class="form-box">
+                    <label for="sliv">Sliv</label>
+                    <select name="Sliv" id="sliv">
+                        <option value=""></option>
+                        <option value="Drina">Drina</option>
+                        <option value="Dunav">Dunav</option>
+                        <option value="Ibar">Ibar</option>
+                        <option value="Jadar">Jadar</option>
+                        <option value="Južna Morava">Južna Morava</option>
+                        <option value="Kolubara">Kolubara</option>
+                        <option value="Kubršnica">Kubršnica</option>
+                        <option value="Mlava">Mlava</option>
+                        <option value="Nišava">Nišava</option>
+                        <option value="Sava">Sava</option>
+                        <option value="Timok">Timok</option>
+                        <option value="Toplica">Toplica</option>
+                        <option value="Uvac">Uvac</option>
+                        <option value="Velika Morava">Velika Morava</option>
+                        <option value="Zapadna Morava">Zapadna Morava</option>
+                    </select>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Opština</legend>
+                <div class="form-box">
+                    <label for="opština">Opština</label>
+                    <select name="Opština" id="opština">
+                        <option value=""></option>
+                        <option value="Aranđelovac">Aranđelovac</option>
+                        <option value="Babušnica">Babušnica</option>
+                        <option value="Bački Petrovac">Bački Petrovac</option>
+                        <option value="Beograd Sopot">Beograd Sopot</option>
+                        <option value="Beograd-Čukarica">Beograd-Čukarica</option>
+                        <option value="Beograd-Savski Venac">Beograd-Savski Venac</option>
+                        <option value="Brus">Brus</option>
+                        <option value="Inđija">Inđija</option>
+                        <option value="Jagodina">Jagodina</option>
+                        <option value="Knjaževac">Knjaževac</option>
+                        <option value="Kragujevac">Kragujevac</option>
+                        <option value="Kraljevo">Kraljevo</option>
+                        <option value="Krupanj">Krupanj</option>
+                        <option value="Kruševac">Kruševac</option>
+                        <option value="Leskovac">Leskovac</option>
+                        <option value="Ljubovija">Ljubovija</option>
+                        <option value="Negotin">Negotin</option>
+                        <option value="Niš-Pantelej">Niš-Pantelej</option>
+                        <option value="Paraćin">Paraćin</option>
+                        <option value="Petrovac na Mlavi">Petrovac na Mlavi</option>
+                        <option value="Pirot">Pirot</option>
+                        <option value="Raška">Raška</option>
+                        <option value="Rekovac">Rekovac</option>
+                        <option value="Sjenica">Sjenica</option>
+                        <option value="Smederevo">Smederevo</option>
+                        <option value="Svilajnac">Svilajnac</option>
+                        <option value="Užice">Užice</option>
+                        <option value="Valjevo">Valjevo</option>
+                    </select>
+                </div>
+            </fieldset>
+            <fieldset class="fieldset-button">
+                <div class="form-box-button">
+                    <button id="btnCancel">Poništi</button>
+                </div>
+                <div class="form-box-button">
+                    <button id="btnSend">Pretraži</button>
+                </div>
+            </fieldset>
+        </form>
+    </main>
+    <script type="module" src="./js/scriptClimateRain.js"></script>
+</body>
+
+</html>

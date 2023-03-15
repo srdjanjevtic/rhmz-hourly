@@ -26,10 +26,20 @@ app.use(express.json())
 app.use("/", express.static(path.join(__dirname, "/public")))
 
 app.use("/", require("./routes/root"))
+
 app.use("/allMain", require("./routes/allMainStations"))
 app.use("/allAdditional", require("./routes/allAdditionalStations"))
+
 app.use("/searchMain", require("./routes/searchMain"))
 app.use("/searchAdditional", require("./routes/searchAdditional"))
+
+app.use("/allMainRain", require("./routes/allMainRainStations"))
+app.use("/allClimateRain", require("./routes/allClimateRainStations"))
+app.use("/allPrecipitationRain", require("./routes/allPrecipitationRainStations"))
+
+app.use("/searchMainRain", require("./routes/searchMainRain"))
+app.use("/searchClimateRain", require("./routes/searchClimateRain"))
+app.use("/searchPrecipitationRain", require("./routes/searchPrecipitationRain"))
 
 app.use("/scrapeMain", require("./routes/hourly/scrapeMainRoute"))
 app.use("/scrapeAdditional", require("./routes/hourly/scrapeAdditionalRoute"))
@@ -40,6 +50,12 @@ app.use("/getAllAdditional", searchParamsToTable, require("./routes/hourly/getAl
 app.use("/getMain", searchParamsToTable, require("./routes/hourly/getMainRoute"))
 app.use("/getAdditional", searchParamsToTable, require("./routes/hourly/getAdditionalRoute"))
 
+app.use("/getAllMainRain", searchParamsToTable, require("./routes/rain/getAllMainRainRoute"))
+app.use("/getAllClimateRain", searchParamsToTable, require("./routes/rain/getAllClimateRainRoute"))
+app.use("/getAllPrecipitationRain", searchParamsToTable, require("./routes/rain/getAllPrecipitationRainRoute"))
+app.use("/getMainRain", searchParamsToTable, require("./routes/rain/getMainRainRoute"))
+app.use("/getClimateRain", searchParamsToTable, require("./routes/rain/getClimateRainRoute"))
+app.use("/getPrecipitationRain", searchParamsToTable, require("./routes/rain/getPrecipitationRainRoute"))
 app.use("/scrapeMainRain", require("./routes/rain/scrapeMainRainRoute"))
 app.use("/scrapeClimateRain", require("./routes/rain/scrapeClimateRainRoute"))
 app.use("/scrapePrecipitationRain", require("./routes/rain/scrapePrecipitationRainRoute"))
