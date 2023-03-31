@@ -243,3 +243,168 @@ D:\IMPORTANT\RHMZHourlyScraper\views\partials\footer.ejs:2
     3| </footer>
 
 (intermediate value).getMinute is not a function
+20230315	20:03:26	e2db0708-50cd-45d6-bf43-fb58c8e05eb8	ValidationError: User validation failed: email: Molimo Vas da unesete email adresu.
+20230315	20:05:53	7fcce830-750f-44b8-87e6-071ae3e57740	ValidationError: User validation failed: email: Molimo Vas da unesete email adresu.
+20230315	23:06:25	204a08ab-c431-4c43-8d65-5939820bd9db	ValidationError: User validation failed: email: Molimo Vas da unesete ispravnu email adresu.
+20230315	23:06:54	2827977a-781a-4fbf-8683-8c2ddea7e4f5	ValidationError: User validation failed: email: Molimo Vas da unesete ispravnu email adresu.
+20230315	23:09:02	f328e972-7dc9-403f-891e-1631b53f38c2	ValidationError: User validation failed: username: Path `username` (`js`) is shorter than the minimum allowed length (3).
+20230315	23:31:38	fee2b9ac-3b77-408c-8b36-3ab8ebf7663e	SyntaxError: Unexpected token } in JSON at position 94
+20230315	23:33:49	ae986128-ca20-47c0-a2b1-849bba60aa04	SyntaxError: Unexpected token } in JSON at position 94
+20230316	17:56:09	befa7688-f0ec-4214-bbc8-6b56ae1a7056	SyntaxError: Unexpected token } in JSON at position 94
+20230316	18:06:38	55f913e2-c119-494f-a3ad-138a438bee65	MongoServerError: E11000 duplicate key error collection: rhmzFinally.users index: email_1 dup key: { email: "srkson@farmeri.com" }
+20230320	13:38:55	b29eae2a-eb59-4b67-9c78-164972486854	CastError: Cast to ObjectId failed for value "641245e387b6cf2c9d25f0400" (type string) at path "_id" for model "User"
+20230320	13:55:13	8ef3e237-e3e5-4385-9753-bc42e74e7477	SyntaxError: Unexpected token } in JSON at position 134
+20230320	13:58:48	3c75c5ca-1a3b-4f2a-9a22-4bcb29b6598c	SyntaxError: Unexpected token } in JSON at position 134
+20230320	14:00:28	d064eb0c-3d00-4003-bf2f-0821ed30f596	SyntaxError: Unexpected token } in JSON at position 136
+20230320	18:15:45	bfb79c90-3d97-4be0-95cd-0a1fbc182b21	SyntaxError: Unexpected token D in JSON at position 112
+20230320	18:16:09	64f30fe2-2a8f-46d7-a42c-89a8b9027447	SyntaxError: Unexpected token } in JSON at position 79
+20230320	18:16:34	34a74b73-93ed-45eb-86b3-e8267f96cb82	SyntaxError: Unexpected token } in JSON at position 79
+20230320	18:17:03	f27201c0-943a-41d6-b443-eb942b4f1709	SyntaxError: Unexpected token } in JSON at position 79
+20230320	18:17:07	3a51d380-99c5-455c-aee8-af5d73b58d04	SyntaxError: Unexpected token } in JSON at position 79
+20230320	18:18:56	e88b3c74-e0d2-44e7-a0e6-188485d94bb9	SyntaxError: Unexpected token } in JSON at position 83
+20230321	18:42:29	740543eb-fc63-4df6-a9b6-c4ff5313221c	Error: Failed to lookup view "D:\IMPORTANT\RHMZHourlyScraper\views\register.ejs" in views directory "D:\IMPORTANT\RHMZHourlyScraper/views"
+20230321	18:43:08	6c187732-5831-40ba-9a55-352f5d1c7a28	Error: Cannot find module 'html'
+Require stack:
+- D:\IMPORTANT\RHMZHourlyScraper\node_modules\express\lib\view.js
+- D:\IMPORTANT\RHMZHourlyScraper\node_modules\express\lib\application.js
+- D:\IMPORTANT\RHMZHourlyScraper\node_modules\express\lib\express.js
+- D:\IMPORTANT\RHMZHourlyScraper\node_modules\express\index.js
+- D:\IMPORTANT\RHMZHourlyScraper\server.js
+20230321	18:44:22	0bb871fe-8db1-405a-b197-385662c65b5e	Error: Cannot find module 'html'
+Require stack:
+- D:\IMPORTANT\RHMZHourlyScraper\node_modules\express\lib\view.js
+- D:\IMPORTANT\RHMZHourlyScraper\node_modules\express\lib\application.js
+- D:\IMPORTANT\RHMZHourlyScraper\node_modules\express\lib\express.js
+- D:\IMPORTANT\RHMZHourlyScraper\node_modules\express\index.js
+- D:\IMPORTANT\RHMZHourlyScraper\server.js
+20230321	18:45:15	2bdf88b9-0154-48d5-b002-e51c7ef40d1e	Error: Cannot find module 'html'
+Require stack:
+- D:\IMPORTANT\RHMZHourlyScraper\node_modules\express\lib\view.js
+- D:\IMPORTANT\RHMZHourlyScraper\node_modules\express\lib\application.js
+- D:\IMPORTANT\RHMZHourlyScraper\node_modules\express\lib\express.js
+- D:\IMPORTANT\RHMZHourlyScraper\node_modules\express\index.js
+- D:\IMPORTANT\RHMZHourlyScraper\server.js
+20230321	19:40:05	08acc123-a9d8-45b7-93fd-e72f0ac4a520	Error: ENOENT: no such file or directory, stat 'D:\IMPORTANT\RHMZHourlyScraper\routes\register.html'
+20230321	19:40:38	b25bfc9f-6ce4-4613-80ba-09d20716a2c6	Error: ENOENT: no such file or directory, stat 'D:\IMPORTANT\RHMZHourlyScraper\register.html'
+20230321	20:24:24	3d1bb6b7-d882-46f4-8800-d195a345dee6	Error: Failed to lookup view "root" in views directory "D:\IMPORTANT\RHMZHourlyScraper/views"
+20230321	20:26:08	bc526231-b3ea-4d6b-be2c-cd74a1f49932	Error: Failed to lookup view "root" in views directory "D:\IMPORTANT\RHMZHourlyScraper/views"
+20230321	21:59:09	de5c1bd4-5057-4dd8-b829-f353ef2990fc	TypeError: The argument 'id' must be a non-empty string. Received ''
+20230321	22:11:52	887d0677-0dcc-4da6-bc8b-ab28e9485afd	MongoServerError: E11000 duplicate key error collection: rhmzFinally.users index: email_1 dup key: { email: "melinda@gmail.com" }
+20230321	22:43:58	dbd8ec0d-0b1e-4f1f-84eb-a8f2b3c2d819	MongoServerError: E11000 duplicate key error collection: rhmzFinally.users index: email_1 dup key: { email: "koki@gmail.com" }
+20230321	22:47:05	02e402e3-a80a-489c-925e-5993d352b200	MongoServerError: E11000 duplicate key error collection: rhmzFinally.users index: email_1 dup key: { email: "svirko@gmail.com" }
+20230321	22:54:11	d92e5b99-41c3-4690-bd10-969495bc42ec	MongoServerError: E11000 duplicate key error collection: rhmzFinally.users index: email_1 dup key: { email: "cvetko@gmail.com" }
+20230321	22:57:45	c5a794e2-f772-4dcb-912c-dad6453b4b9b	ReferenceError: D:\IMPORTANT\RHMZHourlyScraper\views\index.ejs:17
+    15| <body>
+    16|     <main>
+ >> 17|         <h1>Dobrodošli <span><%= username %></span>!</h1>
+    18|         <h2>Podaci za Glavne i Dopunske meteorološke stanice su dostupni za period počevši od 07.01.2023, dok su podaci za Padavinske stanice počeli da se ubacuju u bazu podataka 20.01.2023</h2>
+    19|         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, iure? Est quae nam dolor voluptatum expedita blanditiis doloribus odit soluta quas hic! Voluptatum quasi cumque soluta placeat assumenda officia est autem ipsa nulla fugiat in debitis inventore nobis delectus nesciunt incidunt minus quibusdam, iusto et quas accusamus voluptas veritatis quae. Eum in porro qui id expedita, eos quas iusto. Accusamus assumenda nesciunt nostrum, dolorem reiciendis dicta omnis ipsum maxime dolores harum labore, dignissimos unde illum quo placeat nam inventore fuga possimus doloremque, laborum quas! Commodi dignissimos laborum nostrum adipisci praesentium fuga vero non libero molestias? Reprehenderit itaque nisi delectus repellendus?</p>
+    20|     </main>
+
+username is not defined
+20230321	22:59:54	cf6a1eb7-12e8-44b9-aacf-a5d75ca67242	MongoServerError: E11000 duplicate key error collection: rhmzFinally.users index: email_1 dup key: { email: "solomon@gmail.com" }
+20230321	23:01:29	a35df4f7-f24e-451d-9548-21c852d4e468	MongoServerError: E11000 duplicate key error collection: rhmzFinally.users index: email_1 dup key: { email: "lineker@gmail.com" }
+20230321	23:01:45	4e188d4b-ff40-4aca-8387-3b58efd3ef35	ReferenceError: D:\IMPORTANT\RHMZHourlyScraper\views\index.ejs:17
+    15| <body>
+    16|     <main>
+ >> 17|         <h1>Dobrodošli <span><%= username %></span>!</h1>
+    18|         <h2>Podaci za Glavne i Dopunske meteorološke stanice su dostupni za period počevši od 07.01.2023, dok su podaci za Padavinske stanice počeli da se ubacuju u bazu podataka 20.01.2023</h2>
+    19|         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, iure? Est quae nam dolor voluptatum expedita blanditiis doloribus odit soluta quas hic! Voluptatum quasi cumque soluta placeat assumenda officia est autem ipsa nulla fugiat in debitis inventore nobis delectus nesciunt incidunt minus quibusdam, iusto et quas accusamus voluptas veritatis quae. Eum in porro qui id expedita, eos quas iusto. Accusamus assumenda nesciunt nostrum, dolorem reiciendis dicta omnis ipsum maxime dolores harum labore, dignissimos unde illum quo placeat nam inventore fuga possimus doloremque, laborum quas! Commodi dignissimos laborum nostrum adipisci praesentium fuga vero non libero molestias? Reprehenderit itaque nisi delectus repellendus?</p>
+    20|     </main>
+
+username is not defined
+20230321	23:02:20	15c41048-be08-4fdb-a97d-9c1afac01d43	MongoServerError: E11000 duplicate key error collection: rhmzFinally.users index: email_1 dup key: { email: "kolinda@gmail.com" }
+20230322	13:56:20	0123328f-8bbf-47c5-aea5-7bd251b6cd70	ReferenceError: D:\IMPORTANT\RHMZHourlyScraper\views\index.ejs:17
+    15| <body>
+    16|     <main>
+ >> 17|         <h1>Dobrodošli <span><%= username %></span>!</h1>
+    18|         <h2>Podaci za Glavne i Dopunske meteorološke stanice su dostupni za period počevši od 07.01.2023, dok su podaci za Padavinske stanice počeli da se ubacuju u bazu podataka 20.01.2023</h2>
+    19|         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, iure? Est quae nam dolor voluptatum expedita blanditiis doloribus odit soluta quas hic! Voluptatum quasi cumque soluta placeat assumenda officia est autem ipsa nulla fugiat in debitis inventore nobis delectus nesciunt incidunt minus quibusdam, iusto et quas accusamus voluptas veritatis quae. Eum in porro qui id expedita, eos quas iusto. Accusamus assumenda nesciunt nostrum, dolorem reiciendis dicta omnis ipsum maxime dolores harum labore, dignissimos unde illum quo placeat nam inventore fuga possimus doloremque, laborum quas! Commodi dignissimos laborum nostrum adipisci praesentium fuga vero non libero molestias? Reprehenderit itaque nisi delectus repellendus?</p>
+    20|     </main>
+
+username is not defined
+20230322	14:01:07	ec27e054-e9ea-4623-b486-e637e9466ec7	MongoServerError: E11000 duplicate key error collection: rhmzFinally.users index: email_1 dup key: { email: "riki@gmail.com" }
+20230322	14:04:11	9abc06e1-6a6d-481d-bd35-1a51530797ac	Error: Could not find matching close tag for "<%".
+20230322	14:04:11	f5e5add7-8832-4382-bca7-623e4978350c	MongoServerError: E11000 duplicate key error collection: rhmzFinally.users index: email_1 dup key: { email: "liki@gmail.com" }
+20230322	14:05:37	8859c6d2-4343-4d82-8f38-a219433d3a61	Error: Could not find matching close tag for "<%".
+20230322	14:05:37	d14f5ef0-8399-475e-bf66-1437b5a6f498	MongoServerError: E11000 duplicate key error collection: rhmzFinally.users index: email_1 dup key: { email: "renato@gmail.com" }
+20230322	14:06:22	cdc014d8-1255-4ff4-8d07-08731b1f69e4	Error: Could not find matching close tag for "<%".
+20230322	14:07:15	6f448179-1432-47ab-bafa-7c08993d8a61	ReferenceError: D:\IMPORTANT\RHMZHourlyScraper\views\index.ejs:17
+    15| <body>
+    16|     <main>
+ >> 17|         <h1>Dobrodošli <% if(username){ %><span><%= username %></span><% } %>!</h1>
+    18| 
+    19|         <h2>Podaci za Glavne i Dopunske meteorološke stanice su dostupni za period počevši od 07.01.2023, dok su podaci za Padavinske stanice počeli da se ubacuju u bazu podataka 20.01.2023</h2>
+    20|         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, iure? Est quae nam dolor voluptatum expedita blanditiis doloribus odit soluta quas hic! Voluptatum quasi cumque soluta placeat assumenda officia est autem ipsa nulla fugiat in debitis inventore nobis delectus nesciunt incidunt minus quibusdam, iusto et quas accusamus voluptas veritatis quae. Eum in porro qui id expedita, eos quas iusto. Accusamus assumenda nesciunt nostrum, dolorem reiciendis dicta omnis ipsum maxime dolores harum labore, dignissimos unde illum quo placeat nam inventore fuga possimus doloremque, laborum quas! Commodi dignissimos laborum nostrum adipisci praesentium fuga vero non libero molestias? Reprehenderit itaque nisi delectus repellendus?</p>
+
+username is not defined
+20230322	14:08:40	662935b1-0052-4f0c-8d41-38bd3da87e5c	MongoServerError: E11000 duplicate key error collection: rhmzFinally.users index: email_1 dup key: { email: "belka@gmail.com" }
+20230322	14:09:06	2e2efa77-ba58-4d2b-9efc-68b0b8ff1861	ReferenceError: D:\IMPORTANT\RHMZHourlyScraper\views\index.ejs:17
+    15| <body>
+    16|     <main>
+ >> 17|         <h1>Dobrodošli <% if(username){ %><span><%= username %></span><% } %>!</h1>
+    18| 
+    19|         <h2>Podaci za Glavne i Dopunske meteorološke stanice su dostupni za period počevši od 07.01.2023, dok su podaci za Padavinske stanice počeli da se ubacuju u bazu podataka 20.01.2023</h2>
+    20|         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, iure? Est quae nam dolor voluptatum expedita blanditiis doloribus odit soluta quas hic! Voluptatum quasi cumque soluta placeat assumenda officia est autem ipsa nulla fugiat in debitis inventore nobis delectus nesciunt incidunt minus quibusdam, iusto et quas accusamus voluptas veritatis quae. Eum in porro qui id expedita, eos quas iusto. Accusamus assumenda nesciunt nostrum, dolorem reiciendis dicta omnis ipsum maxime dolores harum labore, dignissimos unde illum quo placeat nam inventore fuga possimus doloremque, laborum quas! Commodi dignissimos laborum nostrum adipisci praesentium fuga vero non libero molestias? Reprehenderit itaque nisi delectus repellendus?</p>
+
+username is not defined
+20230322	14:15:33	b384ac24-8eef-4cc5-81f9-7d44fbe60eec	MongoServerError: E11000 duplicate key error collection: rhmzFinally.users index: email_1 dup key: { email: "sara@gmail.com" }
+20230322	14:16:18	24e9fc52-514d-48f5-9bd9-77662afdcbe3	MongoServerError: E11000 duplicate key error collection: rhmzFinally.users index: email_1 dup key: { email: "dedica@gmail.com" }
+20230322	14:17:45	5ef09890-3c22-4e4a-a97f-cd2999e70e64	MongoServerError: E11000 duplicate key error collection: rhmzFinally.users index: email_1 dup key: { email: "zlata@gmail.com" }
+20230322	14:19:55	93677c3f-899c-42b2-9836-c596c53ce6f4	ReferenceError: D:\IMPORTANT\RHMZHourlyScraper\views\index.ejs:18
+    16|     <main>
+    17|         <h1>Dobrodošli!</h1>
+ >> 18|         <!-- <% if(username){ %><span><%= username %></span><% } %> -->
+    19|         <h2>Podaci za Glavne i Dopunske meteorološke stanice su dostupni za period počevši od 07.01.2023, dok su podaci za Padavinske stanice počeli da se ubacuju u bazu podataka 20.01.2023</h2>
+    20|         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, iure? Est quae nam dolor voluptatum expedita blanditiis doloribus odit soluta quas hic! Voluptatum quasi cumque soluta placeat assumenda officia est autem ipsa nulla fugiat in debitis inventore nobis delectus nesciunt incidunt minus quibusdam, iusto et quas accusamus voluptas veritatis quae. Eum in porro qui id expedita, eos quas iusto. Accusamus assumenda nesciunt nostrum, dolorem reiciendis dicta omnis ipsum maxime dolores harum labore, dignissimos unde illum quo placeat nam inventore fuga possimus doloremque, laborum quas! Commodi dignissimos laborum nostrum adipisci praesentium fuga vero non libero molestias? Reprehenderit itaque nisi delectus repellendus?</p>
+    21|     </main>
+
+username is not defined
+20230322	14:22:22	74146d2f-3e99-4f38-90bb-a908f174d0e4	MongoServerError: E11000 duplicate key error collection: rhmzFinally.users index: email_1 dup key: { email: "dzesika@gmail.com" }
+20230322	14:23:07	b63d43b5-1728-4f2f-bfe0-0709c9d444c9	MongoServerError: E11000 duplicate key error collection: rhmzFinally.users index: email_1 dup key: { email: "tuta@gmail.com" }
+20230322	14:23:44	ce2f27aa-93cc-48d1-89d4-b76a4215a29d	MongoServerError: E11000 duplicate key error collection: rhmzFinally.users index: email_1 dup key: { email: "caki@gmail.com" }
+20230322	14:25:28	129b2f50-d723-4f60-adcf-5cffe52c8a52	MongoServerError: E11000 duplicate key error collection: rhmzFinally.users index: email_1 dup key: { email: "zeka@gmail.com" }
+20230322	14:26:59	4957184d-4a84-4526-8aef-6477e4860a83	MongoServerError: E11000 duplicate key error collection: rhmzFinally.users index: email_1 dup key: { email: "dropi@gmail.com" }
+20230322	14:29:31	1ac6d539-2382-4968-b0bf-20401156922d	MongoServerError: E11000 duplicate key error collection: rhmzFinally.users index: email_1 dup key: { email: "jeca@gmail.com" }
+20230323	17:25:16	e0537148-4b01-4ea7-9333-763494ffde92	Error: Could not find matching close tag for "<%".
+20230323	17:29:15	52927f5b-91bf-407e-890a-05f13cb795d1	Error: Could not find matching close tag for "<%".
+20230323	17:29:47	e30dd91b-1e0b-49fd-be37-5ee78efbedea	Error: Could not find matching close tag for "<%".
+20230323	17:36:54	ff73d97b-b2a3-48d2-aa6a-c0c51fd50cd1	Error: Could not find matching close tag for "<%".
+20230323	19:41:14	8cf0ea66-beca-494e-bc6e-d1c3571d0a70	ReferenceError: D:\IMPORTANT\RHMZHourlyScraper\views\searchResultForMainStations.ejs:127
+    125| 
+    126|   function labelsArrayFunc () {
+ >> 127|     const res = typeof JSON.parse(JSON.stringify(`<%= dates %>`))
+    128|     console.log(res)
+    129|     // res.forEach(row => {
+    130|     //     labels.push(row["Date"].toLocaleDateString("sr-SR").slice(0, 5))
+
+dates is not defined
+20230323	19:45:31	513be0e7-2257-4a50-a238-51005e5d7a5f	ReferenceError: dates is not defined
+20230323	21:36:41	31cf1a57-2038-4107-9aa7-ec9410e683e5	ReferenceError: D:\IMPORTANT\RHMZHourlyScraper\views\searchResultForMainStations.ejs:118
+    116|     const popupWindow = window.open("chart.html", "chart", params);
+    117|     console.log("Posiljalac:", `<%= tempArr[0] %>`);
+ >> 118|     const table1 = JSON.stringify(`<%= dateTimeArrzy %>`);
+    119|     const data1 = JSON.parse(table1);
+    120|     const table2 = JSON.stringify(`<%= tempArr %>`);
+    121|     const data2 = JSON.parse(table2);
+
+dateTimeArrzy is not defined
+20230323	21:47:29	46e2f4ca-2b88-4be2-b895-521fc6b302a3	ReferenceError: dateTimeArr is not defined
+20230329	18:21:44	fa8056a0-873d-40a8-ba57-cf3d4cd503d9	ReferenceError: D:\IMPORTANT\RHMZHourlyScraper\views\searchResultForMainRainStations.ejs:121
+    119|     }
+    120|     const data1 = JSON.parse(JSON.stringify(`<%= dateArray %>`));
+ >> 121|     const data2 = JSON.parse(JSON.stringify(`<%= padavineArr %>`));
+    122|     setTimeout(() => {
+    123|         popupWindow.postMessage({ station: `<%= result[0].Stanica %>`, labels: data1, padavine: data2 }, "*");
+    124|     }, 1000)
+
+padavineArr is not defined
+20230330	16:57:57	29edfd3d-b9ba-4fc0-8275-c8834be448d0	ReferenceError: D:\IMPORTANT\RHMZHourlyScraper\views\searchResultForMainRainStations.ejs:120
+    118|         popupWindow.resizeTo(screen.availWidth, screen.availHeight);
+    119|     }
+ >> 120|     const data1 = JSON.parse(JSON.stringify(`<%= dateArray %>`));
+    121|     const data2 = JSON.parse(JSON.stringify(`<%= padavineArray %>`));
+    122|     setTimeout(() => {
+    123|         popupWindow.postMessage({ station: `<%= result[0].Stanica %>`, labels: data1, padavine: data2 }, "*");
+
+dateArray is not defined

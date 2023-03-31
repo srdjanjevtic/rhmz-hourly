@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chart</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js"></script>
+    <style>
+        body {
+            background-color: #112;
+            width: 100%;
+        }
+        .header-container, .data-container {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+            justify-content: flex-start;
+            align-items: start;
+            line-height: normal;        
+            z-index: 10;
+        }
+        .rain {
+            top: 2%;
+            left: 33%;
+        }
+        .data-container {
+            top: 25%;
+            left: 25%;
+        }
+        .data-container > * {
+            display: block;
+            transition: all 0.5s ease-in-out;
+            font-size: 1rem;
+            opacity: 0.1;
+            text-align: left;
+        }
+        .header-container .station-header {
+            display: block;
+            transition: all 0.5s ease-in-out;
+            z-index: 10;
+            font-size: 6rem;
+            opacity: 0.2;
+            text-align: left;
+        }
+
+        .data-container > *:hover, .header-container .station-header:hover {
+            opacity: 0.6;
+            cursor: none;
+        }
+
+        .canvas-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        canvas {
+            aspect-ratio: 1.618;
+            object-fit: contain;
+            z-index: 1;
+        }
+
+        #myChart2 {
+            display: block;
+        }
+
+        @media screen and (max-width: 1500px) {
+            /* .canvas-container {
+                flex-basis: 100%;
+                margin-left: 5rem;
+            } */
+
+            /* .header-container {
+                position: absolute;
+                top: 90%;
+                left: -8%;
+                -webkit-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+                -webkit-transform: rotate(-90deg);
+                transform: rotate(-90deg);
+            } */
+
+            .header-container .station-header {
+                font-size: 5rem;
+                z-index: -10;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header-container rain">
+        <h1 class="station-header"></h1>
+    </div>
+    <div class="data-container">
+        <h3 id="sum-precipitation"></h3>
+        <h3 id="average-precipitation"></h3>
+        <h3 id="max-precipitation"></h3>
+        <h3 id="sum-snow-h3"></h3>
+        <h3 id="average-snow-h3"></h3>
+        <h3 id="max-snow-h3"></h3>
+    </div>
+    <div class="canvas-container">
+        <canvas id="myChart1"></canvas>
+        <canvas id="myChart2"></canvas>
+    </div>
+
+    <script src="./js/functions/chart2.js"></script>
+</body>
+
+</html>

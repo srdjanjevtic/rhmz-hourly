@@ -53,10 +53,18 @@ const getPrecipitationRain = asyncHandler(async (req, res) => {
         return
     }
     const result = await PrecipitationRainStation.find(search).exec()
+    const dateArray = []
+    let padavineArray = []
+    let snegArray = []
+    result.forEach(row => {
+        dateArray.push(row["date"].toLocaleDateString("sr-SR"))
+        padavineArray.push(row["Padavine"])
+        snegArray.push(row["Sneg"])
+    })
     if (result.length === 0) {
         res.status(200).render("noData")
     } else {
-        res.status(200).render("searchResultForPrecipitationRainStations", { result })
+        res.status(200).render("searchResultForPrecipitationRainStations", { result, dateArray, padavineArray, snegArray  })
     }
 })
 

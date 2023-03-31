@@ -24,7 +24,7 @@
                     <th>Opština</th>
                 </tr>
             </thead>
-            <tbody class="search-result">
+            <tbody class="search-result"> 
                 <% result.forEach(item=> { %>
                     <tr class="one-row">
                         <td class="cell" data-label="Dan">
@@ -58,6 +58,7 @@
         <div class="btn-wrapper">
             <button id="htmlToExcel">Download as <span>Excel</span></button>
             <button type="submit" id="htmlToCSV">Download as <span>CSV</span></button>
+            <button id="btnChart">Create a <span>Chart</span></button>
         </div>
     </div>
     <%- include('./partials/gotopbtn.ejs') %>
@@ -95,6 +96,33 @@ function exportTableToCSV(htmlTable, filename) {
         downloadCSV(csv.join("\n"), filename)
     }
 
+document.addEventListener("DOMContentLoaded", init)
+function init() {
+    const btnChart = document.getElementById("btnChart")
+    btnChart.addEventListener("click", popup)
+}
+window.addEventListener("message", (event) => {
+    if (event.data?.foo) {
+        response.innerText = event.data.labels;
+    }
+    if (event.data?.msg) {
+        response.innerText = event.data.msg;
+    }
+});
+
+function popup() {
+    const params = `about=blank, blank=yes, scrollbars=no, resizable=no, status=no, location=no, toolbar=no, menubar=no, width=1000, height=800`;
+    const popupWindow = window.open("chart2.html", "chart", "fullscreen");
+    if (popupWindow.outerWidth < screen.availWidth || popup.outerHeight < screen.availHeight) {
+        popupWindow.moveTo(0, 0);
+        popupWindow.resizeTo(screen.availWidth, screen.availHeight);
+    }
+    const data1 = JSON.parse(JSON.stringify(`<%= dateArray %>`));
+    const data2 = JSON.parse(JSON.stringify(`<%= padavineArray %>`));
+    setTimeout(() => {
+        popupWindow.postMessage({ station: `<%= result[0].Stanica %>`, labels: data1, padavine: data2 }, "*");
+    }, 1000)
+}
 </script>
 
 </html>

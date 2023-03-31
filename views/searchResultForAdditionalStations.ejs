@@ -70,28 +70,29 @@
         <div class="btn-wrapper">
             <button id="htmlToExcel">Download as <span>Excel</span></button>
             <button type="submit" id="htmlToCSV">Download as <span>CSV</span></button>
+            <button id="btnChart">Create a <span>Chart</span></button>
         </div>
     </div>
         <%- include('./partials/gotopbtn.ejs') %>
 </body>
 <script>
-    const asExcel = document.getElementById("htmlToExcel")
-    const asCSV = document.getElementById("htmlToCSV")
-    const table = document.getElementById("additional-table-result")
-    asExcel.addEventListener("click", () => TableToExcel.convert(table))
-    asCSV.addEventListener("click", () => (exportTableToCSV(table, "searchResult.csv")))
+const asExcel = document.getElementById("htmlToExcel")
+const asCSV = document.getElementById("htmlToCSV")
+const table = document.getElementById("additional-table-result")
+asExcel.addEventListener("click", () => TableToExcel.convert(table))
+asCSV.addEventListener("click", () => (exportTableToCSV(table, "searchResult.csv")))
 
-    function downloadCSV(csv, filename) {
-        const csvFile = new Blob([csv], { type: "text/csv" })
-        const downloadLink = document.createElement("a")
-        downloadLink.download = filename
-        downloadLink.href = window.URL.createObjectURL(csvFile)
-        downloadLink.style.display = "none"
-        document.body.appendChild(downloadLink)
-        downloadLink.click()
-    }
+function downloadCSV(csv, filename) {
+    const csvFile = new Blob([csv], { type: "text/csv" })
+    const downloadLink = document.createElement("a")
+    downloadLink.download = filename
+    downloadLink.href = window.URL.createObjectURL(csvFile)
+    downloadLink.style.display = "none"
+    document.body.appendChild(downloadLink)
+    downloadLink.click()
+}
 
-    function exportTableToCSV(htmlTable, filename) {
+function exportTableToCSV(htmlTable, filename) {
         let csv = []
         let rows = htmlTable.querySelectorAll("tr");
         for (let i = 0; i < rows.length; i++) {
@@ -107,5 +108,57 @@
         downloadCSV(csv.join("\n"), filename)
     }
 
+/////////////////////////
+document.addEventListener("DOMContentLoaded", init)
+function init() {
+    const labels = []
+    const btnChart = document.getElementById("btnChart")
+    btnChart.addEventListener("click", popup)
+    const response = document.getElementById("response")
+    response.addEventListener("click", labelsArrayFunc)
+}
+window.addEventListener("message", (event) => {
+    if (event.data?.foo) {
+        response.innerText = event.data.labels;
+    }
+    if (event.data?.msg) {
+        response.innerText = event.data.msg;
+    }
+});
+
+function popup() {
+    const params = `about=blank, blank=yes, scrollbars=no, resizable=no, status=no, location=no, toolbar=no, menubar=no, width=1000, height=800`;
+    const popupWindow = window.open("chart.html", "chart", "fullscreen");
+    if (popupWindow.outerWidth < screen.availWidth || popup.outerHeight < screen.availHeight) {
+        popupWindow.moveTo(0, 0);
+        popupWindow.resizeTo(screen.availWidth, screen.availHeight);
+    }
+    const table0 = JSON.stringify(`<%= result[0].Stanica %>`);
+    const station = JSON.parse(table0);
+    const table1 = JSON.stringify(`<%= dateTimeArray %>`);
+    const data1 = JSON.parse(table1);
+    const table2 = JSON.stringify(`<%= tempArr %>`);
+    const data2 = JSON.parse(table2);
+    const table3 = JSON.stringify(`<%= vetarPravacArr %>`);
+    const data3 = JSON.parse(table3);
+    const table4 = JSON.stringify(`<%= vlagaArr %>`);
+    const data4 = JSON.parse(table4);
+    const table5 = JSON.stringify(`<%= pritArr %>`);
+    const data5 = JSON.parse(table5);
+    const table6 = JSON.stringify(`<%= vetarArr %>`);
+    const data6 = JSON.parse(table6);
+    setTimeout(() => {
+        popupWindow.postMessage({ station: `<%= result[0].Stanica %>`, day: `<%= result[0].Date.toLocaleDateString("sr-SR") %>`, labels: data1, temp: data2, pVetra: data3, hum: data4, prit: data5, bVetra: data6 }, "*");
+    }, 1000)
+}
+
+
+function labelsArrayFunc() {
+    const res = JSON.parse(JSON.stringify(`<%= tempArr %>`))
+    console.log(res)
+    // res.forEach(row => {
+    //     labels.push(row["Date"].toLocaleDateString("sr-SR").slice(0, 5))
+    // })
+}
 </script>
 </html>

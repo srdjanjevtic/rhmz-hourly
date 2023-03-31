@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+    <link rel="stylesheet" href="./css/auth.css">
+</head>
+
+<body>
+    <h1>Registracija naloga</h1>
+    <main class="form-container">
+        <!--
+        Form elements' attributes
+        id
+        name
+        type
+        value
+        checked
+        selected
+        inputmode
+        enterkeyhint
+        autocomplete
+        placeholder
+        required
+        readonly
+        disabled
+        min
+        max
+        step
+        minlength
+        maxlength
+        pattern
+        novalidate
+        -->
+        <form class="authForm" id="regForm" name="regForm" autocomplete="off">
+            <p>
+                <label for="username">Korisničko ime</label>
+                <input type="text" minlength="3" inputmode="text" id="username" name="username" enterkeyhint="next" autocomplete="off" placeholder="Unesite korisničko ime..." required />
+                <span class="instructions"><span class="errMessage"></span></span>
+            </p>
+            <p>
+                <label for="email">Email adresa</label>
+                <input type="email" inputmode="email" id="email" name="email" enterkeyhint="next" autocomplete="off" placeholder="Unesite email adresu..." required />
+                <span class="instructions"><span class="errMessage"></span></span>
+            </p>
+            <p>
+                <label for="password">Lozinka</label>
+                <input type="password" id="password" name="password" enterkeyhint="send" autocomplete="off" minlength="10" maxlength="20" placeholder="Unesite lozinku..." required />
+                <span class="pass-instructions"><span class="errMessage"></span>
+                    <span class="upper">At least ONE uppercase letter</span>
+                    <span class="lower">At least ONE lowercase letter</span>
+                    <span class="num">At least ONE number</span>
+                    <span class="len">At least 10 characters long</span>
+                    <span class="invalid">Only allowed special characters are ! @ # $ % ^ & * ( ) . , ? ; : ~</span>
+                </span>
+            </p>
+             <p>
+                <button type="submit" id="btnSend">Pošalji</button>
+            </p>
+        </form>
+    </main>
+    <!-- <script type="module" src="https://cdn.jsdelivr.net/npm/node-fetch@3.3.1/src/index.min.js" defer></script> -->
+    <script type="module" src="js/reg-log.js" defer></script>
+</body>
+</html>

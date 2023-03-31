@@ -66,4 +66,12 @@ function formDataToJSObj(formData) {
     return obj
 }
 
-export { closeFieldset, toggleEnd, toggleMainField, toggleSubset, formDataToJSObj }
+function convertFD2JSON(formData) {
+        let obj = {};
+        for (let key of formData.keys()) {
+          obj[key] = formData.get(key);
+        }
+        return JSON.stringify(obj);
+      }
+
+export { closeFieldset, toggleEnd, toggleMainField, toggleSubset, formDataToJSObj, convertFD2JSON }

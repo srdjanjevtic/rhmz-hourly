@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;700;800&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    font-weight: 300;
+    font-family: Poppins, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height: 1.25;
+    color: rgb(72, 214, 243);
+    background-color: rgb(9, 4, 20);
+}
+
+body {
+    max-height: 80vh;
+}
+
+main.form-container {
+    max-width: 40vw;
+    background-color: rgb(15, 5, 31);
+    border: 1px solid rgb(72, 214, 243);
+    border-radius: 2rem;
+    box-shadow: 3px 5px 5px rgba(72, 215, 243, 0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+h1 {
+    font-size: 2rem;
+    color: rgb(72, 214, 243);
+    align-self: flex-start;
+    padding-left: 32vw;
+    margin-bottom: 0px;
+}
+
+h2 {
+    color: orangered;
+}
+
+.authForm {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: stretch;
+    overflow-x: hidden;
+}
+
+.authForm > p {
+    color: rgb(72, 214, 243);
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.authForm p::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    background-color: rgb(42, 14, 86);
+    transform: translateX(-110%);
+    transition: transform 0.2s ease-out;
+}
+
+.authForm p:focus-within {
+    color: wheat;
+}
+
+.authForm p:focus-within::before {
+    transform: translateX(0);
+}
+
+.authForm label {
+    font-size: 1rem;
+    flex-basis: 30%;
+    padding: 0.2rem 0.5rem;
+    text-align: start;
+    color: inherit;
+    text-shadow: inherit;
+}
+
+.authForm input {
+    font-size: 1.2rem;
+    flex-basis: 100%;
+    width: calc(100% - 0.1rem);
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+}
+
+.authForm button {
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
+    margin-top: 2rem;
+    border: 1px solid rgb(72, 214, 243);
+    background-color: rgb(9, 4, 20);
+    color: rgb(72, 214, 243);
+    flex-basis: 100%;
+    width: calc(100% - 0.1rem);
+    padding: 0.5rem 1rem;
+    margin-bottom: 0;
+    font-size: 1.25rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: .25s ease;
+}
+
+.authForm button:hover {
+    color: rgb(156, 210, 255);
+    background-color: rgb(36, 19, 71);
+    outline: 1px solid rgb(156, 210, 255);
+    outline-offset: 3px;
+    box-shadow: 5px 3px 10px rgba(156, 210, 255, 0.8);
+}
+
+.authForm .instructions, .authForm .pass-instructions {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    color: #ccc;
+}
+
+.authForm .instructions {
+    height: 0.5rem;
+}
+
+.authForm .instructions span {
+    padding-left: 2rem;
+}
+
+.authForm .instructions .errMessage,
+.authForm .pass-instructions .errMessage,
+.authForm p .upper,
+.authForm p .lower,
+.authForm p .len,
+.authForm p .num,
+.authForm p .invalid {
+    color: red;
+    font-weight: 400;
+    font-size: 0.8rem;
+    padding: 0.2rem 1rem;
+    transition: 2s ease-in;
+}
+
+.authForm input:focus {
+    background-color: gold;
+}
+
+.authForm input:required {
+    color: rgb(83, 243, 72);
+}
+
+.authForm ::placeholder {
+    letter-spacing: 0.1rem;
+    font-size: 1rem;
+    color: #555;
+}
+
+.authForm input:valid {
+    background-color: rgb(33, 209, 48);
+    color: #fff;
+}
+
+.authForm input:invalid {
+    border-left: 15px solid hsl(0, 95%, 57%);
+    background-color: #aaa;
+    color: #777;
+}
+
+.upper, .lower, .len, .num, .invalid {
+    display: none;
+}

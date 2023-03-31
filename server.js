@@ -3,6 +3,8 @@ const express = require("express")
 const app = express()
 const path = require("path")
 const cors = require("cors")
+const corsOptions = require("./config/corsOptions")
+const verifyJWT = require("./middleware/verifyJWT")
 const expressLayouts = require("express-ejs-layouts")
 const { logger } = require("./middleware/logEvents")
 const errorHandler = require("./middleware/errorHandler")
@@ -19,13 +21,22 @@ app.set("layout", "layouts/layout")
 app.use(expressLayouts)
 
 app.use(logger)
-app.use(cors())
+app.use(cors()) // cors(corsOptions)
 app.use(express.urlencoded({ extended: true, limit: "10mb" }))
 app.use(express.json())
 
-app.use("/", express.static(path.join(__dirname, "/public")))
+app.use(express.static(path.join(__dirname, "/public")))
 
 app.use("/", require("./routes/root"))
+app.use("/register", require("./routes/registerPageRoute"))
+app.use("/loginPage", require("./routes/loginPageRoute"))
+
+app.use("/users", require("./routes/user/userRoutes"))
+
+app.use("/register", require("./routes/user/registerRoute"))
+app.use("/login", require("./routes/user/loginRoute"))
+app.use("/refresh", require("./routes/user/refreshRoute"))
+app.use("/logout", require("./routes/user/logoutRoute"))
 
 app.use("/allMain", require("./routes/allMainStations"))
 app.use("/allAdditional", require("./routes/allAdditionalStations"))
@@ -60,6 +71,9 @@ app.use("/scrapeMainRain", require("./routes/rain/scrapeMainRainRoute"))
 app.use("/scrapeClimateRain", require("./routes/rain/scrapeClimateRainRoute"))
 app.use("/scrapePrecipitationRain", require("./routes/rain/scrapePrecipitationRainRoute"))
 
+// app.use(verifyJWT)
+app.use("/checkAuth", require("./routes/user/checkAuthRoute"))
+
 app.all("*", (req, res) => {
     res.status(404)
     if (req.accepts("html")) {
@@ -69,7 +83,7 @@ app.all("*", (req, res) => {
     } else {
         res.type("txt").send("404 Not Found")
     }
-});
+})
 
 app.use(errorHandler)
 

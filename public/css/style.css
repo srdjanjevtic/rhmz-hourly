@@ -10,6 +10,10 @@
     --nav-title-font-size: 3rem;
     --nav-title-font-weight: bold;
     --nav-link-font-weight: 300;
+    --gradX: 100%;
+    --gradY: 50%;
+    --c1: rgba(168, 239, 255, 1);
+    --c2: rgba(168, 239, 255, 0.1);
 }
 
 html {
@@ -27,9 +31,41 @@ body {
     flex-direction: column;
     justify-content: stretch;
     align-items: center;
+    overflow-x: hidden;
 }
 
 /* /////////  HEADER ///////////////// */
+
+#header {
+    display: flex;
+    width: 100vw;
+    height: 15vh;
+    position: relative;
+}
+
+.logo {
+    background-image: url("../android-chrome-192x192.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    position: absolute;
+    top: 1.5rem;
+    left: 2.5rem;
+    opacity: 0.33;
+    cursor: pointer;
+    transition: 0.25s all ease-in;
+}
+
+.logo:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+    outline: 2px dashed rgba(224, 232, 234, 0.5);
+    outline-offset: 5px;
+    box-shadow: 5px -3px 10px rgba(224, 232, 234, 0.5);
+}
 
  .wrapper {
      position: fixed;
@@ -50,26 +86,43 @@ body {
  .menu-btn {
      position: absolute;
      z-index: 15;
-     right: 20px;
-     top: 20px;
-     height: 50px;
-     width: 50px;
+     right: 1.5rem;
+     top: 1.5rem;
+     height: 2.5rem;
+     width: 2.5rem;
      text-align: center;
-     line-height: 50px;
-     border-radius: 50%;
+     line-height: 2.5rem;
      font-size: 1.25rem;
      color: bisque;
      cursor: pointer;
      background: #090414;
      transition: all 0.3s ease-in-out;
+}
+    
+.menu-btn .icon {
+    width: 100%;
+    height: 100%;
+    background-image: url("../img/hamburger.png");
+    background-size: 1.25rem 1.25rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    background-color: rgb(72, 214, 243);
+    outline: 2px solid rgb(231, 239, 240);
+    opacity: 0.5;
+    outline-offset: 4px;
+ }
+
+ .menu-btn:hover .icon {
+    background-color: rgb(231, 239, 240);
+    outline: 2px solid rgb(72, 214, 243);
+    outline-offset: 2px;
+    opacity: 0.75;
+    transform: scale(1.05);
  }
 
  #active:checked~.menu-btn {
      color: bisque;
- }
-
- #active:checked~.menu-btn i:before {
-     content: "\f00d";
  }
 
  .wrapper ul {
@@ -98,21 +151,6 @@ body {
      transition: all 0.3s ease;
  }
 
- /* .wrapper ul li a:after {
-     position: absolute;
-     content: "";
-     background: rgb(72, 214, 243);
-     width: 104%;
-     height: 110%;
-     left: -2%;
-     top: -5%;
-     border-radius: 0.25rem;
-     transform: scaleY(0);
-     z-index: -1;
-     animation: rotate 1.5s linear infinite;
-     transition: transform 0.3s ease;
- } */
-
  .wrapper ul li a:hover:after {
      transform: scaleY(1.1);
  }
@@ -140,7 +178,7 @@ body {
 
 /* ////////////  FOOTER  //////////// */
 footer {
-    height: 2rem ;
+    height: 5vh;
     margin: 0.5rem 8rem;
     align-self: self-end;
 }
@@ -161,6 +199,7 @@ footer p span {
 main {
     margin: 1rem auto;
     width: 80vw;
+    min-height: 70vh;
     transition: width 0.5s ease;
 }
 
@@ -516,23 +555,29 @@ table tfoot span {
     transition: 0.25s ease-in-out;
 }
 
-#htmlToExcel:hover, #htmlToCSV:hover, #htmlToExcel:focus, #htmlToCSV:focus {
+#htmlToExcel:hover, #htmlToCSV:hover, #btnChart:hover, #htmlToExcel:focus, #htmlToCSV:focus, #btnChart:focus {
     outline: 2px solid wheat;
     outline-offset: 3px;
     cursor: pointer;
 }
 
-#htmlToExcel span, #htmlToCSV span{
+#htmlToExcel span, #htmlToCSV span, #btnChart span {
     font-size: 1rem;
     font-weight: 700; 
 }
 
+#btnChart {
+    color: #fff;
+    border: 1px solid rgb(245, 238, 18);
+    background-color: rgb(135, 5, 5);
+}
+
 .gotopbtn {
     position: fixed;
-    width: 50px;
-    height: 50px;
-    bottom: 2rem;
-    right: 2rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    bottom: 1.5rem;
+    right: 1.5rem;
     text-decoration: none;
     background-color: rgb(72, 214, 243);
     outline: 2px solid rgb(231, 239, 240);
@@ -540,14 +585,28 @@ table tfoot span {
     outline-offset: 4px;
     border-radius: 50%;
     text-align: center;
-    line-height: 50px;
+    line-height: 2.5rem;
     font-weight: bolder;
-    font-size: 2rem;
+    font-size: 2.5rem;
     transition: all 0.2s ease-in;
     z-index: 2;
 }
 
-.gotopbtn:hover {
+.gotopbtn .arrow {
+    width: 100%;
+    height: 100%;
+    background-image: url("../img/arrow_up_icon.png");
+    background-size: 2rem 2rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    background-color: rgb(72, 214, 243);
+    outline: 2px solid rgb(231, 239, 240);
+    opacity: 0.5;
+    outline-offset: 4px;
+}
+
+.gotopbtn:hover .arrow {
     background-color: rgb(231, 239, 240);
     outline: 2px solid rgb(72, 214, 243);
     outline-offset: 2px;

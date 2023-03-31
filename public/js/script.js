@@ -21,6 +21,10 @@ const datumEnd = document.getElementById("datumEnd")
 const datumEndContainer = document.getElementById("datumEndContainer")
 
 function init() {
+    const check = document.getElementById("active")
+    check.addEventListener("click", () => {
+        check.checked ? document.querySelector(".menu-btn .icon").style.backgroundImage = "url('./img/close.png')" : document.querySelector(".menu-btn .icon").style.backgroundImage = "url('./img/hamburger.png')"
+    })
     document.getElementById("myForm").addEventListener("submit", submitForm)
     document.getElementById("btnCancel").addEventListener("click", resetForm)
     const legends = document.getElementsByTagName("legend")
@@ -145,3 +149,5 @@ function formDataToJSObj(formData) {
     }
     return obj
 }
+
+

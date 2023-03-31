@@ -27,7 +27,7 @@ const getMainRain = asyncHandler(async (req, res) => {
         delete req.query.datumEnd
     }
     if (req.query["Padavine"]) {
-        search["Padavine"] = req.query["Padavine"]
+        search["Padavine"] = req.query["Padavine"] 
     }
     if (req.query["min-padavine"] && req.query["max-padavine"]) {
         search["Padavine"] = { $gte: req.query["min-padavine"], $lte: req.query["max-padavine"] }
@@ -45,10 +45,17 @@ const getMainRain = asyncHandler(async (req, res) => {
         return
     }
     const result = await MainRainStation.find(search).exec()
+    const dateArray = []
+    let padavineArray = []
+    result.forEach(row => {
+        dateArray.push(row["date"].toLocaleDateString("sr-SR"))
+        padavineArray.push(row["Padavine"])
+    })
+
     if (result.length === 0) {
         res.status(200).render("noData")
     } else {
-        res.status(200).render("searchResultForMainRainStations", { result })
+        res.status(200).render("searchResultForMainRainStations", { result, dateArray, padavineArray })
     }
 })
 

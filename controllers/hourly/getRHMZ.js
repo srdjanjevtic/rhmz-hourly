@@ -48,7 +48,7 @@ const getMain = asyncHandler(async (req, res) => {
     }
     if (req.query.datumEnd) {
         search.Date = { $gte: req.query.Date, $lte: req.query.datumEnd }
-        delete req.query.datumEnd
+        // delete req.query.datumEnd
     }
     if (req.query.Stanica) {
         search.Stanica = req.query.Stanica
@@ -100,10 +100,32 @@ const getMain = asyncHandler(async (req, res) => {
         return
     }
     const result = await MainStation.find(search).exec()
+    const dateTimeArray = []
+    const tempArr = []
+    const subjArr = []
+    const vlagaArr = []
+    const pritArr = []
+    const vetarArr = []
+    result.forEach(row => {
+        dateTimeArray.push(row["Date"].toLocaleDateString("sr-SR") + " " + row["Time"].slice(0, 2) + ":" + row["Time"].slice(2, 4))
+        tempArr.push(row["Temperatura(°C)"])
+        subjArr.push(row["Subjektivniosećajtemperature(°C)"])
+        vlagaArr.push(row["Vlažnost(%)"])
+        pritArr.push(row["Pritisak(hPa)"])
+        vetarArr.push(row["Brzinavetra(m/s)"])
+    })
+    // console.log("vreme: ", dateTimeArray)
+    // console.log("temp.: ", tempArr)
+    // console.log("subj.: ", subjArr)
+    // console.log("vlaga.: ", vlagaArr)
+    // console.log("ptitisak: ", pritArr)
+    console.log("brzina vetra: ", vetarArr)
+    // Pravacvetra: 'S',
+    // Opisvremena: 'Pretežno oblačno',
     if (result.length === 0) {
         res.status(200).render("noData")
     } else {
-        res.status(200).render("searchResultForMainStations", { result })
+        res.status(200).render("searchResultForMainStations", { result, dateTimeArray, tempArr, subjArr, vlagaArr, pritArr, vetarArr })
     }
 })
 
@@ -163,10 +185,25 @@ const getAdditional = asyncHandler(async (req, res) => {
         return
     }
     let result = await AdditionalStation.find(search).exec()
+
+    const dateTimeArray = []
+    const tempArr = []
+    const vlagaArr = []
+    const pritArr = []
+    const vetarArr = []
+    const vetarPravacArr = []
+    result.forEach(row => {
+        dateTimeArray.push(row["Date"].toLocaleDateString("sr-SR") + " " + row["Time"].slice(0, 2) + ":" + row["Time"].slice(2, 4))
+        tempArr.push(row["Temperatura(°C)"])
+        pritArr.push(row["Pritisak(hPa)"])
+        vlagaArr.push(row["Vlažnost(%)"])
+        vetarArr.push(row["Vetarbrzina(m/s)"])
+        vetarPravacArr.push(row["Vetarpravac(°)"])
+    })
     if (result.length === 0) {
         res.status(200).render("noData")
     } else {
-        res.status(200).render("searchResultForAdditionalStations", { result })
+        res.status(200).render("searchResultForAdditionalStations", { result, dateTimeArray, tempArr, vlagaArr, pritArr, vetarArr, vetarPravacArr  })
     }
 })
 

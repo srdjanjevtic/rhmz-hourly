@@ -53,10 +53,19 @@ const getClimateRain = asyncHandler(async (req, res) => {
         return
     }
     const result = await ClimateRainStation.find(search).exec()
+    const dateArray = []
+    let padavineArray = []
+    let snegArray = []
+    result.forEach(row => {
+        dateArray.push(row["date"].toLocaleDateString("sr-SR"))
+        padavineArray.push(row["Padavine"])
+        snegArray.push(row["Sneg"])
+    })
+    console.log("dani", dateArray,"padavine", padavineArray,"sneg", snegArray)
     if (result.length === 0) {
         res.status(200).render("noData")
     } else {
-        res.status(200).render("searchResultForMainRainStations", { result })
+        res.status(200).render("searchResultForClimateRainStations", { result, dateArray, padavineArray, snegArray })
     }
 })
 
