@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&display=swap');
 
 *, *::after, *::before {
     margin: 0;
@@ -173,8 +174,6 @@ body {
          filter: hue-rotate(120deg);
      }
  }
-
-/* ////////////////////////// */
 
 /* ////////////  FOOTER  //////////// */
 footer {
@@ -446,10 +445,6 @@ main {
 }
 
 }
-/* ////////////////////////// */
-/* END OF allMainStations.ejs || allAdditionalStations.ejs */
-/* ///////////////////////////// */
-
 
 /* ///////////////////////////// */
 /* START OF search result table */
@@ -535,10 +530,33 @@ table tfoot span {
     display: flex;
     flex-direction: column;
     min-width: 80vw;
+    position: relative;
 }
 
 .btn-wrapper {
     display: flex;
+}
+
+#response {
+    position: absolute;
+    top: 8px;
+    left: 5px;
+    width: 300px;
+    display: inline-block;
+    font-family: "Poppins", sans-serif;
+    z-index: 20;
+}
+
+#response img {
+    width: 35px;
+    height: auto;
+    vertical-align: bottom;
+    cursor: pointer;
+}
+
+#response span {
+    font-family: "Figtree," sans-serif;
+    font-size: 24px;
 }
 
 .btn-wrapper button {
@@ -669,4 +687,122 @@ h2.no-data {
     font-weight: 200;
     color: blanchedalmond;
 }
-/* /////  END OF  noData page   ///// */
+
+
+/* //////////  404 PAGE  //////////// */
+
+.wrapper-404 {
+    background-color: rgb(9, 4, 20);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 66vh;
+    width: 90vw;
+    font-size: 0;
+}
+
+.wrapper-404 p {
+    font-family: "Roboto Mono", sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: #eee;
+    opacity: 0.45;
+    margin-top: 30px;
+    letter-spacing: -2.5px;
+}
+
+.wrapper-404 p a {
+    text-decoration: none;
+    font-size: 28px;
+    color: rgb(72, 215, 243);
+    transition: 0.3s ease-in;
+}
+
+.wrapper-404 p a:hover {
+    text-decoration: underline;
+    color: rgb(131, 218, 255);
+    opacity: 1;
+}
+
+.wrapper-404 .letters .letter {
+    width: 280px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    overflow: hidden;
+    margin: 0 0;
+    font-family: "Roboto Mono", sans-serif;
+    font-size: 480px;
+    font-weight: 600;
+    line-height: 480px;
+    text-transform: uppercase;
+    color: rgb(72, 214, 243);
+    background-color: rgb(9, 4, 20);
+}
+
+.wrapper-404 .letters .letter:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    word-break: break-all;
+    background-color: rgb(9, 4, 20);
+}
+
+.wrapper-404 .letters .letter:nth-child(1):before {
+    content: "j52ifL31rA";
+    margin-top: -4320px;
+    animation-name: letter1;
+    animation-duration: 3.16s;
+    animation-delay: 0.4s;
+    animation-fill-mode: forwards;
+    /* animation-timing-function: steps(10, jump-start); */
+}
+
+@keyframes letter1 {
+    from {
+        margin-top: -4320px;
+    }
+
+    to {
+        margin-top: 480px;
+    }
+}
+
+.wrapper-404 .letters .letter:nth-child(2):before {
+    content: "2W96nDp045";
+    margin-top: -3360px;
+    animation-name: letter2;
+    animation-duration: 4.36s;
+    animation-delay: 0.04s;
+}
+
+@keyframes letter2 {
+    from {
+        margin-top: -3360px;
+    }
+
+    to {
+        margin-top: 480px;
+    }
+}
+
+.wrapper-404 .letters .letter:nth-child(3):before {
+    content: "3V81h50A47";
+    margin-top: -2880px;
+    animation-name: letter3;
+    animation-duration: 2.2s;
+    animation-delay: 0.65s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes letter3 {
+    from {
+        margin-top: -2880px;
+    }
+
+    to {
+        margin-top: 480px;
+    }
+}

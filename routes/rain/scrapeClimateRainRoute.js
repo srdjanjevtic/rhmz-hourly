@@ -1,7 +1,7 @@
-const express = require('express')
-const router = express.Router()
-const {scrapeClimateRain} = require('../../controllers/rain/scrapeController')
+const express = require("express");
+const router = express.Router();
+const { scrapeClimateRain } = require("../../controllers/rain/scrapeController");
 
-router.get('/', scrapeClimateRain)
+router.get("/", scrapeClimateRain);
 
-module.exports = router
+module.exports = router;

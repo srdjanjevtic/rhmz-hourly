@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search Result</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@600&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@linways/table-to-excel@1.0.4/dist/tableToExcel.min.js" defer></script>
 </head>
@@ -13,7 +16,7 @@
     <div class="result-container">
         <table class="table" id="main-table-result">
             <caption>Rezultati pretrage</caption>
-            <div id="response">Response</div>
+            <div id="response"></div>
             <thead>
                 <tr>
                     <th>Dan</th>
@@ -82,7 +85,7 @@ window.addEventListener("message", (event) => {
         response.innerText = event.data.labels;
     }
     if (event.data?.msg) {
-        response.innerText = event.data.msg;
+        response.innerHTML = event.data.msg;
     }
 });
 

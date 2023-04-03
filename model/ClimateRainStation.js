@@ -1,5 +1,5 @@
-const mongoose = require("mongoose")
-const Schema = mongoose.Schema
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
 const climateSchema = new Schema({
     "date": {
@@ -22,6 +22,6 @@ const climateSchema = new Schema({
     "Sliv": {
         type: String
     }
-})
+});
 
-module.exports = mongoose.model("ClimateStation", climateSchema)
+module.exports = mongoose.model("ClimateStation", climateSchema);

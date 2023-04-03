@@ -1,11 +1,9 @@
 import { convertFD2JSON } from "./functions/form.js";
 
 const APP = {
-
   init() {
     APP.addListeners();
-    },
-    
+  },
   addListeners() {
     let form = document.getElementById("regForm");
     let username = document.getElementById("username");
@@ -16,50 +14,42 @@ const APP = {
     password.addEventListener("change", APP.checkPasswordRequirements)
     username.addEventListener("invalid", APP.fail);
     email.addEventListener("invalid", APP.fail);
-    password.addEventListener("invalid", APP.fail)
+    password.addEventListener("invalid", APP.fail);
     form.addEventListener("submit", APP.validateAndSubmit);
   },
-    
   testName(ev) {
     let username = ev.target;
-    username.setCustomValidity(""); //clear old message
-    //built-in test for error based on type, pattern, and other attrs
+    username.setCustomValidity("");
     let currently = username.checkValidity();
-    console.log(username.validity)
+    console.log(username.validity);
     if (currently) {
       if (username?.length < 4) {
         username.setCustomValidity("Short username.");
-        username.reportValidity(); //show the custom message, trigger invalid event
+        username.reportValidity();
       } else if (username?.length > 20) {
         username.setCustomValidity("Too long username.");
-        username.reportValidity(); //show the custom message, trigger invalid event
+        username.reportValidity();
       } else {
         let span = username.parentElement.querySelector(".errMessage");
         span.textContent = "";
       }
-    }  
+    }
   },
-
   testEmail(ev) {
     let email = ev.target;
-    console.log(email.validity);
     email.setCustomValidity("");
     let currently = email.checkValidity();
     if (currently) {
       let emReg = new RegExp("@gmail.com$", "i");
       if (emReg.test(email.value) === false) {
-        //not a gmail address
-        console.log("NOT a gmail address");
         email.setCustomValidity("NOT a gmail address.");
-        console.log(email.validity);
         email.reportValidity();
       } else {
-          let span = email.parentElement.querySelector(".errMessage");
-          span.textContent = "";
+        let span = email.parentElement.querySelector(".errMessage");
+        span.textContent = "";
       }
     }
   },
-
   checkPasswordRequirements() {
     // Allowed: [! @ # $ % ^ & * ( ) . , ? ; : ~]
     const upper = document.querySelector(".upper");
@@ -67,7 +57,6 @@ const APP = {
     const num = document.querySelector(".num");
     const len = document.querySelector(".len");
     const invalid = document.querySelector(".invalid");
-
     let response = {
       upper: false,
       lower: false,
@@ -81,25 +70,25 @@ const APP = {
     if (response.upper === false) {
       upper.style.display = "block";
     } else {
-      upper.style.display = "none"
+      upper.style.display = "none";
     }
     response.lower = /[a-z]/.test(txt);
     if (response.lower === false) {
       lower.style.display = "block";
     } else {
-      lower.style.display = "none"
+      lower.style.display = "none";
     }
     response.num = /[0-9]/.test(txt);
     if (response.num === false) {
       num.style.display = "block";
     } else {
-      num.style.display = "none"
+      num.style.display = "none";
     }
     response.len = password.value.trim().length >= 10;
     if (response.len === false) {
       len.style.display = "block";
     } else {
-      len.style.display = "none"
+      len.style.display = "none";
     }
     response.matches = txt.match(/([^A-Za-z0-9_!@#$%^&*().,?;:~])/);
     if (response.matches && response.matches.length > 0) {
@@ -110,7 +99,6 @@ const APP = {
     }
     return response;
   },
-  
   fail(ev) {
     let field = ev.target;
     switch (field.id) {
@@ -128,7 +116,6 @@ const APP = {
         break;
     }
   },
-  
   validateAndSubmit(ev) {
     ev.preventDefault();
     ev.stopPropagation();
@@ -136,7 +123,7 @@ const APP = {
     const fd = new FormData(form);
     for (let key of fd.keys()) {
           console.log(key, fd.get(key));
-    };
+    }
     const json = convertFD2JSON(fd);
     const url = "/register";
     const h = new Headers();
@@ -149,7 +136,6 @@ const APP = {
     fetch(req)
       .then((res) => res.json())
       .then((data) => {
-        console.log("Response from server");
         console.log("username:", data);
         let ms;
         return new Promise(resolve => setTimeout(resolve, ms))
@@ -157,7 +143,6 @@ const APP = {
       .then((prom) => prom(window.location.href = "http://localhost:3330/", 10000))
       .catch(err => console.warn(err));
   }
-
 };
 
 document.addEventListener("DOMContentLoaded", APP.init);

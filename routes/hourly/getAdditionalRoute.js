@@ -1,7 +1,7 @@
-const express = require("express")
-const router = express.Router()
-const { getAdditional } = require('../../controllers/hourly/getRHMZ')
+const express = require("express");
+const router = express.Router();
+const { getAdditional } = require("../../controllers/hourly/getRHMZ");
 
-router.get('/', getAdditional)
+router.get("/", getAdditional);
 
-module.exports = router
+module.exports = router;

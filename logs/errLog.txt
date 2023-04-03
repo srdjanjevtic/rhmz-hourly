@@ -408,3 +408,5 @@ padavineArr is not defined
     123|         popupWindow.postMessage({ station: `<%= result[0].Stanica %>`, labels: data1, padavine: data2 }, "*");
 
 dateArray is not defined
+20230403	18:04:58	94c84dfd-30de-4933-b696-d3ed850dfdb9	Error: Can't set headers after they are sent.
+20230403	18:13:06	aaa049f5-e8e3-4332-8ab9-5ef93540efa9	Error: Can't set headers after they are sent.

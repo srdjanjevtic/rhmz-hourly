@@ -1,19 +1,19 @@
-import { formDataToJSObj } from "./functions/form.js"
+import { formDataToJSObj } from "./functions/form.js";
 
-document.addEventListener("DOMContentLoaded", init)
+document.addEventListener("DOMContentLoaded", init);
 
 function init() {
-    const myForm = document.getElementById("allMainRainForm")
-    myForm.addEventListener("submit", submitForm)
+    const myForm = document.getElementById("allMainRainForm");
+    myForm.addEventListener("submit", submitForm);
 }
 
 function submitForm(ev) {
-    ev.preventDefault()
-    let myForm = ev.target
-    let fd = new FormData(myForm)
-    const jsData = formDataToJSObj(fd)
-    const searchParams = new URLSearchParams(jsData)
-    const queryString = searchParams.toString()
-    const urlQS = "/getAllMainRain?" + queryString
-    window.location.href = urlQS
+    ev.preventDefault();
+    let myForm = ev.target;
+    let fd = new FormData(myForm);
+    const jsData = formDataToJSObj(fd);
+    const searchParams = new URLSearchParams(jsData);
+    const queryString = searchParams.toString();
+    const urlQS = "/getAllMainRain?" + queryString;
+    window.location.href = urlQS;
 }

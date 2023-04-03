@@ -1,7 +1,7 @@
-const express = require('express')
-const router = express.Router()
-const {scrapeAdditional} = require('../../controllers/hourly/scrapeController')
+const express = require("express");
+const router = express.Router();
+const { scrapeAdditional } = require("../../controllers/hourly/scrapeController");
 
-router.get('/', scrapeAdditional)
+router.get("/", scrapeAdditional);
 
-module.exports = router
+module.exports = router;

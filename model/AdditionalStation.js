@@ -1,5 +1,5 @@
-const mongoose = require("mongoose")
-const Schema = mongoose.Schema
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
 const additionalSchema = new Schema({
     "Date": {
@@ -31,4 +31,4 @@ const additionalSchema = new Schema({
     }
 })
 
-module.exports = mongoose.model("AdditionalStation", additionalSchema)
+module.exports = mongoose.model("AdditionalStation", additionalSchema);

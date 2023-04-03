@@ -1,72 +1,72 @@
-const PrecipitationRainStation = require("../../model/PrecipitationRainStation")
-const asyncHandler = require("express-async-handler")
+const PrecipitationRainStation = require("../../model/PrecipitationRainStation");
+const asyncHandler = require("express-async-handler");
 
 const getAllPrecipitationRain = asyncHandler(async (req, res) => {
-    const search = {}
+    const search = {};
     if (req.query.Stanica) {
-        search.Stanica = req.query.Stanica
+        search.Stanica = req.query.Stanica;
     }
-    const result = await PrecipitationRainStation.find(search).exec()
+    const result = await PrecipitationRainStation.find(search).exec();
     if (result.length === 0) {
-        res.status(200).render("noData")
+        res.status(200).render("noData");
     } else {
-        res.status(200).render("searchResultForPrecipitationRainStations.ejs", { result })
+        res.status(200).render("searchResultForPrecipitationRainStations.ejs", { result });
     }
-})
+});
 
 const getPrecipitationRain = asyncHandler(async (req, res) => {
-    const search = {}
+    const search = {};
     if (req.query.Stanica) {
-        search.Stanica = req.query.Stanica
+        search.Stanica = req.query.Stanica;
     }
     if (req.query.date) {
-        search.date = req.query.date
+        search.date = req.query.date;
     }
     if (req.query.datumEnd) {
-        search.date = { $gte: req.query.date, $lte: req.query.datumEnd }
-        delete req.query.datumEnd
+        search.date = { $gte: req.query.date, $lte: req.query.datumEnd };
+        delete req.query.datumEnd;
     }
     if (req.query["Padavine"]) {
-        search["Padavine"] = req.query["Padavine"]
+        search["Padavine"] = req.query["Padavine"];
     }
     if (req.query["min-padavine"] && req.query["max-padavine"]) {
-        search["Padavine"] = { $gte: req.query["min-padavine"], $lte: req.query["max-padavine"] }
-        delete req.query["min-padavine"]
-        delete req.query["max-padavine"]
+        search["Padavine"] = { $gte: req.query["min-padavine"], $lte: req.query["max-padavine"] };
+        delete req.query["min-padavine"];
+        delete req.query["max-padavine"];
     }
     if (req.query["Sneg"]) {
-        search["Sneg"] = req.query["Sneg"]
+        search["Sneg"] = req.query["Sneg"];
     }
     if (req.query["min-sneg"] && req.query["max-sneg"]) {
-        search["Sneg"] = { $gte: req.query["min-sneg"], $lte: req.query["max-sneg"] }
-        delete req.query["min-sneg"]
-        delete req.query["max-sneg"]
+        search["Sneg"] = { $gte: req.query["min-sneg"], $lte: req.query["max-sneg"] };
+        delete req.query["min-sneg"];
+        delete req.query["max-sneg"];
     }
     if (req.query["Sliv"]) {
-        search["Sliv"] = req.query["Sliv"]
+        search["Sliv"] = req.query["Sliv"];
     }
     if (req.query["Opština"]) {
-        search["Opština"] = req.query["Opština"]
+        search["Opština"] = req.query["Opština"];
     }
     if (Object.keys(req.query).length === 0) {
-        res.send("Niste uneli parametre za pretragu!")
-        return
+        res.send("Niste uneli parametre za pretragu!");
+        return;
     }
-    const result = await PrecipitationRainStation.find(search).exec()
-    const dateArray = []
-    let padavineArray = []
-    let snegArray = []
+    const result = await PrecipitationRainStation.find(search).exec();
+    const dateArray = [];
+    let padavineArray = [];
+    let snegArray = [];
     result.forEach(row => {
-        dateArray.push(row["date"].toLocaleDateString("sr-SR"))
-        padavineArray.push(row["Padavine"])
-        snegArray.push(row["Sneg"])
-    })
+        dateArray.push(row["date"].toLocaleDateString("sr-SR"));
+        padavineArray.push(row["Padavine"]);
+        snegArray.push(row["Sneg"]);
+    });
     if (result.length === 0) {
-        res.status(200).render("noData")
+        res.status(200).render("noData");
     } else {
-        res.status(200).render("searchResultForPrecipitationRainStations", { result, dateArray, padavineArray, snegArray  })
+        res.status(200).render("searchResultForPrecipitationRainStations", { result, dateArray, padavineArray, snegArray });
     }
-})
+});
 
 
-module.exports = { getAllPrecipitationRain, getPrecipitationRain }
+module.exports = { getAllPrecipitationRain, getPrecipitationRain };

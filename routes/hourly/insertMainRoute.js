@@ -1,7 +1,7 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const insertData = require('../../controllers/hourly/mainStationsController');
+const insertData = require("../../controllers/hourly/mainStationsController");
 
-router.post('/', insertData);
+router.post("/", insertData);
 
 module.exports = router;
