@@ -7,10 +7,14 @@ const myChart3 = canvas3.getContext("2d");
 const canvas4 = document.getElementById("myChart4");
 const myChart4 = canvas4.getContext("2d");
 
-const stationHeader = document.getElementById("station-header");
-const dayHeader = document.getElementById("day-header");
 
 window.addEventListener("message", (event) => {
+    const closeWindow = (message) => {
+        window.opener.postMessage({ msg: message }, "*");
+    };
+    const stationHeader = document.getElementById("station-header");
+    const dayHeader = document.getElementById("day-header");
+    stationHeader.addEventListener("click", closeWindow(`Powered by <a href='https://www.chartjs.org/' target='blank'><img src='https://www.chartjs.org/img/chartjs-logo.svg' alt='Chart.js logo'></a><span> Chart.js</span>`));
     let labelsArr = [];
     let tempsArr = [];
     let subjArr = [];
@@ -42,7 +46,7 @@ window.addEventListener("message", (event) => {
             });
             labelsArr = [...tempArr];
             day = event.data.day;
-            dayHeader.innerText = `${day}`
+            dayHeader.innerText = day;
         } else {
             dayHeader.innerText = "";
         }
@@ -137,6 +141,7 @@ window.addEventListener("message", (event) => {
                 scales: {
                     x: {
                         display: true,
+                        beginAtZero: true,
                         grid: {
                             display: true,
                             drawOnChartArea: true,
@@ -188,9 +193,9 @@ window.addEventListener("message", (event) => {
                 },
                 interaction: {
                     mode: "index",
-                    intersect: true,
+                    intersect: false,
                 },
-                stacked: true,
+                stacked: false,
                 animations: {
                     y: {
                         easing: "easeInOutElastic",
@@ -624,7 +629,7 @@ window.addEventListener("message", (event) => {
                         },
                         title: {
                             display: true,
-                            text: "Brzina vetra (m/m)",
+                            text: "Brzina vetra (m/s)",
                             color: "#aaa",
                             font: {
                                 family: "Poppins",
@@ -708,17 +713,5 @@ window.addEventListener("message", (event) => {
             plugins: [chartAreaBorder]
         });
     }
-    if (event.data?.msg) {
-        response.innerText = event.data.msg;
-    }
+
 });
-
-const closeWindow = (message) => {
-    window.opener.postMessage({ msg: message }, "*");
-    setTimeout(w => window.close(), 1000);
-};
-
-const isSameDay = (arr1) => {
-    const arr2 = arr1.slice(0, 6);
-    return arr1.join(",") === arr2.join(",");
-};

@@ -31,7 +31,7 @@
                     <th>Opis<br/>vremena</th>
                 </tr>
             </thead>
-            <tbody class="search-result"><% result.forEach(item => { %>
+            <tbody class="search-result"><% resultFiltered.forEach(item => { %>
                 <tr class="one-row">
                     <td class="cell" data-label="Dan"><%= item["Date"].toLocaleDateString("sr-SR") %></td>
                     <td class="cell" data-label="Vreme"><%= item["Time"].slice(0, 2) + ":" + item["Time"].slice(2, 4) %></td>
@@ -48,49 +48,200 @@
             </tbody>
             <tfoot>
                 <tr>
-                    <th colspan="10"><p>Ukupno  <span><%= result.length %></span>  dokumenata pronađeno.</p></th>
+                    <th colspan="10"><p>Ukupno  <span><%= resultLength %></span>  dokumenata pronađeno.</p></th>
                 </tr>
             </tfoot>
         </table>
         <div class="btn-wrapper">
-            <button id="htmlToExcel">Download as <span>Excel</span></button>
-            <button type="submit" id="htmlToCSV">Download as <span>CSV</span></button>
-            <button id="btnChart">Create a <span>Chart</span></button>
+            <button id="htmlToExcelMain">Download as <span>Excel</span></button>
+            <button type="submit" id="htmlToCSVMain">Download as <span>CSV</span></button>
+            <button id="btnChartMain">Create a <span>Chart</span></button>
+        </div>
+        <table class="table" id="percentage">
+                <tr>
+                    <th>Opis vremena</th>
+                    <th>Ukupno sati</th>
+                    <th>Pravac vetra</th>
+                    <th>Ukupno sati</th>
+                </tr>
+                <tr>
+                    <td>Vedro</td>
+                    <td><%= opis["Vedro"] %></td>
+                    <td>Severni (N)</td>
+                    <td><%= pravac["N"] %></td>
+                </tr>
+                <tr>
+                    <td>Pretežno vedro</td>
+                    <td><%= opis["Pretežno vedro"] %></td>
+                    <td>Severni-severoistočni (NNE)</td>
+                    <td><%= pravac["NNE"] %></td>
+                </tr>
+                <tr>
+                    <td>Delimično oblačno</td>
+                    <td><%= opis["Delimično oblačno"] %></td>
+                    <td>Severoistočni (NE)</td>
+                    <td><%= pravac["NE"] %></td>
+                </tr>
+                <tr>
+                    <td>Pretežno oblačno</td>
+                    <td><%= opis["Pretežno oblačno"] %></td>
+                    <td>Istočni-severoistočni (ENE)</td>
+                    <td><%= pravac["ENE"] %></td>
+                </tr>
+                <tr>
+                    <td>Oblačno</td>
+                    <td><%= opis["Oblačno"] %></td>
+                    <td>Istočni (E)</td>
+                    <td><%= pravac["E"] %></td>
+                </tr>
+                <tr>
+                    <td>Rosulja (sipeća kiša)</td>
+                    <td><%= opis["Rosulja (sipeća kiša)"] %></td>
+                    <td>Istočni-jugoistočni (ESE)</td>
+                    <td><%= pravac["ESE"] %></td>
+                </tr>
+                <tr>
+                    <td>Slaba kiša</td>
+                    <td><%= opis["Slaba kiša"] %></td>
+                    <td>Jugoistočni (SE)</td>
+                    <td><%= pravac["SE"] %></td>
+                </tr>
+                <tr>
+                    <td>Umerena kiša</td>
+                    <td><%= opis["Umerena kiša"] %></td>
+                    <td>Južni-jugoistočni (SSE)</td>
+                    <td><%= pravac["SSE"] %></td>
+                </tr>
+                <tr>
+                    <td>Jaka kiša</td>
+                    <td><%= opis["Jaka kiša"] %></td>
+                    <td>Južni (S)</td>
+                    <td><%= pravac["S"] %></td>
+                </tr>
+                <tr>
+                    <td>Pljusak kiše</td>
+                    <td><%= opis["Pljusak kiše"] %></td>
+                    <td>Južni-jugozapadni (SSW)</td>
+                    <td><%= pravac["SSW"] %></td>
+                </tr>
+                <tr>
+                    <td>Grmljavina</td>
+                    <td><%= opis["Grmljavina"] %></td>
+                    <td>Jugozapadni (SW)</td>
+                    <td><%= pravac["SW"] %></td>
+                </tr>
+                <tr>
+                    <td>Grmljavina sa kišom</td>
+                    <td><%= opis["Grmljavina sa kišom"] %></td>
+                    <td>Zapadni-jugozapadni (WSW)</td>
+                    <td><%= pravac["WSW"] %></td>
+                </tr>
+                <tr>
+                    <td>Susnežica</td>
+                    <td><%= opis["Susnežica"] %></td>
+                    <td>Zapadni (W)</td>
+                    <td><%= pravac["W"] %></td>
+                </tr>
+                <tr>
+                    <td>Slab sneg</td>
+                    <td><%= opis["Slab sneg"] %></td>
+                    <td>Zapadni-severozapadni (WNW)</td>
+                    <td><%= pravac["WNW"] %></td>
+                </tr>
+                <tr>
+                    <td>Umeren sneg</td>
+                    <td><%= opis["Umeren sneg"] %></td>
+                    <td>Severozapadni (NW)</td>
+                    <td><%= pravac["NW"] %></td>
+                </tr>
+                <tr>
+                    <td>Jak sneg</td>
+                    <td><%= opis["Jak sneg"] %></td>
+                    <td>Severni-severozapadni (NNW)</td>
+                    <td><%= pravac["NNW"] %></td>
+                </tr>
+                <tr>
+                    <td>Pljusak snega</td>
+                    <td><%= opis["Pljusak snega"] %></td>
+                    <td>Tiho (bez vetra)</td>
+                    <td><%= pravac["-"] %></td>
+                </tr>
+                <tr>
+                    <td>Sumaglica</td>
+                    <td><%= opis["Sumaglica"] %></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Magla</td>
+                    <td><%= opis["Magla"] %></td>
+                    <td class="stats lepoVreme">Lepo vreme <span>(bez padavina i magle)</span></td>
+                    <td id="lepoVreme" class="stats lepoVreme"></td>
+                </tr>
+                <tr>
+                    <td>Bez podataka</td>
+                    <td><%= opis["-"] %></td>
+                    <td class="stats tiho">Tiho <span>(bez vetra)</span></td>
+                    <td id="tiho" class="stats tiho"></td>
+                </tr>
+        </table>
+        <div class="btn-wrapper">
+            <button id="htmlToExcelPercentage">Download as <span>Excel</span></button>
+            <button type="submit" id="htmlToCSVPercentage">Download as <span>CSV</span></button>
+            <button id="btnChartPercentage">Create a <span>Chart</span></button>
         </div>
     </div>
     <%- include("./partials/gotopbtn.ejs") %>
 </body>
 
 <script type="module">
-import exportTableToCSV from "./js/functions/tableToCSV.js"
+import exportTableToCSV from "./js/functions/tableToCSV.js";
 
-const asExcel = document.getElementById("htmlToExcel")
-const asCSV = document.getElementById("htmlToCSV")
-const table = document.getElementById("main-table-result")
-asExcel.addEventListener("click", () => TableToExcel.convert(table))
-asCSV.addEventListener("click", () => (exportTableToCSV(table, "searchResult.csv")))
+const asExcelMain = document.getElementById("htmlToExcelMain");
+asExcelMain.addEventListener("click", () => TableToExcel.convert(tableMain));
+const asCSVMain = document.getElementById("htmlToCSVMain");
+asCSVMain.addEventListener("click", () => (exportTableToCSV(tableMain, "searchResult.csv")));
+const tableMain = document.getElementById("main-table-result");
+const asExcelPercentage = document.getElementById("htmlToExcelPercentage");
+const asCSVPercentage = document.getElementById("htmlToCSVPercentage");
+const tablePercentage = document.getElementById("percentage");
+asExcelPercentage.addEventListener("click", () => TableToExcel.convert(tablePercentage));
+asCSVPercentage.addEventListener("click", () => (exportTableToCSV(tablePercentage, "percentage.csv")));
+const response = document.getElementById("response");
+response.addEventListener("click", disappear);
+function disappear(ev) {
+    ev.target.style.display = "none";
+}
 
-document.addEventListener("DOMContentLoaded", init)
+document.addEventListener("DOMContentLoaded", init);
+
+
+const opisVremenaLabels = ["Vedro", "Pretežno vedro", "Delimično oblačno", "Pretežno oblačno", "Oblačno", "Rosulja(sipeća kiša)", "Slaba kiša", "Umerena kiša", "Jaka kiša", "Pljusak kiše", "Grmljavina", "Gramljavina sa kišom", "Susnežica", "Slab sneg", "Umeren sneg", "Jak sneg", "Pljusak snega", "Sumaglica", "Magla", "-"];
+const opisArr = [`<%= opis["Vedro"] %>`, `<%= opis["Pretežno vedro"] %>`, `<%= opis["Delimično oblačno"] %>`, `<%= opis["Pretežno oblačno"] %>`, `<%= opis["Oblačno"] %>`, `<%= opis["Rosulja (sipeća kiša)"] %>`, `<%= opis["Slaba kiša"] %>`, `<%= opis["Umerena kiša"] %>`, `<%= opis["Jaka kiša"] %>`, `<%= opis["Pljusak kiše"] %>`, `<%= opis["Grmljavina"] %>`, `<%= opis["Grmljavina sa kišom"] %>`, `<%= opis["Susnežica"] %>`, `<%= opis["Slab sneg"] %>`, `<%= opis["Umeren sneg"] %>`, `<%= opis["Jak sneg"] %>`, `<%= opis["Pljusak snega"] %>`, `<%= opis["Sumaglica"] %>`, `<%= opis["Magla"] %>`, `<%= opis["-"] %>`];
+
+const pravacVetraLabels = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "ŞSW", "SW", "WSW", "W", "WNW", "NW", "NNW", "-"];
+const pravacArr = [`<%= pravac["N"] %>`, `<%= pravac["NNE"] %>`, `<%= pravac["NE"] %>`, `<%= pravac["ENE"] %>`, `<%= pravac["E"] %>`, `<%= pravac["ESE"] %>`, `<%= pravac["SE"] %>`, `<%= pravac["SSE"] %>`, `<%= pravac["S"] %>`, `<%= pravac["SSW"] %>`, `<%= pravac["SW"] %>`, `<%= pravac["WSW"] %>`, `<%= pravac["W"] %>`, `<%= pravac["WNW"] %>`, `<%= pravac["NW"] %>`, `<%= pravac["NNW"] %>`, `<%= pravac["-"] %>`];
 
 function init() {
-    const labels = []
-    const btnChart = document.getElementById("btnChart")
-    btnChart.addEventListener("click", popup)
-    const response = document.getElementById("response")
-    response.addEventListener("click", labelsArrayFunc)
+    const labels = [];
+    const btnChartMain = document.getElementById("btnChartMain");
+    btnChartMain.addEventListener("click", popupMain);
+    const btnChartPercentage = document.getElementById("btnChartPercentage");
+    btnChartPercentage.addEventListener("click", popupPercentage);
+    document.getElementById("lepoVreme").innerText = ((+`<%= opis["Vedro"] %>` + +`<%= opis["Pretežno vedro"] %>` + +`<%= opis["Delimično oblačno"] %>` + +`<%= opis["Pretežno oblačno"] %>` + +`<%= opis["Oblačno"] %>` ) * 100 / (`<%= resultLength %>` - `<%= opis["-"] %>`)).toFixed(2) + " %";
+    document.getElementById("tiho").innerText = (`<%= pravac["-"] %>` * 100 / `<%= resultLength %>`).toFixed(2) + " %";
 }
 
 window.addEventListener("message", (event) => {
-    if (event.data?.foo) {
-        response.innerText = event.data.labels;
-    }
+    event.preventDefault();
     if (event.data?.msg) {
         response.innerHTML = event.data.msg;
+    } else {
+        response.innerText = "";
     }
-});
+}); 
 
-function popup() {
-    // const params = `about=blank, blank=yes, scrollbars=no, resizable=no, status=no, location=no, toolbar=no, menubar=no, width=1000, height=800`;
+function popupMain() {
     const popupWindow = window.open("chart.html", "chart", "fullscreen");
     if (popupWindow.outerWidth < screen.availWidth || popupWindow.outerHeight < screen.availHeight) {
         popupWindow.moveTo(0, 0);
@@ -103,15 +254,21 @@ function popup() {
     const data5 = JSON.parse(JSON.stringify(`<%= pritArr %>`));
     const data6 = (JSON.stringify(`<%= vetarArr %>`));
     setTimeout(() => {
-        popupWindow.postMessage({ station: `<%= result[0].Stanica %>`, day: `<%= result[0].Date.toLocaleDateString("sr-SR") %>`, labels: data1, temp: data2, subjTemp: data3, hum: data4, prit: data5, bVetra: data6 }, "*");
+        popupWindow.postMessage({ station: `<%= resultFiltered[0].Stanica %>`, day: `<%= resultFiltered[0].Date.toLocaleDateString("sr-SR") %>`, labels: data1, temp: data2, subjTemp: data3, hum: data4, prit: data5, bVetra: data6 }, "*");
     }, 1000)
   }
 
-
-function labelsArrayFunc () {
-    const res = JSON.parse(JSON.stringify(`<%= tempArr %>`))
-    console.log(res)
-
+function popupPercentage() {
+    const popupWindow = window.open("chart3.html", "chart", "fullscreen");
+    if (popupWindow.outerWidth < screen.availWidth || popupWindow.outerHeight < screen.availHeight) {
+        popupWindow.moveTo(0, 0);
+        popupWindow.resizeTo(screen.availWidth, screen.availHeight);
+    }
+    const dateArraySize = new Set(`<%= dateArray %>`.split(",")).size;
+    setTimeout(() => {
+        popupWindow.postMessage({ station: `<%= resultFiltered[0].Stanica %>`, day: `<%= resultFiltered[0].Date.toLocaleDateString("sr-SR") %>`, opisVremenaLabels, opisArr, pravacVetraLabels, pravacArr, dateArraySize }, "*");
+    }, 1000)
 }
+ 
 </script>
 </html>

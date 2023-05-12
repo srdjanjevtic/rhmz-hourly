@@ -8,10 +8,41 @@ const getAllMain = asyncHandler(async (req, res) => {
         search.Stanica = req.query.Stanica;
     }
     const result = await MainStation.find(search).exec();
-    if (result.length === 0) {
+    const dateTimeArray = [];
+    const dateArray = [];
+    const tempArr = [];
+    const subjArr = [];
+    const vlagaArr = [];
+    const pritArr = [];
+    const vetarArr = [];
+    const opisArr = [];
+    const pravacArr = [];
+    const opis = {};
+    const pravac = {};
+    const resultFiltered = result.filter(item => {
+        return item["Subjektivniosećajtemperature(°C)"] > -100 && item["Vlažnost(%)"] > -100 && item["Pritisak(hPa)"] !== 0;
+    });
+    resultFiltered.forEach(row => {
+        dateTimeArray.push(row["Date"].toLocaleDateString("sr-SR") + " " + row["Time"].slice(0, 2) + ":" + row["Time"].slice(2, 4));
+        dateArray.push(row["Date"].toLocaleDateString("sr-SR"));
+        tempArr.push(row["Temperatura(°C)"]);
+        subjArr.push(row["Subjektivniosećajtemperature(°C)"]);
+        vlagaArr.push(row["Vlažnost(%)"]);
+        pritArr.push(row["Pritisak(hPa)"]);
+        vetarArr.push(row["Brzinavetra(m/s)"]);
+        opisArr.push(row["Opisvremena"]);
+        pravacArr.push(row["Pravacvetra"]);
+    });
+    for (const num of opisArr) {
+        opis[num] = opis[num] ? opis[num] + 1 : 1;
+    }
+    for (const num of pravacArr) {
+        pravac[num] = pravac[num] ? pravac[num] + 1 : 1;
+    }
+    if (resultFiltered.length === 0) {
         res.status(200).render("noData");
     } else {
-        res.status(200).render("searchResultForMainStations", { result });
+        res.status(200).render("searchResultForMainStations", { resultFiltered, resultLength: resultFiltered.length, dateTimeArray, dateArray, tempArr, subjArr, vlagaArr, pritArr, vetarArr, opis, pravac });
     }
 });
 
@@ -21,10 +52,29 @@ const getAllAdditional = asyncHandler(async (req, res) => {
         search.Stanica = req.query.Stanica;
     }
     const result = await AdditionalStation.find(search).exec();
-    if (result.length === 0) {
+    const dateTimeArray = [];
+    const dateArray = [];
+    const tempArr = [];
+    const vlagaArr = [];
+    const pritArr = [];
+    const vetarArr = [];
+    const vetarPravacArr = [];
+    const resultFiltered = result.filter(item => {
+        return item["Vetarpravac(°)"] > -100 && item["Vlažnost(%)"] > -100 && item["Temperatura(°C)"] > -100 && item["Vetarbrzina(m/s)"] > -100 && item["Pritisak(hPa)"] > -100;
+    });
+    resultFiltered.forEach(row => {
+        dateTimeArray.push(row["Date"].toLocaleDateString("sr-SR") + " " + row["Time"].slice(0, 2) + ":" + row["Time"].slice(2, 4));
+        dateArray.push(row["Date"].toLocaleDateString("sr-SR"));
+        tempArr.push(row["Temperatura(°C)"]);
+        pritArr.push(row["Pritisak(hPa)"]);
+        vlagaArr.push(row["Vlažnost(%)"]);
+        vetarArr.push(row["Vetarbrzina(m/s)"]);
+        vetarPravacArr.push(row["Vetarpravac(°)"]);
+    });
+    if (resultFiltered.length === 0) {
         res.status(200).render("noData");
     } else {
-        res.status(200).render("searchResultForAdditionalStations", { result });
+        res.status(200).render("searchResultForAdditionalStations", { resultFiltered, dateTimeArray, dateArray, tempArr, vlagaArr, pritArr, vetarArr, vetarPravacArr  });
     }
 });
 
@@ -99,23 +149,40 @@ const getMain = asyncHandler(async (req, res) => {
     }
     const result = await MainStation.find(search).exec();
     const dateTimeArray = [];
+    const dateArray = [];
     const tempArr = [];
     const subjArr = [];
     const vlagaArr = [];
     const pritArr = [];
     const vetarArr = [];
-    result.forEach(row => {
+    const opisArr = [];
+    const pravacArr = [];
+    const opis = {};
+    const pravac = {};
+    const resultFiltered = result.filter(item => {
+        return item["Subjektivniosećajtemperature(°C)"] > -100 && item["Vlažnost(%)"] > -100 && item["Pritisak(hPa)"] !== 0;
+    });
+    resultFiltered.forEach(row => {
         dateTimeArray.push(row["Date"].toLocaleDateString("sr-SR") + " " + row["Time"].slice(0, 2) + ":" + row["Time"].slice(2, 4));
+        dateArray.push(row["Date"].toLocaleDateString("sr-SR"));
         tempArr.push(row["Temperatura(°C)"]);
         subjArr.push(row["Subjektivniosećajtemperature(°C)"]);
         vlagaArr.push(row["Vlažnost(%)"]);
         pritArr.push(row["Pritisak(hPa)"]);
         vetarArr.push(row["Brzinavetra(m/s)"]);
+        opisArr.push(row["Opisvremena"]);
+        pravacArr.push(row["Pravacvetra"]);
     });
-    if (result.length === 0) {
+    for (const num of opisArr) {
+        opis[num] = opis[num] ? opis[num] + 1 : 1;
+    }
+    for (const num of pravacArr) {
+        pravac[num] = pravac[num] ? pravac[num] + 1 : 1;
+    }
+    if (resultFiltered.length === 0) {
         res.status(200).render("noData");
     } else {
-        res.status(200).render("searchResultForMainStations", { result, dateTimeArray, tempArr, subjArr, vlagaArr, pritArr, vetarArr });
+        res.status(200).render("searchResultForMainStations", { resultFiltered, resultLength: resultFiltered.length, dateArray, dateTimeArray, tempArr, subjArr, vlagaArr, pritArr, vetarArr, opis, pravac });
     }
 });
 
@@ -137,8 +204,8 @@ const getAdditional = asyncHandler(async (req, res) => {
     if (req.query.Date) {
         search.Date = req.query.Date;
     }
-    if (req.query.datumEnd) {
-        search.Date = { $gte: req.query.Date, $lte: req.query.datumEnd };
+    if (req.query.dateEnd) {
+        search.Date = { $gte: req.query.Date, $lte: req.query.dateEnd };
     }
     if (req.query.Stanica) {
         search.Stanica = req.query.Stanica;
@@ -176,23 +243,28 @@ const getAdditional = asyncHandler(async (req, res) => {
     }
     let result = await AdditionalStation.find(search).exec();
     const dateTimeArray = [];
+    const dateArray = [];
     const tempArr = [];
     const vlagaArr = [];
     const pritArr = [];
     const vetarArr = [];
     const vetarPravacArr = [];
-    result.forEach(row => {
+    const resultFiltered = result.filter(item => {
+        return item["Vetarpravac(°)"] > -100 && item["Vlažnost(%)"] > -100 && item["Temperatura(°C)"] > -100 && item["Vetarbrzina(m/s)"] > -100 && item["Pritisak(hPa)"] > -100;
+    });
+    resultFiltered.forEach(row => {
         dateTimeArray.push(row["Date"].toLocaleDateString("sr-SR") + " " + row["Time"].slice(0, 2) + ":" + row["Time"].slice(2, 4));
+        dateArray.push(row["Date"].toLocaleDateString("sr-SR"));
         tempArr.push(row["Temperatura(°C)"]);
         pritArr.push(row["Pritisak(hPa)"]);
         vlagaArr.push(row["Vlažnost(%)"]);
         vetarArr.push(row["Vetarbrzina(m/s)"]);
         vetarPravacArr.push(row["Vetarpravac(°)"]);
     });
-    if (result.length === 0) {
+    if (resultFiltered.length === 0) {
         res.status(200).render("noData");
     } else {
-        res.status(200).render("searchResultForAdditionalStations", { result, dateTimeArray, tempArr, vlagaArr, pritArr, vetarArr, vetarPravacArr });
+        res.status(200).render("searchResultForAdditionalStations", { resultFiltered, dateTimeArray, dateArray, tempArr, vlagaArr, pritArr, vetarArr, vetarPravacArr });
     }
 });
 

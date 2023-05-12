@@ -10,6 +10,7 @@ function init() {
     const dateStart = document.getElementById("date");
     const dateEnd = document.getElementById("dateEnd");
     const timeStart = document.getElementById("time");
+    const timeEnd = document.getElementById("timeEnd");
     const temp = document.getElementById("temperatura");
     const minT = document.getElementById("min-temperatura");
     const maxT = document.getElementById("max-temperatura");
@@ -50,10 +51,13 @@ function init() {
 function submitForm(ev) {
     ev.preventDefault();
     ev.stopPropagation();
-    // let myForm = ev.target
     let fd = new FormData(myForm);
+    for (let key of fd.keys()) {
+        console.log(key, fd.get(key));
+    }
     const jsData = formDataToJSObj(fd);
     if (jsData["Time"] === "") delete jsData["Time"];
+    jsData["timeEnd"] = jsData["timeEnd"].replace(":", "");
     if (jsData["timeEnd"] === "") delete jsData["timeEnd"];
     const searchParams = new URLSearchParams(jsData);
     const queryString = searchParams.toString();

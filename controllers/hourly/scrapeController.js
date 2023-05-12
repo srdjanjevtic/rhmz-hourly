@@ -6,8 +6,8 @@ const urlToScrape = "https://www.hidmet.gov.rs/latin/osmotreni/index.php";
 const MainStation = require("../../model/MainStation");
 const AdditionalStation = require("../../model/AdditionalStation");
 //.................. LOCAL SERVER FILE SYSTEM ..........................//
-// const fsPromises = require("fs").promises;
-// const path = require("path");
+const fsPromises = require("fs").promises;
+const path = require("path");
 //.......................................................................//
 
 function formatAdditional (obj, rem = []) {
@@ -85,7 +85,7 @@ const scrapeMain = asyncHandler(async (req, res) => {
                     item["Subjektivniosećajtemperature(°C)"] = -100;
                 }
                 if (item["Subjektivniosećajtemperature(°C)" === "-"] || item["Subjektivniosećajtemperature(°C)" === "undefined"]) {
-                    item["Subjektivniosećajtemperature(°C)"] = 0;
+                    item["Subjektivniosećajtemperature(°C)"] = -100;
                 }
                 item["Subjektivniosećajtemperature(°C)"] = parseInt(item["Subjektivniosećajtemperature(°C)"]);
                 item["Temperatura(°C)"] = parseInt(item["Temperatura(°C)"]);
@@ -112,13 +112,13 @@ const scrapeMain = asyncHandler(async (req, res) => {
                 await item.save();
             }
             //.................. LOCAL SERVER FILE SYSTEM ..........................//
-            // const data = JSON.stringify(current);
-            // const folderName = "Main";
-            // await fsPromises.writeFile(path.join(__dirname, folderName, `${date}-${timeStriped}.json`), data);
+            const data = JSON.stringify(current);
+            const folderName = "Main";
+            await fsPromises.writeFile(path.join(__dirname, folderName, `${date}-${timeStriped}.json`), data);
             //.......................................................................//
         }
     });
-    res.status(200).json({ message: `Pdaci skinuti sa ${urlToScrape} i sačuvani u ${process.env.MONGODB_DB}!` });
+    res.status(200).json({ message: `Podaci skinuti sa ${urlToScrape} i sačuvani u ${process.env.MONGODB_DB}!` });
 });
 
 const scrapeAdditional = asyncHandler(async (req, res) => {
@@ -173,9 +173,9 @@ const scrapeAdditional = asyncHandler(async (req, res) => {
                 await item.save();
             }
             //.................. LOCAL SERVER FILE SYSTEM ..........................//
-            // const data = JSON.stringify(current);
-            // const folder = "Additional";
-            // await fsPromises.writeFile(path.join(__dirname, folder, `${date}-${timeStriped}.json`), data);
+            const data = JSON.stringify(current);
+            const folder = "Additional";
+            await fsPromises.writeFile(path.join(__dirname, folder, `${date}-${timeStriped}.json`), data);
             //......................................................................//
         }
     });

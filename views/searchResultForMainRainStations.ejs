@@ -14,6 +14,7 @@
 <body>
     <div class="result-container">
         <table class="table" id="main-table-result">
+            <div id="paste-here">Paste Here</div>
             <caption>Rezultati pretrage</caption>
             <thead>
                 <tr>
@@ -27,7 +28,7 @@
             <tbody class="search-result"> 
                 <% result.forEach(item=> { %>
                     <tr class="one-row">
-                        <td class="cell" data-label="Dan">
+                        <td class="cell" data-label="Dan" title=<%= item["_id"] %>>
                             <%= item["date"].toLocaleDateString("sr-SR") %>
                         </td>
                         <td class="cell" data-label="Meteorološka stanica">
@@ -58,7 +59,7 @@
         <div class="btn-wrapper">
             <button id="htmlToExcel">Download as <span>Excel</span></button>
             <button type="submit" id="htmlToCSV">Download as <span>CSV</span></button>
-            <button id="btnChart">Create a <span>Chart</span></button>
+            <button id="btnChartMain">Create a <span>Chart</span></button>
         </div>
     </div>
     <%- include('./partials/gotopbtn.ejs') %>
@@ -98,7 +99,7 @@ function exportTableToCSV(htmlTable, filename) {
 
 document.addEventListener("DOMContentLoaded", init)
 function init() {
-    const btnChart = document.getElementById("btnChart")
+    const btnChart = document.getElementById("btnChartMain")
     btnChart.addEventListener("click", popup)
 }
 window.addEventListener("message", (event) => {
@@ -123,6 +124,30 @@ function popup() {
         popupWindow.postMessage({ station: `<%= result[0].Stanica %>`, labels: data1, padavine: data2 }, "*");
     }, 1000)
 }
+
+    const dani = document.querySelectorAll("td[data-label]");
+    dani.forEach(dan => {
+        try {
+            const label = dan.getAttribute("data-label");
+            if (label === "Dan") {
+                dan.addEventListener("click", async (ev) => {
+                    await navigator.clipboard.writeText(ev.target.getAttribute("title"));
+                    console.log("Text copied!");
+                })
+            }
+        } catch (error) {
+            console.log("Failed copying to clipboard");
+        }
+    });
+    const pasteHere = document.getElementById("paste-here");
+    pasteHere.addEventListener("click", async (ev) => {
+        try {
+            ev.target.innerText = await navigator.clipboard.readText();
+            console.log("Text pasted!");
+        } catch (error) {
+            console.log("Failed to read clipboard");
+        }
+    })
 </script>
 
 </html>

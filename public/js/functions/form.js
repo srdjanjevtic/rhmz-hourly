@@ -50,10 +50,15 @@ function formDataToJSObj(formData) {
         if (formData.get(key) && key !== "Time") {
             obj[key] = formData.get(key);
         }
-        if (key === "Time" || key === "timeEnd") {
-            let item = formData.get(key);
+        else if (key === "Time") {
+            let item = formData.get(key); 
             item = item.replace(":", "");
             obj["Time"] = item;
+        }
+        else if (key === "timeEnd") {
+            let item = formData.get(key); 
+            item = item.replace(":", "");
+            obj["timeEnd"] = item;
         }
     }
     return obj;

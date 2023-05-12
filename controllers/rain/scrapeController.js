@@ -7,8 +7,8 @@ const MainRainStation = require("../../model/MainRainStation");
 const PrecipitationRainStation = require("../../model/PrecipitationRainStation");
 const ClimateRainStation = require("../../model/ClimateRainStation");
 //.................. LOCAL SERVER FILE SYSTEM ..........................//
-// const fsPromises = require("fs").promises
-// const path = require("path")
+const fsPromises = require("fs").promises
+const path = require("path")
 //.................. ...................................................//
 
 function formatMainRain (obj, rem = []) {
@@ -132,9 +132,9 @@ const scrapeMainRain = asyncHandler(async (req, res) => {
                 await item.save();
             }
             //.................. LOCAL SERVER FILE SYSTEM ..........................//
-            // const data = JSON.stringify(current);
-            // const folderName = "MainRain";
-            // await fsPromises.writeFile(path.join(__dirname, folderName, `${date}.json`), data);
+            const data = JSON.stringify(current);
+            const folderName = "MainRain";
+            await fsPromises.writeFile(path.join(__dirname, folderName, `${date}.json`), data);
             // ..................................................................... //
         }
     });
@@ -164,9 +164,9 @@ const scrapeClimateRain = asyncHandler(async (req, res) => {
                 await item.save();
             }
             //.................. LOCAL SERVER FILE SYSTEM ..........................//
-            // const data = JSON.stringify(current);
-            // const folder = "Climate";
-            // await fsPromises.writeFile(path.join(__dirname, folder, `${date}.json`), data);
+            const data = JSON.stringify(current);
+            const folder = "Climate";
+            await fsPromises.writeFile(path.join(__dirname, folder, `${date}.json`), data);
             // ..................................................................... //
         }
     });
@@ -198,9 +198,9 @@ const scrapePrecipitationRain = asyncHandler(async (req, res) => {
                 await item.save();
             }
             //.................. LOCAL SERVER FILE SYSTEM ..........................//
-            // const data = JSON.stringify(current);
-            // const folder = "Precipitation";
-            // await fsPromises.writeFile(path.join(__dirname, folder, `${date}.json`), data);
+            const data = JSON.stringify(current);
+            const folder = "Precipitation";
+            await fsPromises.writeFile(path.join(__dirname, folder, `${date}.json`), data);
             // ..................................................................... //
         }
     });

@@ -390,6 +390,16 @@ main {
 }
 }
 
+
+#percentage tr td:nth-child(odd), #percentage tr th:nth-child(odd){
+    text-align: left;
+    padding-left: 2rem;
+}
+
+#percentage tr td:nth-child(even), #percentage tr th:nth-child(even) {
+    text-align: center;
+}
+
 /* ///////////////////////////// */
 /* START OF allMainStations.ejs || allAdditionalStations.ejs */
 /* ///////////////////////////// */
@@ -533,8 +543,25 @@ table tfoot span {
     position: relative;
 }
 
+.stats.lepoVreme {
+    color: rgb(72, 214, 243);
+    background-color: rgb(22, 9, 46);
+    font-size: 1.15rem;
+}
+
+.stats.tiho {
+    color: rgb(72, 214, 243);
+    background-color: rgb(23, 10, 50);
+    font-size: 1.15rem;
+}
+
+.stats span {
+    font-size: 0.8rem;
+}
+
 .btn-wrapper {
     display: flex;
+    padding-bottom: 2rem;
 }
 
 #response {
@@ -573,18 +600,29 @@ table tfoot span {
     transition: 0.25s ease-in-out;
 }
 
-#htmlToExcel:hover, #htmlToCSV:hover, #btnChart:hover, #htmlToExcel:focus, #htmlToCSV:focus, #btnChart:focus {
+#percentage tr th, #percentage tr td {
+    border: 1px solid rgb(72, 214, 243);;
+}
+
+#htmlToExcelMain:hover, #htmlToCSVMain:hover, #btnChartMain:hover, #htmlToExcelMain:focus, #htmlToCSVMain:focus, #btnChartMain:focus, #htmlToExcelPercentage:hover,
+#htmlToCSVPercentage:hover,
+#btnChartPercentage:hover,
+#htmlToExcelPercentage:focus,
+#htmlToCSVPercentage:focus,
+#btnChartPercentage:focus {
     outline: 2px solid wheat;
     outline-offset: 3px;
     cursor: pointer;
 }
 
-#htmlToExcel span, #htmlToCSV span, #btnChart span {
+#htmlToExcelMain span, #htmlToCSVMain span, #btnChartMain span, #htmlToExcelPercentage span,
+#htmlToCSVPercentage span,
+#btnChartPercentage span {
     font-size: 1rem;
     font-weight: 700; 
 }
 
-#btnChart {
+#btnChartMain, #btnChartPercentage {
     color: #fff;
     border: 1px solid rgb(245, 238, 18);
     background-color: rgb(135, 5, 5);

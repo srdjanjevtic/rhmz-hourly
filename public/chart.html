@@ -15,21 +15,20 @@
             overflow: auto;
         }
         .header-container {
+            display: flex;
+            flex-direction: row;
             position: absolute;
-            top: 99%;
-            left: 46%;
             -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
-            -webkit-transform: rotate(-90deg);
-            transform: rotate(-90deg);
-            transform-origin: top left;
-            transition: all 0.5s ease-in-out;
+            justify-content: center;
+            align-items: center;
+            line-height: normal;        
+            z-index: 10;
         }
         .header-container #station-header {
-            font-size: 4.125rem;
+            font-size: 8.25rem;
             opacity: 0.1;
-            text-align: left;
-            vertical-align: bottom;
+            flex-basis: 100%;
             transition: all 0.5s ease-in-out;
         }
         .header-container #station-header:hover {
@@ -38,7 +37,7 @@
         .day-container {
             position: absolute;
             top: 99%;
-            left: -3%;
+            left: -2%;
             -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
             -webkit-transform: rotate(-90deg);
@@ -47,8 +46,9 @@
             transition: all 0.5s ease-in-out;
         }
         .day-container #day-header {
-            font-size: 3.25rem;
+            font-size: 2.5rem;
             opacity: 0.1;
+            margin-left: 170%;
             text-align: left;
             vertical-align: bottom;
             transition: all 0.5s ease-in-out;
@@ -110,7 +110,6 @@
 </head>
 <body>
         <div class="header-container">
-        <button onclick="closeWindow(`Powered by <a href='https://www.chartjs.org/' target='blank'><img src='https://www.chartjs.org/img/chartjs-logo.svg' alt='Chart.js logo'></a><span> Chart.js</span>`)">That's amazing</button>
             <h1 id="station-header"></h1>
         </div>
         <div class="day-container">

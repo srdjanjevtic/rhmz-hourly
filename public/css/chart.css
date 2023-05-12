@@ -1,0 +1,108 @@
+body {
+    background-color: #112;
+    width: 100%;
+    min-width: 800px;
+    overflow-x: hidden;
+    color: rgb(72, 214, 243);
+}
+
+.header-container {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    transition: all 0.5s ease-in-out;
+}
+
+.header-container #station-header {
+    font-size: 8.5rem;
+    opacity: 0.1;
+    text-align: left;
+    vertical-align: center;
+    transition: all 0.5s ease-in-out;
+    z-index: 100;
+}
+
+.day-container {
+    position: absolute;
+    top: 99%;
+    left: -2%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    transform-origin: top left;
+    transition: all 0.5s ease-in-out;
+}
+
+.day-container #day-header {
+    font-size: 5rem;
+    opacity: 0.1;
+    text-align: center;
+    vertical-align: bottom;
+    transition: all 0.5s ease-in-out;
+}
+
+.day-container #day-header:hover {
+    opacity: 0.4;
+}
+
+.container {
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.canvas-container {
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+canvas {
+    aspect-ratio: 1.618;
+    object-fit: contain;
+    z-index: 1;
+}
+
+#myChart2 {
+    display: block;
+}
+
+@media screen and (max-width: 1500px) {
+    .canvas-container {
+        flex-basis: 100%;
+        margin-left: 5rem;
+    }
+
+    .header-container {
+        position: absolute;
+        top: 90%;
+        left: -8%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        -webkit-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+
+    .day-container {
+        position: absolute;
+        top: 99%;
+        left: 90%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        -webkit-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+
+    .header-container #station-header {
+        font-size: 8rem;
+        z-index: -1;
+    }
+
+}

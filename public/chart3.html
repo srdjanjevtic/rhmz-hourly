@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chart</title>
+    <link rel="stylesheet" href="./css/chart.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js"></script>
+    <style>
+            
+.header-container {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    justify-content: center;
+    align-items: center;
+    line-height: normal;        
+    z-index: 10;
+}
+
+.header-container #station-header {
+    font-size: 8.5rem;
+    opacity: 0.1;
+    text-align: left;
+    vertical-align: center;
+    transition: all 0.5s ease-in-out;
+    z-index: 100;
+}
+    </style>
+</head>
+
+<body>
+    <div class="header-container">
+        <h1 id="station-header"></h1>
+    </div>
+    <div class="day-container">
+        <h2 id="day-header"></h2>
+    </div>
+    <div class="container">
+        <div class="canvas-container"><canvas id="myChart1"></canvas></div>
+        <div class="canvas-container"><canvas id="myChart2"></canvas></div>
+    </div>
+
+    <script src="./js/functions/chart3.js"></script>
+</body>
+
+</html>

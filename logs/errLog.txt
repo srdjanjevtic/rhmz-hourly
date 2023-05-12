@@ -410,3 +410,93 @@ padavineArr is not defined
 dateArray is not defined
 20230403	18:04:58	94c84dfd-30de-4933-b696-d3ed850dfdb9	Error: Can't set headers after they are sent.
 20230403	18:13:06	aaa049f5-e8e3-4332-8ab9-5ef93540efa9	Error: Can't set headers after they are sent.
+20230410	15:05:59	c24907bd-7771-471d-8539-208b504acdbc	ReferenceError: D:\IMPORTANT\RHMZHourlyScraper\views\searchResultForMainStations.ejs:99
+    97|         popupWindow.resizeTo(screen.availWidth, screen.availHeight);
+    98|     }
+ >> 99|     const data1 = JSON.parse(JSON.stringify(`<%= dateTimeArray %>`));
+    100|     const data2 = JSON.stringify(`<%= tempArr %>`);
+    101|     const data3 = JSON.parse(JSON.stringify(`<%= subjArr %>`));
+    102|     const data4 = JSON.parse(JSON.stringify(`<%= vlagaArr %>`));
+
+dateTimeArray is not defined
+20230410	16:34:32	e517e3ba-f405-41b0-9654-cbf036714455	TypeError: result.Opisvremena is not iterable
+20230410	21:26:53	dfe53662-ccd3-436f-adfa-89cb20c9963e	TypeError: D:\IMPORTANT\RHMZHourlyScraper\views\searchResultForMainStations.ejs:208
+    206| const opisVremenaLabels = ["Vedro", "Pretežno vedro", "Delimično oblačno", "Pretežno oblačno", "Oblačno", "Rosulja(sipeća kiša)", "Slaba kiša", "Umerena kiša", "Pljusak kiše", "Grmljavina", "Gramljavina sa kišom", "Susnežica", "Slab sneg", "Umeren sneg", "Jak sneg", "Pljusak snega", "Sumaglica", "Magla", "-"];
+    207| const opisData = [];
+ >> 208| const getOpis = JSON.parse(JSON.stringify(`<%= opis.opisVremenaLabels[0] %>`));
+    209| console.log(getOpis)
+    210| // for (const el of opisVremenaLabels) {
+    211| //     opisData.push(getOpis.el);
+
+Cannot read properties of undefined (reading '0')
+20230410	21:27:44	c84872e0-9bf6-45d7-9359-d56a02600e65	ReferenceError: D:\IMPORTANT\RHMZHourlyScraper\views\searchResultForMainStations.ejs:208
+    206| const opisVremenaLabels = ["Vedro", "Pretežno vedro", "Delimično oblačno", "Pretežno oblačno", "Oblačno", "Rosulja(sipeća kiša)", "Slaba kiša", "Umerena kiša", "Pljusak kiše", "Grmljavina", "Gramljavina sa kišom", "Susnežica", "Slab sneg", "Umeren sneg", "Jak sneg", "Pljusak snega", "Sumaglica", "Magla", "-"];
+    207| const opisData = [];
+ >> 208| const getOpis = JSON.parse(JSON.stringify(`<%= opis[opisVremenaLabels[0]] %>`));
+    209| console.log(getOpis)
+    210| // for (const el of opisVremenaLabels) {
+    211| //     opisData.push(getOpis.el);
+
+opisVremenaLabels is not defined
+20230410	21:28:26	645b96c0-7c37-4b82-9ab1-07b0c015b41d	ReferenceError: D:\IMPORTANT\RHMZHourlyScraper\views\searchResultForMainStations.ejs:208
+    206| const opisVremenaLabels = ["Vedro", "Pretežno vedro", "Delimično oblačno", "Pretežno oblačno", "Oblačno", "Rosulja(sipeća kiša)", "Slaba kiša", "Umerena kiša", "Pljusak kiše", "Grmljavina", "Gramljavina sa kišom", "Susnežica", "Slab sneg", "Umeren sneg", "Jak sneg", "Pljusak snega", "Sumaglica", "Magla", "-"];
+    207| const opisData = [];
+ >> 208| const getOpis = JSON.parse(JSON.stringify(`<%= opis[opisVremenaLabels[0].toString()] %>`));
+    209| console.log(getOpis)
+    210| // for (const el of opisVremenaLabels) {
+    211| //     opisData.push(getOpis.el);
+
+opisVremenaLabels is not defined
+20230410	21:36:34	76eed6ba-22b7-48a2-9130-a4dd0db7995b	ReferenceError: D:\IMPORTANT\RHMZHourlyScraper\views\searchResultForMainStations.ejs:209
+    207| const opisData = [];
+    208| const getOpis = Object.values(JSON.parse(JSON.stringify(`<%= opis %>`)));
+ >> 209| console.log(`<%= opis[opisVremenaLabels[2]] %>`);
+    210| // for (const el of opisVremenaLabels) {
+    211| //     opisData.push(getOpis.el);
+    212| // }
+
+opisVremenaLabels is not defined
+20230410	21:37:50	ba9d3ff9-ca33-46fe-a38b-30982b7eac7d	SyntaxError: Unexpected token ')' in D:\IMPORTANT\RHMZHourlyScraper\views\searchResultForMainStations.ejs while compiling ejs
+
+If the above error is not helpful, you may want to try EJS-Lint:
+https://github.com/RyanZim/EJS-Lint
+Or, if you meant to create an async function, pass `async: true` as an option.
+20230411	19:32:13	9ccf8ce9-78ef-40c7-ac6b-06d8340991ba	ReferenceError: D:\IMPORTANT\RHMZHourlyScraper\views\searchResultForMainStations.ejs:51
+    49|             <tfoot>
+    50|                 <tr>
+ >> 51|                     <th colspan="10"><p>Ukupno  <span><%= resultLength %></span>  dokumenata pronađeno.</p></th>
+    52|                 </tr>
+    53|             </tfoot>
+    54|         </table>
+
+resultLength is not defined
+20230411	20:41:17	6f65d09d-e51a-4616-948c-fab8d23e3b03	ReferenceError: D:\IMPORTANT\RHMZHourlyScraper\views\searchResultForMainStations.ejs:69
+    67|                 <tr>
+    68|                     <td>Vedro</td>
+ >> 69|                     <td><%= opis["Vedro"] %></td>
+    70|                     <td>Severni (N)</td>
+    71|                     <td><%= pravac["N"] %></td>
+    72|                 </tr>
+
+opis is not defined
+20230412	15:38:41	edb1112a-87f2-4375-a19a-ce749dfcb5fa	TypeError: D:\IMPORTANT\RHMZHourlyScraper\views\searchResultForAdditionalStations.ejs:136
+    134|         popupWindow.resizeTo(screen.availWidth, screen.availHeight);
+    135|     }
+ >> 136|     const table0 = JSON.stringify(`<%= resultFiltered[0].Stanica %>`);
+    137|     const station = JSON.parse(table0);
+    138|     const table1 = JSON.stringify(`<%= dateTimeArray %>`);
+    139|     const data1 = JSON.parse(table1);
+
+Cannot read properties of undefined (reading 'Stanica')
+20230412	16:11:03	7001fcbb-5093-41d4-8fe4-09ec1d6d2447	ReferenceError: hPa is not defined
+20230413	18:23:34	00fcacc5-5ca7-40b2-913a-bc20c9d7b905	ReferenceError: D:\IMPORTANT\RHMZHourlyScraper\views\searchResultForMainStations.ejs:34
+    32|                 </tr>
+    33|             </thead>
+ >> 34|             <tbody class="search-result"><% resultFiltered.forEach(item => { %>
+    35|                 <tr class="one-row">
+    36|                     <td class="cell" data-label="Dan"><%= item["Date"].toLocaleDateString("sr-SR") %></td>
+    37|                     <td class="cell" data-label="Vreme"><%= item["Time"].slice(0, 2) + ":" + item["Time"].slice(2, 4) %></td>
+
+resultFiltered is not defined
+20230413	22:11:01	276018eb-d9af-49d7-ae38-7e0fd426e8a4	TypeError: Cannot convert undefined or null to object
+20230413	22:11:31	3f9bd104-6bd5-47eb-98bd-2598d67baa93	TypeError: Cannot convert undefined or null to object

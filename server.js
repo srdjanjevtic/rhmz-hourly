@@ -12,8 +12,13 @@ const searchParamsToTable = require("./middleware/searchParamsToTable");
 const mongoose = require("mongoose");
 const connectDB = require("./config/dbConn");
 const PORT = process.env.PORT || 3000;
+// const cron = require("node-cron");
 
 connectDB();
+
+// cron.schedule("50 * * * *", () => {
+//   console.log("running a task every 50th minute");
+// });
 
 app.set("view engine", "ejs");
 app.set("views", __dirname + "/views");
@@ -75,14 +80,7 @@ app.use("/scrapePrecipitationRain", require("./routes/rain/scrapePrecipitationRa
 app.use("/checkAuth", require("./routes/user/checkAuthRoute"));
 
 app.all("*", (req, res) => {
-    // res.sendStatus(404);
-    // if (req.accepts("html")) {
-        res.render(path.join(__dirname, "views", "404.ejs"));
-    // } else if (req.accepts("json")) {
-    //     res.json({ "error": "404 Not Found" });
-    // } else {
-    //     res.type("txt").send("404 Not Found");
-    // }
+    res.render(path.join(__dirname, "views", "404.ejs"));
 });
 
 app.use(errorHandler);

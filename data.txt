@@ -1,0 +1,36 @@
+Vedro
+Pretežno vedro
+Delimično oblačno
+Pretežno oblačno
+Oblačno
+Rosulja (sipeća kiša)
+Slaba kiša
+Umerena kiša
+Pljusak kiše
+Grmljavina
+Gramljavina sa kišom
+Susnežica
+Slab sneg
+Umeren sneg
+Jak sneg
+Pljusak snega
+Sumaglica
+Magla
+-
+
+N
+NNE
+NE
+ENE
+E
+ESE
+SE
+SSE
+S
+ŞSW
+SW
+WSW 
+W
+WNW
+NW
+NNW
