@@ -500,3 +500,11 @@ Cannot read properties of undefined (reading 'Stanica')
 resultFiltered is not defined
 20230413	22:11:01	276018eb-d9af-49d7-ae38-7e0fd426e8a4	TypeError: Cannot convert undefined or null to object
 20230413	22:11:31	3f9bd104-6bd5-47eb-98bd-2598d67baa93	TypeError: Cannot convert undefined or null to object
+20230828	12:28:54	54bf1626-d467-4c2c-8c80-d40b5ffb50a8	TypeError: Converting circular structure to JSON
+    --> starting at object with constructor 'Socket'
+    |     property 'parser' -> object with constructor 'HTTPParser'
+    --- property 'socket' closes the circle
+20230828	12:30:33	f155c939-4ee0-4dcb-82ea-49898aa862cf	ReferenceError: data is not defined
+20230828	12:32:13	ec3dcd4d-8293-4783-849d-ebfdfefe3846	ReferenceError: dataArray is not defined
+20230828	16:30:50	1c090098-4c1c-40a6-938c-8bb4b7804801	Error: ENOENT: no such file or directory, open 'D:\IMPORTANT\RHMZHourlyScraper\controllers\controllers\Main\07012023-0700.json'
+20230828	19:49:17	90b2e44a-df48-4e56-8b93-1d8fe64b5fa6	FetchError: request to https://www.hidmet.gov.rs/latin/osmotreni/index.php failed, reason: unable to verify the first certificate

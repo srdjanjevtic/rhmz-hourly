@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { scrapeAdditional } = require("../../controllers/hourly/scrapeController");
 // const cron = require("node-cron");
-// const request = require("request");
+const request = require("request");
 
 // cron.schedule('20 * * * *', () => {
 //     console.log('scraping additional stations data every 20th minute');

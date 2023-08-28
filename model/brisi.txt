@@ -1,0 +1,12 @@
+{
+    "Date": "1111-01-01T00:00:00.000+00:00",
+    "Time": "15:22",
+    "Stanica": ""Pariz,
+    "Temperatura(°C)": 100,
+    "Subjektivniosećajtemperature(°C)": 150,
+    "Pritisak(hPa)": 2500,
+    "Vlažnost(%)": 101,
+    "Brzinavetra(m/s)": 1000,
+    "Pravacvetra": "nikakav",
+    "Opisvremena": "zuljavo"
+    }

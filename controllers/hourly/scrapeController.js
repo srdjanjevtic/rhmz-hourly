@@ -61,6 +61,7 @@ function formatMain (obj, rem = []) {
 }
 
 const scrapeMain = asyncHandler(async (req, res) => {
+    process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0;
     request(urlToScrape, async (error, response, html) => {
         if (!error && response.statusCode === 200) {
             const table = cheerio.load(html);
@@ -122,6 +123,7 @@ const scrapeMain = asyncHandler(async (req, res) => {
 });
 
 const scrapeAdditional = asyncHandler(async (req, res) => {
+    process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0;
     request(urlToScrape, async (error, response, html) => {
         if (!error && response.statusCode === 200) {
             const table = cheerio.load(html);
